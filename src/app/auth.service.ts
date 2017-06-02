@@ -15,15 +15,15 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
     return this.http.post(this.config.apiUrl + '/account/token', JSON.stringify({ username: username, password: password }), {headers: headers})
       .map((response: Response) => {
-        let authtoken = response.json();
-        if (authtoken) {
+        let result = response.json();
+        if (result.authToken) {
           if (remember)
           {
-            localStorage.setItem('authToken', JSON.stringify(authtoken));
+            localStorage.setItem('authToken', result.authToken);
           }
           else
           {
-            sessionStorage.setItem('authToken', JSON.stringify(authtoken));
+            sessionStorage.setItem('authToken', result.authToken);
           }
         }
       });
