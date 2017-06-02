@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         data => {
           this.router.navigate(['/dash']);
         },
-        error => { }
+        error => { alert(error) }
       );
   }
 

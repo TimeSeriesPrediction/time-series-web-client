@@ -4,10 +4,10 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 export function userMockServerFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
 
     let users = [
-    { id: 1, username: 'Claudio', password: 'Pass' },
-    { id: 2, username: 'Murray', password: 'Pass' },
-    { id: 3, username: 'Dedre', password: 'Pass' },
-    { id: 3, username: 'Merrisa', password: 'Pass' },
+    { id: 1, username: 'claudio', password: 'pass' },
+    { id: 2, username: 'murray', password: 'pass' },
+    { id: 3, username: 'dedre', password: 'pass' },
+    { id: 3, username: 'merrisa', password: 'pass' },
     ];
 
     backend.connections.subscribe((connection: MockConnection) => {
