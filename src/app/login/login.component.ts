@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.model.username, this.model.password)
+    this.authService.login(this.model.username, this.model.password, this.model.remember)
       .subscribe(
         data => {
           this.router.navigate(['/dash']);

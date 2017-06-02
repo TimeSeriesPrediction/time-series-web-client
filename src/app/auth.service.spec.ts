@@ -3,6 +3,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { Http, BaseRequestOptions } from '@angular/http';
 
+import { AppConfig } from './app.config'
 import { UserMockServerProvider } from './users.mockserver';
 import { AuthService } from './auth.service';
 
@@ -10,6 +11,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        AppConfig,
         AuthService,
         { provide: Http, useValue: UserMockServerProvider },
         MockBackend,
