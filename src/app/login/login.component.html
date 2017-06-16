@@ -1,0 +1,10 @@
+<form (ngSubmit)="login()">
+  <md-input-container>
+    <input mdInput placeholder="Username" name="username" [(ngModel)]="model.username"/>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput type="password" placeholder="Password" name="password" [(ngModel)]="model.password"/>
+  </md-input-container>
+  <md-checkbox name="remember-me" [(ngModel)]="model.remember">Remember me</md-checkbox>
+  <button md-raised-button>Login</button>
+</form>
