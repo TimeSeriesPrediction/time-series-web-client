@@ -18,12 +18,14 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { MarksComponent } from './marks/marks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MarksComponent
   ],
   imports: [
     BrowserModule,
