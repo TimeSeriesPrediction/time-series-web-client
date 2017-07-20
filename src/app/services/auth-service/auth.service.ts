@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { ApiService } from '../api-service/api.service';
 
-import { AppConfig } from './app.config'
+import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: Http, private config: AppConfig) { }
+  constructor(private api: ApiService, private config: AppConfig) { }
 
   login(username: string, password: string, remember: boolean) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.config.apiUrl + '/account/token', JSON.stringify({ username: username, password: password }), {headers: headers})
+    return this.api.post('/account/token', JSON.stringify({ username: username, password: password }), headers)
       .map((response: Response) => {
         let result = response.json();
         if (result.authToken) {
@@ -28,7 +28,7 @@ export class AuthService {
         }
       });
   }
- 
+
   logout() {
     sessionStorage.removeItem('authToken');
     localStorage.removeItem('authToken');
