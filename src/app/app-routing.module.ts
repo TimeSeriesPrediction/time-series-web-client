@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GradingComponent } from './grading/grading.component';
-
+import { AssignmentsComponent } from './assignments/assignments.component';
 import { AuthGuard } from './auth.guard';
+import { WeightingsComponent } from './weightings/weightings.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,14 @@ const routes: Routes = [
   {
     path: 'Grading',
     component: GradingComponent
+  },
+  {
+    path:'Assignment',
+    component: AssignmentsComponent
+  },
+  {
+    path:'Weights',
+    component: WeightingsComponent
   }
 ];
 

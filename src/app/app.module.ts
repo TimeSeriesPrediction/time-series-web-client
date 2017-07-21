@@ -19,15 +19,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { GradingComponent } from './grading/grading.component';
+import { AssignmentsComponent } from './assignments/assignments.component';
+import { DatePickerModule } from 'ng2-datepicker';
+import { WeightingsComponent } from './weightings/weightings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    GradingComponent
+    GradingComponent,
+    AssignmentsComponent,
+    WeightingsComponent
   ],
   imports: [
+    DatePickerModule,
     BrowserModule,
     FormsModule,
     HttpModule,
