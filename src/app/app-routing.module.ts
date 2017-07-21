@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { StudentQueryComponent} from './student-query/student-query.component';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   },
   {
     path: '',
+<<<<<<< Updated upstream
     redirectTo: 'dash',
     pathMatch: 'full'
   },
@@ -20,6 +22,13 @@ const routes: Routes = [
     path: 'dash',
     component: DashboardComponent,
     canActivate: [AuthGuard] 
+=======
+    children: []
+  },
+  {
+    path: 'student-query',
+    component: StudentQueryComponent
+>>>>>>> Stashed changes
   }
 ];
 
