@@ -14,21 +14,18 @@ const routes: Routes = [
   },
   {
     path: '',
-<<<<<<< Updated upstream
     redirectTo: 'dash',
     pathMatch: 'full'
   },
   {
     path: 'dash',
     component: DashboardComponent,
-    canActivate: [AuthGuard] 
-=======
+    canActivate: [AuthGuard],
     children: []
   },
   {
     path: 'student-query',
     component: StudentQueryComponent
->>>>>>> Stashed changes
   }
 ];
 
