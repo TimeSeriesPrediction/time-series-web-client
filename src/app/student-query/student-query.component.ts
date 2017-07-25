@@ -28,7 +28,7 @@ export class StudentQueryComponent {
   
   query(event) {
     console.log(event);
-    //alert(this.queryForm.value.reason);
+    alert(this.queryForm.value.reason);
   }
 
 }
