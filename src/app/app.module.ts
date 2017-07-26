@@ -16,6 +16,7 @@ import { AppConfig } from './app.config'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MarksComponent } from './marks/marks.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
@@ -23,7 +24,8 @@ import { AuthService } from './auth.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MarksComponent
   ],
   imports: [
     BrowserModule,
