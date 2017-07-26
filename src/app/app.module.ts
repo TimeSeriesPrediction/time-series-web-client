@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminQueryComponent } from './admin-query/admin-query.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminQueryComponent
   ],
   imports: [
     BrowserModule,
