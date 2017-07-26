@@ -1,15 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule } from '@angular/http';
 
 //import { UserMockServerProvider } from './users.mockserver';
 //import { MockBackend, MockConnection } from '@angular/http/testing';
 //import { BaseRequestOptions } from '@angular/http';
 
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
+import { MdInputModule, MdButtonModule, MdCheckboxModule,MdNativeDateModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config'
@@ -20,9 +19,9 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { GradingComponent } from './grading/grading.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
-import { DatePickerModule } from 'ng2-datepicker';
+import { DatepickerModule } from 'angular2-material-datepicker'
 import { WeightingsComponent } from './weightings/weightings.component';
-
+import {MaterialModule} from '@angular/material'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,15 +32,17 @@ import { WeightingsComponent } from './weightings/weightings.component';
     WeightingsComponent
   ],
   imports: [
-    DatePickerModule,
+  
+    MdNativeDateModule,
     BrowserModule,
-    FormsModule,
+    FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     HttpModule,
     BrowserAnimationsModule,
     MdInputModule,
     MdButtonModule,
     MdCheckboxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [
     AppConfig,
