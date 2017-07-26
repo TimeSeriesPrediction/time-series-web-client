@@ -6,7 +6,7 @@ import { Http, BaseRequestOptions } from '@angular/http';
 
 import { UserMockServerProvider } from '../users.mockserver';
 import { DashboardComponent } from './dashboard.component';
-import { AuthService } from '../auth.service'
+import { AuthService } from '..//services/auth-service/auth.service'
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;

@@ -20,7 +20,10 @@ import { AuthService } from './auth.service';
 import { GradingComponent } from './grading/grading.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { WeightingsComponent } from './weightings/weightings.component';
-import {MaterialModule} from '@angular/material'
+import {MaterialModule} from '@angular/material';
+import {ApiService} from './service/api-service/api.service';
+import {LeaderboardComponent} from './leaderboard/leaderboard/component';
+import {AssessmentsApi} from './services/api-service/assessments-api/assessments.api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,12 @@ import {MaterialModule} from '@angular/material'
     DashboardComponent,
     GradingComponent,
     AssignmentsComponent,
-    WeightingsComponent
+    WeightingsComponent,
+    LeaderboardComponent
+  ],
+  imports: [
+  
+    MdNativeDateModule,
   ],
   imports: [
   
@@ -45,8 +53,10 @@ import {MaterialModule} from '@angular/material'
   ],
   providers: [
     AppConfig,
-    AuthGuard, 
+    AuthGuard,
+    ApiService,
     AuthService,
+    AssessmentsApi
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions
