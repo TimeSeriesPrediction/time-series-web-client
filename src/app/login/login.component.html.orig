@@ -6,5 +6,11 @@
   <md-input-container>
     <input mdInput type="password" placeholder="Password" name="password" [(ngModel)]="model.password"/>
   </md-input-container>
+<<<<<<< HEAD
+  <button md-raised-button>Login</button>
+</form>
+=======
+  <md-checkbox name="remember-me" [(ngModel)]="model.remember">Remember me</md-checkbox>
   <button md-raised-button [routerLink]="['/dash']" (click)="onLoggedin()">Login</button>
 </form>
+>>>>>>> origin/dev
