@@ -23,9 +23,6 @@ const Moment: any = (<any>moment).default || moment;
 })
 
 export class AssignmentsComponent {
- 
-  minDate: moment.Moment | any;
-  maxDate: moment.Moment | any;
 
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
@@ -33,7 +30,7 @@ export class AssignmentsComponent {
   constructor( ) 
   {
   
-  };
+  }
   ngOnInit()
   {
 
