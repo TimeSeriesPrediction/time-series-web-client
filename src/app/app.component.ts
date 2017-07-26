@@ -22,7 +22,6 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { GradingComponent } from './grading/grading.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
-import { DatepickerModule } from 'angular2-material-datepicker';
 import { WeightingsComponent } from './weightings/weightings.component';
 @Component({
   selector: 'app-root',
