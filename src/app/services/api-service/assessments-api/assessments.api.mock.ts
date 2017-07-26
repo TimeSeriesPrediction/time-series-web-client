@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import { ApiService } from '../api.service';
+import {ApiService} from '../api.service';
 import {Assessment} from '../../../models/Assessment';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
 import {Response} from '@angular/http'
 import 'rxjs/add/operator/map';
 
