@@ -37,10 +37,6 @@ import {AssessmentsApi} from './services/api-service/assessments-api/assessments
   imports: [
   
     MdNativeDateModule,
-  ],
-  imports: [
-  
-    MdNativeDateModule,
     BrowserModule,
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     HttpModule,
