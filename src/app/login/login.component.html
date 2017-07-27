@@ -1,4 +1,16 @@
 
+<form (ngSubmit)="login()">
+    <h1>Here!!!</h1>
+  <md-input-container>
+    <input mdInput placeholder="Username" name="username" [(ngModel)]="model.username"/>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput type="password" placeholder="Password" name="password" [(ngModel)]="model.password"/>
+  </md-input-container>
+  <button md-raised-button [routerLink]="['/dash']" (click)="onLoggedin()">Login</button>
+</form>
+
+
 
 <div id="logo" align="center">
      <img src="../../../assets/images/logo.png" alt="Saffron home logo"/>
@@ -37,5 +49,6 @@
 <div class="container">
       <router-outlet></router-outlet>
 </div>
+
 
 

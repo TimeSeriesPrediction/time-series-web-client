@@ -16,7 +16,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 import { MarksComponent } from './marks/marks.component';
+
 
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';

@@ -10,6 +10,11 @@ export class AuthService {
 
   constructor(private api: ApiService, private config: AppConfig) { }
 
+  login(username: string, password: string) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.api.post('/account/token', JSON.stringify({ username: username, password: password }), headers);
+
   login(username: string, password: string, remember: boolean) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -27,6 +32,7 @@ export class AuthService {
           }
         }
       });
+
   }
 
   logout() {
