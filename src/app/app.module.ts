@@ -25,6 +25,7 @@ import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api';
 import {UsersApi} from './services/api-service/users-api/users-api.mock';
+import 'hammerjs';
 
 
 @NgModule({

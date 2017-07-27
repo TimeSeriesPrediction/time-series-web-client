@@ -5,7 +5,9 @@ import {UsersApi} from '../services/api-service/users-api/users-api.mock';
 import {User} from '../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
+import {AssessmentsApi} from '../services/api-service/assessments-api/assessments.api.mock';
 
+import {Assessment} from '../models/Assessment';
 describe('AssignmentsComponent', () => {
   let component: AssignmentsComponent;
   let fixture: ComponentFixture<AssignmentsComponent>;
