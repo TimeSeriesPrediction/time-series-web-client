@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 //import { MockBackend, MockConnection } from '@angular/http/testing';
 //import { BaseRequestOptions } from '@angular/http';
 
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
 
@@ -16,16 +15,24 @@ import { AppConfig } from './app.config'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './auth.guard';
-import { AuthService } from './auth.service';
+
 import { MarksComponent } from './marks/marks.component';
+
+import { AuthGuard } from './services/auth-guard/auth.guard';
+import { AuthService } from './services/auth-service/auth.service';
+import { ApiService } from './services/api-service/api.service';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { AssessmentsApi } from './services/api-service/assessments-api/assessments.api.mock';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    MarksComponent
+    MarksComponent,
+    LeaderboardComponent
+
   ],
   imports: [
     BrowserModule,
@@ -39,8 +46,10 @@ import { MarksComponent } from './marks/marks.component';
   ],
   providers: [
     AppConfig,
-    AuthGuard, 
+    AuthGuard,
+    ApiService,
     AuthService,
+    AssessmentsApi
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions
