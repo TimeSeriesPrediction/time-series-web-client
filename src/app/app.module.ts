@@ -8,13 +8,16 @@ import { HttpModule } from '@angular/http';
 //import { BaseRequestOptions } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdInputModule, MdButtonModule, MdCheckboxModule,MdNativeDateModule} from '@angular/material';
+import { MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { MarksComponent } from './marks/marks.component';
+
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
 import { GradingComponent } from './grading/grading.component';
@@ -28,6 +31,7 @@ import {UsersApi} from './services/api-service/users-api/users-api.mock';
 import 'hammerjs';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,9 @@ import 'hammerjs';
     GradingComponent,
     AssignmentsComponent,
     WeightingsComponent,
+    MarksComponent,
     LeaderboardComponent
+
   ],
   imports: [
     MdNativeDateModule,
