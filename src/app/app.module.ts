@@ -8,7 +8,7 @@ import { HttpModule } from '@angular/http';
 //import { BaseRequestOptions } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
+import { MdInputModule, MdButtonModule,MdNativeDateModule, MdCheckboxModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config';
