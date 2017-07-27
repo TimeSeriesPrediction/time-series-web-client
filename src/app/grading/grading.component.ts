@@ -17,6 +17,7 @@ export class GradingComponent implements OnInit {
 
    ngOnInit() {
     this.getCurrentUser();
+    this.getModules();
   }
      currentUser : User;
 
@@ -27,4 +28,25 @@ export class GradingComponent implements OnInit {
     function() {document.getElementById('studentDeets').innerHTML=this.currentUser.username}
 )
 }
+
+ getModules()
+  {
+  
+    this.userService.getCurrentUser().subscribe(
+    function(response) { this.currentUser=response},
+    function(error) { console.log("Error happened" + error)},
+    function() 
+    {
+      document.getElementById("sel1").innerHTML = "";
+      for (var I = 0; I < this.currentUser.modules.length; I++)
+      {
+          var moduleList = "<option>" + this.currentUser.modules[I] + "</option>";
+          document.getElementById("sel1").innerHTML += moduleList;
+          
+      }
+    });
+  
+ 
+}
+
 }
