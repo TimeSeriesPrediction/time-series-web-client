@@ -15,14 +15,31 @@
   padding-left: 25%;
   padding-top :2%;
 }
-
+#li
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+}
+  #li1
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 300%;
+}
+  #site-head
+{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 150%;
+    float: none;
+}
 #rcorners1 
 {
-    border-radius: 25px;
-    background:#8F9A87;
-    padding: 2px; 
-    width: 80%;
-    height: 1550%0px;    
+   display: block;
+    margin: 0 auto;
+    width: 30%;
+    height: 10%;
+    border-radius: 5%;
+    padding: 2%;
+    background-color: rgba(61,96,152,0.5);
 }
 .tg 
 {

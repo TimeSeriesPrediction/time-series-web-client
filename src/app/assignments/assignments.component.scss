@@ -10,29 +10,76 @@
   padding-left: 25%;
   padding-top :2%;
 }
-
+$c1 : #3d6098;
+$c2 : #213159;
+$c3 : #f04b4c;
+$c4 : #e7e7e7;
 #rcorners1 
 {
-    border-radius: 25px;
-    background:#8F9A87;
-    padding-left: 15%; 
-    padding-right:15%;
-    width: 60%;
-    height: 80%;  
+    display: block;
     margin: 0 auto;
+    position: center;
+    width: 30%;
+    height: 10%;
+    border-radius: 5%;
+    padding: 2%;
+    background-color: rgba(61,96,152,0.5);
+
 }
 #sel1
 {
  align-content: left;
  width: 40%;
+ // padding: 10%; 
 }
 #usr
 {
  align-content: left;
  width: 40%;
+ // padding: 5%; 
+}
+#usr
+{
+ align-content: left;
+ width: 40%;
+  padding: 5%; 
 }
 #myForm
 {
    align-content: center;
-   padding: 5%; 
+  // padding: 5%; 
+   font-family: Arial, Helvetica, sans-serif;
+   position: center;
+   float: none;
+   margin-top: 10%;
+   margin-bottom: 10%
+}
+#site-head
+{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 150%;
+    float: none;
+}
+#li
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+}
+  #li1
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 300%;
+}
+  #btnSub
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+   position: center;
+   float: none;
+   margin-left: 40%;
+  // margin-top: 40%;
+}
+#for-file1
+{
+    padding: 5%;
 }

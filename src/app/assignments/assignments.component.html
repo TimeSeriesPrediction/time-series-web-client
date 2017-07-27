@@ -3,8 +3,8 @@
 <nav class="navbar navbar-default" style="color:white;">
   <div class="container-fluid">
     <div class="navbar-header"  >
-      <img src="../../../assets/images/Logo.png" alt="Logo" style ="width: 50px; height: 50px;">
-       <a class="navbar-brand" style="color:white;" href="#">Saffron </a>
+      <img src="../../../assets/images/logo.png" alt="Logo" style ="width: 50px; height: 50px;">
+       <a id="site-head" class="navbar-brand" style="color:white;" href="#">Saffron </a>
    </div>
 
 	 
@@ -18,9 +18,9 @@
 			 <p id="studentDeets">Student Name <p>
      </div>
        <ul class="nav nav-pills" >
-        <li class="active"><a href="Grading" style="background-color:#17294D;color:white;">Manage Marks</a></li>
-        <li ><a href="Assignment" style="color:white;">Manage Assignments</a></li>
-        <li ><a href="Weights" style="color:white;">Manage Weightings</a></li>
+        <li id="li" class="active"><a href="Grading" style="background-color:#17294D;color:white;">Manage Marks</a></li>
+        <li id="li" ><a href="Assignment" style="color:white;">Manage Assignments</a></li>
+        <li id="li" ><a href="Weights" style="color:white;">Manage Weightings</a></li>
       </ul> 
 		
 	 </div>
@@ -30,11 +30,11 @@
 
 
   <div  id="rcorners1" style="align-content: center">
-  <h2  class="center">Add Assignment</h2>
+  <h2 id="li1"  class="center">Add Assignment</h2>
   <form (ngSubmit)="addAssignment()"  id="myForm">
   
     <div class="row" style="align-content: center">
-      <label>Module Code:</label>
+      <label id="li">Module Code:</label>
         <select class="form-control" id="sel1">
         <option>COS 151</option>
         <option>COS 132</option>
@@ -44,23 +44,23 @@
     </div>
   
     
-           <div class="row" style="align-content: center">
-            <label >Assessment Opportunity:</label>
+           <div  id="for-file1"class="row" style="align-content: center">
+            <label id="li" >Assessment Opportunity:</label>
             <input type="text" class="form-control"  id="usr" >
            </div>
 
-            <div class="row" style="align-content: center">
-              <label >Deadline:</label>
+            <div id="for-file1" class="row" style="align-content: center">
+              <label id="li">Deadline:</label>
                <input type="date" class="form-control"  id="usr1" >
             </div>
       
-            <div class="row" style="align-content: center">
-              <label for="for-file">Select File:</label> 
+            <div id="for-file1" class="row" style="align-content: center">
+              <label for="for-file" id="li">Select File:</label> 
               <input id="for-file" type="link" class="file" data-show-preview="false"> 
             </div>  
             
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
       
 
   </form>
