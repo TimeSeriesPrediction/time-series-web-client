@@ -21,7 +21,7 @@
 </nav>
 
 <div id="lower-privilege" class="container">
-    <h4>Your modules: </h4>
+    <h4>View and query your marks here: </h4>
 
     <ul class="nav nav-tabs" id="module-list">
         <ng-container *ngFor="let module of modules; let i = index">
@@ -37,7 +37,7 @@
             <div *ngIf="i == 0" id="{{module.code}}" class="tab-pane fade in active full">
                 <h3>Assignments: </h3>
                 <table id="module.code-assignments">
-                    <tr>
+                    <tr class="header-row">
                         <th>Assignment #: </th>
                         <th>Assignment Total:</th>
                         <th>Your Total:</th>
@@ -51,14 +51,14 @@
                             <td>{{mark.assTotal}}</td>
                             <td>{{mark.mark}}</td>
                             <td>{{mark.classAvg}}</td>
-                            <td><button (click)="queryMark(mark.student,mark.assType,mark.assNum,mark.code)">Query</button> </td>
+                            <td><button class="btn btn-default btn-circle" (click)="queryMark(mark.student,mark.assType,mark.assNum,mark.code)">Query</button> </td>
                         </tr>
                     </ng-container>
                 </table>
 
                 <h3>Tests: </h3>
                 <table id="module.code-tests">
-                    <tr>
+                    <tr class="header-row">
                         <th>Test #: </th>
                         <th>Test Total:</th>
                         <th>Your Total:</th>
@@ -72,7 +72,7 @@
                             <td>{{mark.assTotal}}</td>
                             <td>{{mark.mark}}</td>
                             <td>{{mark.classAvg}}</td>
-                            <td><button (click)="queryMark()">Query</button> </td>
+                            <td><button class="btn btn-default btn-circle" (click)="queryMark()">Query</button> </td>
                         </tr>
                     </ng-container>
                 </table>
@@ -96,7 +96,7 @@
                             <td>{{mark.assTotal}}</td>
                             <td>{{mark.mark}}</td>
                             <td>{{mark.classAvg}}</td>
-                            <td><button (click)="queryMark()">Query</button> </td>
+                            <td><button class="btn btn-default btn-circle" (click)="queryMark()">Query</button> </td>
                         </tr>
                     </ng-container>
                 </table>
@@ -117,7 +117,7 @@
                             <td>{{mark.assTotal}}</td>
                             <td>{{mark.mark}}</td>
                             <td>{{mark.classAvg}}</td>
-                            <td><button (click)="queryMark()">Query</button> </td>
+                            <td><button class="btn btn-default btn-circle" (click)="queryMark()">Query</button> </td>
                         </tr>
                     </ng-container>
                 </table>

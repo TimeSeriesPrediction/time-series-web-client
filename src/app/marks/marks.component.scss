@@ -1,13 +1,18 @@
+$c1: #213159;
+$c2: #3d6098;
+$c3: #f04b4c;
+$c4: #e7e7e7;
 .navbar-default {
-    background-color: rgb(41, 134, 151);
+    background-color: #3d6098;
+    border: none;
 }
 
 .nav {
-    color: white;
+    color: #e7e7e7;
 }
 
 .navbar-header {
-    color: white;
+    color: #e7e7e7;
 }
 
 .vertical-center {
@@ -21,10 +26,22 @@
     width: 100% !important;
 }
 
+a {
+    color: #e7e7e7;
+}
+
+button {
+    color: black;
+}
+
 .full,
 #lower-privilege,
 table {
     width: 100%;
+}
+
+table {
+    border: 1px solid rgba(136, 161, 200, 1)
 }
 
 th.cell,
@@ -32,72 +49,55 @@ th,
 .th .cell,
 div th .cell,
 td {
-    border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
     width: 20% !important;
+    color: #213159;
+    border: 1px solid rgba(136, 161, 200, 1)
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+.header-row {
+    background-color: #3d6098 !important;
+    color: black;
 }
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+tr {
+    background-color: rgba(164, 183, 213, 1) !important;
+    color: #213159
 }
 
-.switch input {
-    display: none;
+tr:nth-child(1) {
+    background-color: rgba(98, 130, 183, 1)!important;
+    color: #e7e7e7;
 }
 
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+h4 {
+    color: rgba(164, 183, 213, 1)
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+ul {
+    border-color: transparent;
 }
 
-input:checked+.slider {
-    background-color: #2196F3;
+.tab-content {
+    padding: 2%;
+    background-color: rgba(61, 96, 152, 0.5);
+    color: rgba(147, 169, 205, 1);
 }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+.active a {
+    background-color: rgba(61, 96, 152, 0.5) !important;
+    color: #e7e7e7;
 }
 
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+.nav-tabs>li>a:hover {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: medium none;
+    border-radius: 0;
+    color: black;
 }
 
-
-/* Rounded sliders */
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
+.nav-tabs>li>a {
+    color: rgba(147, 169, 205, 1);
+    border-color: transparent;
 }
