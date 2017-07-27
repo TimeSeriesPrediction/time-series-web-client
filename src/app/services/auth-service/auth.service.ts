@@ -14,6 +14,25 @@ export class AuthService {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.api.post('/account/token', JSON.stringify({ username: username, password: password }), headers);
+
+  login(username: string, password: string, remember: boolean) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.api.post('/account/token', JSON.stringify({ username: username, password: password }), headers)
+      .map((response: Response) => {
+        let result = response.json();
+        if (result.authToken) {
+          if (remember)
+          {
+            localStorage.setItem('authToken', result.authToken);
+          }
+          else
+          {
+            sessionStorage.setItem('authToken', result.authToken);
+          }
+        }
+      });
+
   }
 
   logout() {

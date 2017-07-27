@@ -15,18 +15,26 @@ import { AppConfig } from './app.config'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+
+import { MarksComponent } from './marks/marks.component';
+
+
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
 import { ApiService } from './services/api-service/api.service';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AssessmentsApi } from './services/api-service/assessments-api/assessments.api.mock';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    MarksComponent,
     LeaderboardComponent
+
   ],
   imports: [
     BrowserModule,
