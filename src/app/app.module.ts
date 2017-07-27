@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule, MdButtonModule, MdCheckboxModule,MdNativeDateModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppConfig } from './app.config'
+import { AppConfig } from './app.config';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,6 +24,9 @@ import {MaterialModule} from '@angular/material';
 import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api';
+import {UsersApi} from './services/api-service/users-api/users-api.mock';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,6 @@ import {AssessmentsApi} from './services/api-service/assessments-api/assessments
     LeaderboardComponent
   ],
   imports: [
-  
     MdNativeDateModule,
     BrowserModule,
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
@@ -45,14 +47,15 @@ import {AssessmentsApi} from './services/api-service/assessments-api/assessments
     MdButtonModule,
     MdCheckboxModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
     AppConfig,
     AuthGuard,
     ApiService,
     AuthService,
-    AssessmentsApi
+    AssessmentsApi,
+    UsersApi
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions

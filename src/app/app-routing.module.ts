@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
@@ -21,8 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'dash',
-    component: DashboardComponent,
-    canActivate: [AuthGuard] 
+    component: DashboardComponent
   },
   {
     path: 'Grading',
@@ -34,9 +32,7 @@ const routes: Routes = [
   },
   {
     path:'Weights',
-    component: WeightingsComponent,
-
-    canActivate: [AuthGuard]
+    component: WeightingsComponent
   },
   {
     path: 'leaderboard',

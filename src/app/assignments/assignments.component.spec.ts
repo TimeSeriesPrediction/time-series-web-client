@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-///////add the import here! material stuff 
 import { MdDatepickerModule,MdInputModule } from '@angular/material';
 import { AssignmentsComponent } from './assignments.component';
+import {UsersApi} from '../services/api-service/users-api/users-api.mock';
+import {User} from '../models/User';
+import {Injectable} from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 describe('AssignmentsComponent', () => {
   let component: AssignmentsComponent;
@@ -9,6 +12,9 @@ describe('AssignmentsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpModule
+    ],
       declarations: [ AssignmentsComponent ]
     })
     .compileComponents();

@@ -3,9 +3,10 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { Http, BaseRequestOptions, Headers } from '@angular/http';
 
-import { AppConfig } from '../../app.config'
+import { AppConfig } from '../../app.config';
 import { UserMockServerProvider } from '../../users.mockserver';
 import { ApiService } from './api.service';
+import { HttpModule } from '@angular/http';
 
 describe('AuthService', () => {
   let mockHttp, appConfig;
@@ -27,13 +28,16 @@ describe('AuthService', () => {
     spyOn(mockHttp, 'delete');
 
     TestBed.configureTestingModule({
+       
       providers: [
         AppConfig,
         ApiService,
         { provide: Http, useValue: mockHttp },
         MockBackend,
-        BaseRequestOptions
-      ]
+        BaseRequestOptions,
+        HttpModule
+      ],
+       
     });
   });
 

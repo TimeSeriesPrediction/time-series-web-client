@@ -28,12 +28,10 @@ import { WeightingsComponent } from './weightings/weightings.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-   date: DateModel;
-  options: DatePickerOptions;
+ 
 
  
   constructor() {
-    this.options = new DatePickerOptions();
   }
 
  }
