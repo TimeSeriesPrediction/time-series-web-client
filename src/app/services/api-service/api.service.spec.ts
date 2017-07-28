@@ -10,13 +10,9 @@ import { ApiService } from './api.service';
 import { ObservablesMock } from '../../mocks/observables.mock';
 import 'rxjs/add/operator/do';
 
-describe('AuthService', () => {
+describe('ApiService', () => {
   let mockHttp, appConfig;
   let observables = new ObservablesMock();
-
-
-describe('AuthService', () => {
-  let mockHttp, appConfig;
 
 
   beforeEach(() => {
@@ -27,12 +23,6 @@ describe('AuthService', () => {
       post: observables.ResolveObservable(),
       put: observables.ResolveObservable(),
       delete: observables.ResolveObservable()
-
-      get: a => a,
-      post: a => a,
-      put: a => a,
-      delete: a => a
-
     };
 
     appConfig = new AppConfig();
@@ -42,12 +32,6 @@ describe('AuthService', () => {
     spyOn(mockHttp, 'post').and.callThrough();
     spyOn(mockHttp, 'put').and.callThrough();
     spyOn(mockHttp, 'delete').and.callThrough();
-
-    spyOn(mockHttp, 'get');
-    spyOn(mockHttp, 'post');
-    spyOn(mockHttp, 'put');
-    spyOn(mockHttp, 'delete');
-
 
     TestBed.configureTestingModule({
       providers: [
