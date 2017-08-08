@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="../../../assets/images/logo.png" alt="Logo" style="width: 50px; height: 50px;">
+            <a class="navbar-brand" style="color:white;" href="#">Saffron </a>
+        </div>
+
+        <div class="container ">
+            <div class="col-md-2 text-right pull-right" style="color:rgb(67, 82, 89);">
+                <span class="pull-right">
+				<span class="glyphicon glyphicon-user"></span>
+                </span>
+                <p>Admin
+                    <p>
+            </div>
+
+        </div>
+
+    </div>
+</nav>
+
+<h3>Choose module to view related queries: </h3>
+
+<div id="higher-privilege" class="container">
+    <h4>Modules you have access to: </h4>
+
+    <ul class="nav nav-tabs" id="module-list">
+        <ng-container *ngFor="let module of modules; let i = index">
+            <li *ngIf="i == 0" class="active"><a data-toggle="tab" href="#{{module.code}}">{{module.code}}</a></li>
+            <li *ngIf="i != 0"><a data-toggle="tab" href="#{{module.code}}">{{module.code}}</a></li>
+        </ng-container>
+    </ul>
+
+    <div class="tab-content">
+
+
+
+        <ng-container *ngFor="let module of modules; let i = index">
+            <!-- qurey content -->
+            <div *ngIf="i == 0" id="{{module.code}}" class="tab-pane fade in active">
+                <ng-container *ngFor="let query of module.queries; let i = index">
+                    <ul id="list-queries">
+
+                        <!-- list of queries -->
+                        <li *ngIf="query.assType == 'Assignment'" class="list-assignment">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+
+                        <li *ngIf="query.assType == 'Test'" class="list-test">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+                    </ul>
+                    <div id="{{query.student}}-{{query.assType}}-{{query.assNum}}" style="display: none">
+                        <p>{{query.code}}</p>
+                        <p>{{query.assType}}</p>
+                        <p>{{query.assNum}}</p>
+                        <p>{{query.student}}</p>
+                        <p>{{query.reason}}</p>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div *ngIf="i != 0" id="{{module.code}}" class="tab-pane fade ">
+                <ng-container *ngFor="let query of module.queries; let i = index">
+                    <ul id="list-queries">
+
+                        <!-- list of queries -->
+                        <li *ngIf="query.assType == 'Assignment'" class="list-assignment">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assTyp+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+
+                        <li *ngIf="query.assType == 'Test'" class="list-test">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+                    </ul>
+                    <div id="{{query.student}}-{{query.assType}}-{{query.assNum}}" style="display: none">
+                        <p>{{query.code}}</p>
+                        <p>{{query.assType}}</p>
+                        <p>{{query.assNum}}</p>
+                        <p>{{query.student}}</p>
+                        <p>{{query.reason}}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+        <div id="display">
+        </div>
+    </div>
+</div>

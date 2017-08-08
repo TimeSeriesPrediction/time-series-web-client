@@ -29,41 +29,42 @@
 </nav>
 
 
-  <div  id="rcorners1" style="align-content: center">
-  <h2 id="li1"  class="center">Add Assignment</h2>
-  <form (ngSubmit)="addAssignment()"  id="myForm">
-  
-    <div class="row" style="align-content: center">
-      <label id="li">Module Code:</label>
-        <select class="form-control" id="sel1">
-        <option>COS 151</option>
-        <option>COS 132</option>
-        <option>COS 110</option>
-        <option>COS 121</option>
-      </select>
-    </div>
-  
+  <div  id="rcorners1">
+   <h3 id="li1"  class="center">Add Assignment</h3>
+   
+    <form (ngSubmit)="addAssignment()"  id="myForm">
     
-           <div  id="for-file1"class="row" style="align-content: center">
-            <label id="li" >Assessment Opportunity:</label>
-            <input type="text" class="form-control"  id="usr" >
-           </div>
-
-            <div id="for-file1" class="row" style="align-content: center">
-              <label id="li">Deadline:</label>
-               <input type="date" class="form-control"  id="usr1" >
-            </div>
+      <div id="wrapper"class="row">
+        <label id="li">Module:</label>
+          <select  id="sel1">
+            <option>COS 151</option>
+            <option>COS 132</option>
+            <option>COS 110</option>
+            <option>COS 121</option>
+          </select>
+      </div>
+    
       
-            <div id="for-file1" class="row" style="align-content: center">
-              <label for="for-file" id="li">Select File:</label> 
-              <input id="for-file" type="link" class="file" data-show-preview="false"> 
-            </div>  
-            
+      <div id="wrapper"class="row" >
+        <label id="li">Assessment:</label>
+        <input id="for-file" type="text" >
+      </div>
 
-        <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
-      
+      <div id="wrapper" class="row" >
+        <label id="li">Deadline:</label>
+        <input id="for-file" type="date" >
+      </div>
 
-  </form>
+      <div id="wrapper" class="row" >
+        <label for="for-file" id="li">Select File:</label> 
+        <input id="for-file" type="link"  data-show-preview="false"> 
+      </div>  
+              
+
+      <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
+        
+
+    </form>
   </div>
 
 

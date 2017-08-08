@@ -15,9 +15,6 @@ import { AppConfig } from './app.config';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { MarksComponent } from './marks/marks.component';
-
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
 import { GradingComponent } from './grading/grading.component';
@@ -29,8 +26,8 @@ import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api';
 import {UsersApi} from './services/api-service/users-api/users-api.mock';
 import 'hammerjs';
-
-
+import { MarksComponent } from './marks/marks.component';
+//import {StudentQueryComponent} from './student-query/student-query.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +38,8 @@ import 'hammerjs';
     AssignmentsComponent,
     WeightingsComponent,
     MarksComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    //StudentQueryComponent
 
   ],
   imports: [

@@ -2,14 +2,29 @@
 .navbar-default 
 {
   background-color:#17294D;
+  text-transform: uppercase;
 }
 
 
 .center
 {
-  padding-left: 25%;
-  padding-top :2%;
+  
+  background-color: rgb(209, 211, 214);
+  padding: 5%;
+
 }
+#myform
+{
+  padding-top:10%;
+  height:100%;
+}
+
+form {
+  width: 100%;
+  height:100% ;
+   margin: auto;
+   position: relative;
+ }
 $c1 : #3d6098;
 $c2 : #213159;
 $c3 : #f04b4c;
@@ -18,68 +33,59 @@ $c4 : #e7e7e7;
 {
     display: block;
     margin: 0 auto;
-    position: center;
-    width: 30%;
-    height: 10%;
-    border-radius: 5%;
-    padding: 2%;
-    background-color: rgba(61,96,152,0.5);
-
+    width: 40%;
+    height:50% ;
+    background-color: rgb(227, 229, 232);
+    align-content: center;
 }
-#sel1
-{
- align-content: left;
- width: 40%;
- // padding: 10%; 
-}
-#usr
-{
- align-content: left;
- width: 40%;
- // padding: 5%; 
-}
-#usr
-{
- align-content: left;
- width: 40%;
-  padding: 5%; 
-}
-#myForm
-{
-   align-content: center;
-  // padding: 5%; 
-   font-family: Arial, Helvetica, sans-serif;
-   position: center;
-   float: none;
-   margin-top: 10%;
-   margin-bottom: 10%
-}
+  
 #site-head
 {
     font-family: "Times New Roman", Times, serif;
     font-size: 150%;
     float: none;
 }
-#li
-{
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 150%;
-}
-  #li1
+
+#li1
 {
    font-family: Arial, Helvetica, sans-serif;
    font-size: 300%;
 }
-  #btnSub
+#btnSub
 {
    font-family: Arial, Helvetica, sans-serif;
    font-size: 150%;
    position: center;
-   float: none;
-   margin-left: 40%;
-  // margin-top: 40%;
+   margin-left: 25%;
+   margin-top: 2%;
 }
-#for-file1
+label
 {
-    padding: 5%;
+  float: left;
+  margin-right: 10%;
+  margin-bottom:2%;
+  width: 20%;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+}
+.btn,.btn-default
+{
+  background-color:orangered;
+  text-transform: uppercase;
+  width: 50%;
+}
+input,select
+{
+ float: right;
+ width: 60%;
+  margin-bottom:2%;
+  height:50%;
+}
+
+#wrapper
+{
+  float:left;
+  width: 95%;
+  margin-left:5%;
+  height:15%;
 }
