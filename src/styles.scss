@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$c1: rgb(227, 229, 232);
+$c2: rgb(209, 211, 214);
+$c3: #10244C;
+$c4: #213159;
+body,
+html {
+    display: block;
+    height: 120%;
+    background-image: url('/assets/images/102.jpeg') !important;
+}
