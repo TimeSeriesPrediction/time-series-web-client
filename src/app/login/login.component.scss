@@ -1,66 +1,57 @@
-$c1 : #213159;
-$c2 : #3d6098;
-$c3 : #f04b4c;
-$c4 : #e7e7e7;
-
-#logo
-{
+$c1: rgb(227, 229, 232);
+$c2: rgb(209, 211, 214);
+$c3: #10244C;
+$c4: #213159;
+#logo {
     margin: 0 auto;
-    width:  30%;
+    width: 20%;
     height: 20%;
 }
 
-#login-container
-{
+#login-container {
     display: block;
     margin: 0 auto;
     width: 30%;
     height: 10%;
     border-radius: 5%;
     padding: 2%;
-    background-color: rgba(61,96,152,0.5);
-
+    background-color: rgb(209, 211, 214);
 }
 
-#login-form
-{
+#login-form {
     float: none;
     display: inline;
     opacity: 1;
-    
-}
-#password,#username
-{
-    margin:0 auto;
 }
 
-#logo img{
+#password,
+#username {
+    margin: 0 auto;
+}
+
+#logo img {
     width: 70%;
     height: 70%;
-  
 }
 
-input{
+input {
     width: 100%;
-    
 }
 
-input[type="button"]
-{
+input[type="button"] {
     width: 50%;
 }
 
 .form-control:focus {
-  border-color: #ffffff;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255,255, 255, 255);
+    border-color: #ffffff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 255);
 }
 
-#site-head
-{
+#site-head {
     font-family: "Times New Roman", Times, serif;
 }
 
-#register-button,#forgot-button
-{
+#register-button,
+#forgot-button {
     color: $c3;
 }
