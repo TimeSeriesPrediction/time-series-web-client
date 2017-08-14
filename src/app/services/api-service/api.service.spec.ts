@@ -8,24 +8,31 @@ import { UserMockServerProvider } from '../../users.mockserver';
 import { ApiService } from './api.service';
 import { HttpModule } from '@angular/http';
 
-describe('AuthService', () => {
+import { ObservablesMock } from '../../mocks/observables.mock';
+import 'rxjs/add/operator/do';
+
+describe('ApiService', () => {
   let mockHttp, appConfig;
+  let observables = new ObservablesMock();
+
 
   beforeEach(() => {
 
     mockHttp = {
-      get: a => a,
-      post: a => a,
-      put: a => a,
-      delete: a => a
+
+      get: observables.ResolveObservable({ authToken: '321'}),
+      post: observables.ResolveObservable(),
+      put: observables.ResolveObservable(),
+      delete: observables.ResolveObservable()
     };
 
     appConfig = new AppConfig();
 
-    spyOn(mockHttp, 'get');
-    spyOn(mockHttp, 'post');
-    spyOn(mockHttp, 'put');
-    spyOn(mockHttp, 'delete');
+
+    spyOn(mockHttp, 'get').and.callThrough();
+    spyOn(mockHttp, 'post').and.callThrough();
+    spyOn(mockHttp, 'put').and.callThrough();
+    spyOn(mockHttp, 'delete').and.callThrough();
 
     TestBed.configureTestingModule({
        
@@ -72,10 +79,26 @@ describe('AuthService', () => {
   }));
 
   it('should append authToken to headers',  inject([ApiService], (service: ApiService) => {
+
+    sessionStorage.setItem('authToken', '123');
+
     localStorage.setItem('authToken', '123');
+
     service.get('url/to/get');
     var headers : Headers = mockHttp.get.calls.argsFor(0)[1].headers;
     expect(headers.get('Authorization')).toBe('123');
   }));
+
+
+
+  it('should set new AuthToken',  (done) => {
+    inject([ApiService], (service: ApiService) => {
+      sessionStorage.setItem('authToken', '123');
+      service.get('url/to/get').subscribe((response) => {
+        expect(sessionStorage.getItem('authToken')).toBe('321');
+        done();
+      });
+    })();
+  });
 
 });

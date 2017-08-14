@@ -10,28 +10,21 @@ export class AuthService {
 
   constructor(private api: ApiService, private config: AppConfig) { }
 
-  login(username: string, password: string, remember: boolean) {
+  login(username: string, password: string) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.api.post('/account/token', JSON.stringify({ username: username, password: password }), headers)
       .map((response: Response) => {
         let result = response.json();
         if (result.authToken) {
-          if (remember)
-          {
-            localStorage.setItem('authToken', result.authToken);
-          }
-          else
-          {
             sessionStorage.setItem('authToken', result.authToken);
-          }
         }
       });
+
   }
 
   logout() {
     sessionStorage.removeItem('authToken');
-    localStorage.removeItem('authToken');
   }
 }
 
