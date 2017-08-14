@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default" style="color:white;">
+    <div class="container-fluid">
+      <div class="navbar-header"  >
+        <img src="../../../assets/images/logo.png" alt="Logo" style ="width: 50px; height: 50px;">
+         <a id="site-head" class="navbar-brand" style="color:white;" href="#">Saffron </a>
+     </div>
+  
+       
+       <div class="container "style="color:white;"> 
+  
+  
+           <div class="col-md-2 text-right pull-right" >
+               <span class="pull-right">
+                  <span class="glyphicon glyphicon-user"></span>
+               </span>
+               <div>Student Number</div>
+       </div>
+         <ul class="nav nav-pills" >
+          <li id="li" class="active"><a href="Grading" style="background-color:#17294D;color:white;">Manage Marks</a></li>
+          <li id="li" ><a href="Assignment" style="color:white;">Manage Assignments</a></li>
+          <li id="li" ><a href="Weights" style="color:white;">Manage Weightings</a></li>
+        </ul> 
+          
+       </div>
+    
+    </div>
+  </nav>
+  
+  
+    <div  id="rcorners1">
+     <h3 id="li1"  class="center">Setup Marksheet</h3>
+     
+      <form (ngSubmit)="addAssignment()"  id="myForm">
+      
+        <div id="wrapper"class="row">
+          <label id="li">Module:</label>
+            <select  id="sel1">
+              <option>COS 151</option>
+              <option>COS 132</option>
+              <option>COS 110</option>
+              <option>COS 121</option>
+            </select>
+        </div>
+      
+        
+        <div id="wrapper"class="row">
+            <label id="li">Assignment:</label>
+              <select  id="sel1">
+                <option>Class Test 1</option>
+                <option>Class Test 2</option>
+                <option>EO1</option>
+                <option>EO2</option>
+              </select>
+          </div>
+  
+        <div id="wrapper" class="row" >
+          <label for="for-file" id="li">Student Numbers(.csv):</label> 
+          <input id="for-file" type="file"  data-show-preview="false"> 
+        </div>  
+                
+
+
+            <ag-grid-angular style="width: 500px; height: 115px;"
+                            class="ag-fresh"
+                            [rowData]="rowData"
+                            [columnDefs]="columnDefs"
+                            [gridOptions]="gridOptions"
+                            (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
+
+
+  
+        <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
+          
+  
+      </form>
+    </div>
+  
+  

@@ -45,14 +45,13 @@ export class AssignmentsComponent {
     this.getModules();
   }
 
-  currentUser : User;
+  public currentUser : User;
 
   getCurrentUser()
   {
     this.userService.getCurrentUser().subscribe(
     function(response) { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)},
-    function() {document.getElementById('studentDeets').innerHTML=this.currentUser.username}
+    function(error) { console.log("Error happened" + error)}
 );
  
 
