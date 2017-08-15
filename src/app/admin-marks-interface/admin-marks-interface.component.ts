@@ -14,7 +14,7 @@
         rowData: any[];
         i=0;
         constructor() {
-            this.gridOptions = <GridOptions>{};
+            this.gridOptions = <GridOptions>{rowSelection: 'multiple'};
     
             this.columnDefs = [
                 {headerName: "ID", field: "id",editable:true},
@@ -36,10 +36,21 @@
             this.gridOptions.api.setColumnDefs(columnDefs);
         }
 
+        removeColumn()
+        {
+
+        }
+
+        removeRow()
+        {
+            var selectedRowData = this.gridOptions.api.getSelectedRows();
+            this.gridOptions.api.updateRowData({remove: selectedRowData});
+        }
+
         addRow()
         {
             var transactions = {
-                add: [ {id: " ", total: "0"},]
+                add: [ {id: "x", total: "0"},]
             }
             
             this.gridOptions.api.updateRowData(transactions);
