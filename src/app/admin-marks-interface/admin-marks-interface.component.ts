@@ -17,7 +17,7 @@
             this.gridOptions = <GridOptions>{};
     
             this.columnDefs = [
-                {headerName: "ID", field: "id"},
+                {headerName: "ID", field: "id",editable:true},
                 {headerName: "Total", field: "total", filter: 'number',editable:true,aggfunction:'sum'},
                 
             ];
@@ -34,6 +34,15 @@
             var columnDefs = this.gridOptions.columnDefs;
             columnDefs.push({ field:'questions', headerName: 'Question '+ ++this.i,editable:true});
             this.gridOptions.api.setColumnDefs(columnDefs);
+        }
+
+        addRow()
+        {
+            var transactions = {
+                add: [ {id: " ", total: "0"},]
+            }
+            
+            this.gridOptions.api.updateRowData(transactions);
         }
         
         onGridReady(params) {
