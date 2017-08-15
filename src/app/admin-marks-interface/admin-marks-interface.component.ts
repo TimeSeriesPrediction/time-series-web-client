@@ -12,23 +12,30 @@
         gridOptions: GridOptions;
         columnDefs: any[]
         rowData: any[];
-    
+        i=0;
         constructor() {
             this.gridOptions = <GridOptions>{};
     
             this.columnDefs = [
                 {headerName: "ID", field: "id"},
-                {headerName: "Total", field: "total", cellRendererFramework: RedComponentComponent},
-                {headerName: "Questions", field: "questions"}
+                {headerName: "Total", field: "total", filter: 'number',editable:true,aggfunction:'sum'},
+                
             ];
     
             this.rowData = [
-                {id: "u15062440", total: "100", questions: 35000},
-                {id: "u12345678", total: "88", questions: 32000},
-                {id: "u20982211", total: "43", questions: 72000}
+                {id: "u15062440", total: "0"},
+                {id: "u12345678", total: "0"},
+                {id: "u20982211", total: "0"}
             ]
         }
     
+        addColumn(colHeader)
+        {
+            var columnDefs = this.gridOptions.columnDefs;
+            columnDefs.push({ field:'questions', headerName: 'Question '+ ++this.i,editable:true});
+            this.gridOptions.api.setColumnDefs(columnDefs);
+        }
+        
         onGridReady(params) {
             params.api.sizeColumnsToFit();
         }
