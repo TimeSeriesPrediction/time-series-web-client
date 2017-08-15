@@ -32,29 +32,25 @@
      
       <form (ngSubmit)="addAssignment()"  id="myForm">
       
-        <div id="wrapper"class="row">
-          <label id="li">Module:</label>
-            <select  id="sel1">
+        
+            <div id="dropds" class="btn-group btn-group-lg">
+            <select  id="sel1" class="btn btn-primary"style="width:80%">
+              <option>Module</option>
               <option>COS 151</option>
               <option>COS 132</option>
               <option>COS 110</option>
               <option>COS 121</option>
             </select>
-        </div>
-      
-        
-        <div id="wrapper"class="row">
-            <label id="li">Assignment:</label>
-              <select  id="sel1">
+              <select  id="sel1" class="btn btn-primary" style="width:100%">
+                <option>Assessment</option>
                 <option>Class Test 1</option>
                 <option>Class Test 2</option>
                 <option>EO1</option>
                 <option>EO2</option>
               </select>
-          </div>
+            </div>
   
-        <div id="wrapper" class="row" >
-          <label for="for-file" id="li">Student Numbers(.csv):</label> 
+        <div  class="row" >
           <input id="for-file" type="file"  data-show-preview="false"> 
         </div>  
                 

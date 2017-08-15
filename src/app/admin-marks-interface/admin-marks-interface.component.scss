@@ -82,10 +82,14 @@ input,select
   height:50%;
 }
 
-#wrapper
+#dropds
 {
-  float:left;
-  width: 95%;
-  margin-left:5%;
-  height:15%;
+    float: right;
+    margin-bottom: 2%;
+}
+
+#for-file
+{
+    float: left;
+    margin-left: 5%;
 }
