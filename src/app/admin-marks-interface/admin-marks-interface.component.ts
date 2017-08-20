@@ -38,7 +38,8 @@
 
         removeColumn()
         {
-
+            var selectedRowData = this.gridOptions.api.getSelectedRows();
+            this.gridOptions.api.updateRowData({remove: selectedRowData});
         }
 
         removeRow()

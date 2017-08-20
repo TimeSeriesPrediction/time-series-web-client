@@ -20,10 +20,6 @@ const routes: Routes = [
     path: 'marks',
     component: MarksComponent
   },
- //// {
-   // path: 'queries',
-   // component: MarksComponent
-  //},
   {
     path: '',
     redirectTo: 'login',
