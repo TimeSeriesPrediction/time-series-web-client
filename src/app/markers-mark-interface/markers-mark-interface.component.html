@@ -33,46 +33,19 @@
   </div>
 </nav>
 
-  <div  id="rcorners1">
-   <h3 id="li1"  class="center">Add Assignment</h3>
-   
-    <form (ngSubmit)="addAssignment()"  id="myForm">
-    
-      <div id="wrapper"class="row">
-        <label id="li">Module:</label>
-          <select  id="sel1">
-            <option>COS 151</option>
-            <option>COS 132</option>
-            <option>COS 110</option>
-            <option>COS 121</option>
-          </select>
-      </div>
-    
-      
-      <div id="wrapper"class="row" >
-        <label id="li">Assessment:</label>
-        <input id="for-file" type="text" >
-      </div>
-
-      <div id="wrapper" class="row" >
-        <label id="li">Deadline:</label>
-        <input id="for-file" type="date" >
-      </div>
-
-      <div id="wrapper" class="row" >
-        <label for="for-file" id="li">Select File:</label> 
-        <input id="for-file" type="link"  data-show-preview="false"> 
-      </div>  
-              
-
-      <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
-        
-
-    </form>
-  </div>
-
-
-
-
-
-  
+<div id="dropds" class="btn-group btn-group-lg">
+    <select  id="sel1" class="btn btn-primary"style="width:80%">
+      <option>Module</option>
+      <option>COS 151</option>
+      <option>COS 132</option>
+      <option>COS 110</option>
+      <option>COS 121</option>
+    </select>
+      <select  id="sel1" class="btn btn-primary" style="width:100%">
+        <option>Assessment</option>
+        <option>Class Test 1</option>
+        <option>Class Test 2</option>
+        <option>EO1</option>
+        <option>EO2</option>
+      </select>
+    </div>

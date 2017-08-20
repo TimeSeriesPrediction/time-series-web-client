@@ -17,7 +17,7 @@ export class GradingComponent implements OnInit {
 
    ngOnInit() {
     this.getCurrentUser();
-    this.getModules();
+    //this.getModules();
   }
      currentUser : User;
 

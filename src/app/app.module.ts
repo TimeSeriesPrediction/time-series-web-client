@@ -25,6 +25,7 @@ import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-mark
 //import {StudentQueryComponent} from './student-query/student-query.component';
 import {RedComponentComponent} from "./red-component/red-component.component";
 import {AgGridModule} from "ag-grid-angular/main";
+import { MarkersMarkInterfaceComponent } from './markers-mark-interface/markers-mark-interface.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {AgGridModule} from "ag-grid-angular/main";
     LeaderboardComponent,
     AdminMarksInterfaceComponent,
     //StudentQueryComponent
-    RedComponentComponent
+    RedComponentComponent,
+    MarkersMarkInterfaceComponent
 
   ],
   imports: [

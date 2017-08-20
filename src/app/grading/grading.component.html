@@ -1,73 +1,34 @@
 <nav class="navbar navbar-default" style="color:white;">
-  <div class="container-fluid">
-    <div class="navbar-header"  >
-      <img src="../../../assets/images/logo.png" alt="Logo" style ="width: 50px; height: 50px;">
-       <a id="site-head" class="navbar-brand" style="color:white;" href="#">Saffron </a>
-   </div>
-
-	 
-	 <div class="container "style="color:white;"> 
-
-
-		 <div class="col-md-2 text-right pull-right" >
-			 <span class="pull-right">
-				<span class="glyphicon glyphicon-user"></span>
-			 </span>
-			 <p id='studentDeets'>Student Name uXXXXXXXX<p>
+    <div class="container-fluid">
+      <div class="navbar-header"  >
+        <img src="../../../assets/images/logo.png" alt="Logo" style ="width: 50px; height: 50px;">
+         <a id="site-head" class="navbar-brand" style="color:white;" href="#">Saffron </a>
      </div>
-       <ul class="nav nav-pills" >
-        <li id="li" class="active"><a href="Grading" style="background-color:#17294D;color:white;">Manage Marks</a></li>
-        <li id="li"><a href="Assignment" style="color:white;">Manage Assignments</a></li>
-        <li id="li"><a href="Weights" style="color:white;">Manage Weightings</a></li>
-      </ul> 
-		
-	 </div>
   
-  </div>
-</nav>
-
-  <div id="rcorners1">
-
-  <h3  class="center"id="li1">Add Marks</h3>
-
-  <form  class="form-horizontal" action="/action_page.php">
-    <div class="form-group" id="wrapper">
-      <label class="control-label col-sm-2" id="li" >Module Code:</label>
-      
-      
-        <select class="form-control" id="sel1">
-          <option id="li1">COS 151</option>
-          <option id="li1">COS 132</option>
-          <option id="li1">COS 110</option>
-          <option id="li1">COS 121</option>
-        </select>
-      
-      
-    </div>
-    <div class="form-group" id="wrapper">
-      <label class="control-label col-sm-2" id="li">Assessment Opportunity:</label>
-           
-      
-        <select class="form-control" id="sel1">
-          <option id="li">1</option>
-          <option id="li">2</option>
-          <option id="li">3</option>
-          <option id="li">4</option>
-        </select> 
-    </div>
-    <div class="form-group" id="wrapper">   
-       <label class="control-label col-sm-2" id="li">Select File:</label>     
-       <input id="input-1a" type="file" class="file" data-show-preview="false">
-    </div>
-      
-      
-        <button type="submit" class="btn btn-default"  id="btnSub">Submit</button>
-      
+       
+       <div class="container "style="color:white;"> 
   
-  </form>
-</div>
-
-
-
-
   
+           <div class="col-md-2 text-right pull-right" >
+               <span class="pull-right">
+                  <span class="glyphicon glyphicon-user"></span>
+               </span>
+               <div>Student Number</div>
+       </div>
+         <ul class="nav nav-pills" >
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Grading">Manage Marks</a>
+                <ul class="dropdown-menu">
+                  <li><a href="admin-marks" style="  background-color:#17294D;
+                    text-transform: uppercase; color:white">Marksheet Setup</a></li>
+                  <li><a href="marker-marks" style="  background-color:#17294D;
+                    text-transform: uppercase; color:white">Enter Marks</a></li>
+                </ul>
+              </li>
+          <li id="li" ><a href="Assignment" style="color:white;">Manage Assignments</a></li>
+          <li id="li" ><a href="Weights" style="color:white;">Manage Weightings</a></li>
+        </ul> 
+          
+       </div>
+    
+    </div>
+  </nav>
