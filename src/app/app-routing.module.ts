@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {WeightingsComponent} from './weightings/weightings.component';
 import {GradingComponent} from './grading/grading.component';
 import {AssignmentsComponent} from './assignments/assignments.component';
-import { AuthGuard } from './services/auth-guard/auth.guard';
+
 
 import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';
 

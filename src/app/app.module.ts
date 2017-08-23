@@ -70,7 +70,7 @@ import { AdminQueryComponent } from './admin-query/admin-query.component';
     MaterialModule,
     AgGridModule.withComponents(
       [RedComponentComponent]
-  )
+  ),
 
     ReactiveFormsModule
 
