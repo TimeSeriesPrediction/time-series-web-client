@@ -18,8 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
-
-,import { MarksComponent } from './marks/marks.component';
+import { MarksComponent } from './marks/marks.component';
 
 
 import { AuthGuard } from './services/auth-guard/auth.guard';
@@ -33,10 +32,8 @@ import { AdminQueryComponent } from './admin-query/admin-query.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-
+    AppComponent,
     AdminQueryComponent,
-
     LoginComponent,
     DashboardComponent,
     MarksComponent,
