@@ -8,7 +8,9 @@ export class SharedDataService {
   assessment_type: string = "Assignment";
   assessment_number: number = 9;
   query_reason: string = "";
+
   student_number: string = "u15015239";
+
 
 
   constructor() { }
@@ -39,8 +41,6 @@ export class SharedDataService {
     //alert("Setting assessment number to: " + number);
     this.assessment_number = number;
   }
-
-
   getQueryReason() : string{
     return this.query_reason;
   }

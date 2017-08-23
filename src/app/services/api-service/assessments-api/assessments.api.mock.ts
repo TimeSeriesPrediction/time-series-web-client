@@ -9,19 +9,20 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AssessmentsApi {
-
+public assessments: Assessment[] =[];
   constructor(private _api : ApiService){
 
   }
 
-  getAssessmentsByModule(moduleId : number) : Observable<Assessment[]>{
-    var assessments: Assessment[] = [
-      new Assessment("Practical 1", 15, moduleId),
-      new Assessment("Semester test 1", 50, moduleId),
-      new Assessment("Class test 1", 20, moduleId)
-    ]
-
-    return Observable.of(assessments);
+  getAssessmentsByModule(moduleId : string) : Observable<Assessment[]>{
+    return Observable.of(this.assessments);
+  }
+  addAssessment(moduleID:string,name:string,deadline:string,link:string)
+  {
+    var newAssessment = new Assessment(moduleID,0,name,deadline,link);
+   // alert(newAssessment.name+newAssessment.deadline+newAssessment.moduleId+newAssessment.link);
+  
+   this.assessments.push(newAssessment);
   }
 
 }

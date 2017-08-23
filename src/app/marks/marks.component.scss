@@ -1,3 +1,4 @@
+
 $c1: rgb(227, 229, 232);
 $c2: rgb(209, 211, 214);
 $c3: #10244C;
@@ -6,6 +7,7 @@ $c4: #213159;
     background-color: $c3;
     border: none;
     border-radius: 0;
+
 }
 
 .nav {
@@ -28,7 +30,9 @@ $c4: #213159;
 }
 
 a {
+
     color: black;
+
 }
 
 button {
@@ -42,7 +46,9 @@ table {
 }
 
 table {
+
     border: 1px solid rgb(209, 211, 214)
+
 }
 
 th.cell,
@@ -54,26 +60,33 @@ td {
     padding: 8px;
     width: 20% !important;
     color: #213159;
+
+
     border: 1px solid rgb(209, 211, 214)
 }
 
 .header-row {
     background-color: rgb(227, 229, 232) !important;
+
     color: black;
 }
 
 tr {
+
     background-color: rgb(209, 211, 214) !important;
+
     color: #213159
 }
 
 tr:nth-child(1) {
+
     background-color: rgb(227, 229, 232)!important;
     color: black;
 }
 
 h4 {
     color: black
+
 }
 
 ul {
@@ -82,6 +95,7 @@ ul {
 
 .tab-content {
     padding: 2%;
+
     background-color: rgba(164, 164, 165, 0.5);
     color: black;
 }
@@ -93,16 +107,19 @@ ul {
 
 .nav-tabs>li>a:hover {
     background-color: rgb(209, 211, 214)!important;
+
     border: medium none;
     border-radius: 0;
     color: black;
 }
 
 .nav-tabs>li>a {
+
     color: black;
     border-color: transparent;
 }
 
 img {
     float: left;
+
 }

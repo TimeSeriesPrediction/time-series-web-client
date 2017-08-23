@@ -17,7 +17,9 @@ export class StudentQueryComponent {
 
 
  ngOnInit() : void { 
+
       this.moduleCode = this._sharedDataService.getModuleCode();
+
       this.assType = this._sharedDataService.getAssessmentType();
       this.assNumber = this._sharedDataService.getAssessmentNumber();
    } 

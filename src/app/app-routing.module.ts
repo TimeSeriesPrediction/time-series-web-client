@@ -1,6 +1,18 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+
+
+import {WeightingsComponent} from './weightings/weightings.component';
+import {GradingComponent} from './grading/grading.component';
+import {AssignmentsComponent} from './assignments/assignments.component';
+import { AuthGuard } from './services/auth-guard/auth.guard';
+
+import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';
+
+
+
 import { StudentQueryComponent} from './student-query/student-query.component';
 
 import { LoginComponent } from './login/login.component';
@@ -12,12 +24,17 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AdminQueryComponent } from './admin-query/admin-query.component';
 
+
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
 
   },  
+  {
+    path: 'marks',
+    component: MarksComponent
+  },
   {
     path: '',
    redirectTo: 'login',
@@ -29,9 +46,19 @@ const routes: Routes = [
 
     path: 'dash',
 
-    component: DashboardComponent,
-
-    canActivate: [AuthGuard] 
+    component: DashboardComponent
+  },
+  {
+    path: 'Grading',
+    component: GradingComponent
+  },
+  {
+    path:'Assignment',
+    component: AssignmentsComponent
+  },
+  {
+    path:'Weights',
+    component: WeightingsComponent
 
   },
   {
@@ -39,6 +66,12 @@ const routes: Routes = [
     path: 'leaderboard',
 
     component: LeaderboardComponent
+
+  },
+  {
+    path: 'admin-marks',
+    component: AdminMarksInterfaceComponent
+
 
   },
   {
@@ -59,6 +92,7 @@ const routes: Routes = [
   {
     path: 'admin-query',
     component: AdminQueryComponent
+
   }
 ];
 
