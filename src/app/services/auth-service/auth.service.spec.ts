@@ -3,9 +3,10 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { Http, BaseRequestOptions } from '@angular/http';
 
-import { AppConfig } from './app.config'
-import { UserMockServerProvider } from './users.mockserver';
+import { AppConfig } from '../../app.config'
+import { UserMockServerProvider } from '../../users.mockserver';
 import { AuthService } from './auth.service';
+import {ApiService} from '../api-service/api.service';
 
 describe('AuthService', () => {
   beforeEach(() => {
@@ -13,6 +14,7 @@ describe('AuthService', () => {
       providers: [
         AppConfig,
         AuthService,
+        ApiService,
         { provide: Http, useValue: UserMockServerProvider },
         MockBackend,
         BaseRequestOptions
