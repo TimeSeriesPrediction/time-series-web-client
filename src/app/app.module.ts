@@ -13,12 +13,13 @@ import { MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/materi
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config'
 import { AppComponent } from './app.component';
+
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
-import { MarksComponent } from './marks/marks.component';
+,import { MarksComponent } from './marks/marks.component';
 
 
 import { AuthGuard } from './services/auth-guard/auth.guard';
@@ -27,16 +28,21 @@ import { ApiService } from './services/api-service/api.service';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AssessmentsApi } from './services/api-service/assessments-api/assessments.api.mock';
 import { StudentQueryComponent } from './student-query/student-query.component';
+import { AdminQueryComponent } from './admin-query/admin-query.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+
+    AdminQueryComponent,
+
     LoginComponent,
     DashboardComponent,
     MarksComponent,
     LeaderboardComponent,
     StudentQueryComponent
+
   ],
   imports: [
     BrowserModule,

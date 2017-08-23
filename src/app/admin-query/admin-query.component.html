@@ -1,0 +1,93 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="../../../assets/images/Logo.png" alt="Logo" style="width: 50px; height: 50px; float: left;">
+            <a class="navbar-brand" style="color:white;" href="#">Saffron </a>
+        </div>
+
+        <div class="container ">
+            <div class="col-md-2 text-right pull-right" style="color:rgb(67, 82, 89);">
+                <span class="pull-right"><span class="glyphicon glyphicon-user"></span></span>
+                <p>Admin
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</nav>
+
+<div id="header-container">
+    <h3>Choose a module: </h3>
+</div>
+
+<div id="query-container">
+    <h3>View query: </h3>
+</div>
+
+<div id="higher-privilege" class="container">
+
+
+    <ul class="nav nav-tabs" id="module-list">
+        <ng-container *ngFor="let module of modules; let i = index">
+            <li *ngIf="i == 0" class="active"><a data-toggle="tab" href="#{{module.code}}">{{module.code}}</a></li>
+            <li *ngIf="i != 0"><a data-toggle="tab" href="#{{module.code}}">{{module.code}}</a></li>
+        </ng-container>
+    </ul>
+
+    <div class="tab-content">
+
+
+
+        <ng-container *ngFor="let module of modules; let i = index">
+            <!-- qurey content -->
+            <div *ngIf="i == 0" id="{{module.code}}" class="tab-pane fade in active">
+                <ng-container *ngFor="let query of module.queries; let i = index">
+                    <ul id="list-queries">
+
+                        <!-- list of queries -->
+                        <li *ngIf="query.assType == 'Assignment'" class="list-assignment">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+
+                        <li *ngIf="query.assType == 'Test'" class="list-test">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+                    </ul>
+                    <div id="{{query.student}}-{{query.assType}}-{{query.assNum}}" style="display: none">
+                        <h3><b>Module code: </b>{{query.code}}</h3>
+                        <h5><b>{{query.assType}}</b> {{query.assNum}}</h5>
+                        <h5><b>Student: </b>{{query.student}}</h5>
+                        <p><b>Reason: </b>{{query.reason}}</p>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div *ngIf="i != 0" id="{{module.code}}" class="tab-pane fade ">
+                <ng-container *ngFor="let query of module.queries; let i = index">
+                    <ul id="list-queries">
+
+                        <!-- list of queries -->
+                        <li *ngIf="query.assType == 'Assignment'" class="list-assignment">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+
+                        <li *ngIf="query.assType == 'Test'" class="list-test">
+                            <button id="blah" class="{{query.student}}-{{query.assType}}-{{query.assNum}}" (click)="displayQuery(query.student+'-'+query.assType+'-'+query.assNum)">About: {{query.assType}} : {{query.assNum}} From: {{query.student}}</button>
+                        </li>
+                    </ul>
+                    <div id="{{query.student}}-{{query.assType}}-{{query.assNum}}" style="display: none">
+                        <h3><b>Module code: </b>{{query.code}}</h3>
+                        <h5><b>{{query.assType}}</b> {{query.assNum}}</h5>
+                        <h5><b>Student: </b>{{query.student}}</h5>
+                        <p><b>Reason: </b>{{query.reason}}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
+<div id="display" style="display: none;">
+
+</div>
