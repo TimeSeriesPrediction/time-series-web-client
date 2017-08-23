@@ -8,6 +8,7 @@ export class SharedDataService {
   assessment_type: string = "Assignment";
   assessment_number: number = 9;
   query_reason: string = "";
+  student_number: string = "u15015239";
 
 
   constructor() { }
