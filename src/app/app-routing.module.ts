@@ -8,6 +8,8 @@ import {GradingComponent} from './grading/grading.component';
 import {AssignmentsComponent} from './assignments/assignments.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { MarksComponent } from './marks/marks.component';
+import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';
+
 //import {StudentQueryComponent} from './student-query/student-query.component';
 
 const routes: Routes = [
@@ -19,10 +21,6 @@ const routes: Routes = [
     path: 'marks',
     component: MarksComponent
   },
- //// {
-   // path: 'queries',
-   // component: MarksComponent
-  //},
   {
     path: '',
     redirectTo: 'login',
@@ -47,6 +45,10 @@ const routes: Routes = [
   {
     path: 'leaderboard',
     component: LeaderboardComponent
+  },
+  {
+    path: 'admin-marks',
+    component: AdminMarksInterfaceComponent
   }
 ];
 
