@@ -20,14 +20,22 @@
 </nav>
 
 <div id="query-form">
-    <h2>Module code: {{moduleCode}}
-    </h2>
-    <h3>Assessment type: {{assType}}
-    </h3>
-    <h3>Assessment number: {{assNumber}}
-    </h3>
 
-    <form [formGroup]="queryForm" (ngSubmit)="query($event)">
+    <div class="contain col-md-12">
+        <h3 class="lefter col-md-6">Module code: </h3>
+        <h3 class="righter col-md-6">{{moduleCode}}</h3>
+    </div>
+    <div class="contain col-md-12">
+        <h4 class="lefter col-md-6">Assessment type:</h4>
+        <h4 class="righter col-md-6"> {{assType}}</h4>
+    </div>
+    <div class="contain col-md-12">
+        <h4 class="lefter col-md-6">Assessment number:</h4>
+        <h4 class="righter col-md-6"> {{assNumber}}</h4>
+    </div>
+
+    <form [formGroup]="queryForm" (ngSubmit)="query($event)" class="col-md-12">
+
         <label for="reason">Reason for your query:</label>
         <textarea class="form-control" rows="10" cols="50" id="reason" formControlName="reason" type="textarea" placeholder="Ex: Mark is missing"></textarea>
         <br />

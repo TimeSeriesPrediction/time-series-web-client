@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SharedDataService {
 
+
   module_code: string = "COS 301";
   assessment_type: string = "Assignment";
   assessment_number: number = 9;
   query_reason: string = "";
-  student_number: string = "u15015239"
+
+  student_number: string = "u15015239";
+
+
 
   constructor() { }
 
@@ -37,7 +41,6 @@ export class SharedDataService {
     //alert("Setting assessment number to: " + number);
     this.assessment_number = number;
   }
-
   getQueryReason() : string{
     return this.query_reason;
   }
@@ -54,6 +57,7 @@ export class SharedDataService {
   setStudentNo(number){
     //alert("Setting reason to: " + reason);
     this.student_number = number;
+
   }
 
 }

@@ -37,7 +37,12 @@ export class AdminQueryComponent implements OnInit {
 
    displayQuery(event)
    {
-     alert(event);
+
+     //alert(event);
+     document.getElementById("display").style.display = "block";
+     var w = document.getElementById("higher-privilege").offsetHeight;
+     document.getElementById("display").style.height = w + "px"; 
+
      document.getElementById("display").innerHTML = document.getElementById(event).innerHTML;
    }
 

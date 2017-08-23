@@ -1,16 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule, MdButtonModule,MdNativeDateModule, MdCheckboxModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config';
 import { AppComponent } from './app.component';
+
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
+
 import { GradingComponent } from './grading/grading.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { WeightingsComponent } from './weightings/weightings.component';
@@ -27,9 +31,15 @@ import {RedComponentComponent} from "./red-component/red-component.component";
 import {AgGridModule} from "ag-grid-angular/main";
 
 
+import { StudentQueryComponent } from './student-query/student-query.component';
+import { AdminQueryComponent } from './admin-query/admin-query.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    AdminQueryComponent,
     LoginComponent,
     DashboardComponent,
     GradingComponent,
@@ -37,9 +47,13 @@ import {AgGridModule} from "ag-grid-angular/main";
     WeightingsComponent,
     MarksComponent,
     LeaderboardComponent,
+
     AdminMarksInterfaceComponent,
-    //StudentQueryComponent
+   
     RedComponentComponent,
+
+    StudentQueryComponent
+
 
   ],
   imports: [
@@ -52,10 +66,14 @@ import {AgGridModule} from "ag-grid-angular/main";
     MdButtonModule,
     MdCheckboxModule,
     AppRoutingModule,
+
     MaterialModule,
     AgGridModule.withComponents(
       [RedComponentComponent]
   )
+
+    ReactiveFormsModule
+
   ],
   providers: [
     AppConfig,
