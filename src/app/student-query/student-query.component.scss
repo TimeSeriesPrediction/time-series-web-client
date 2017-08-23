@@ -1,0 +1,65 @@
+$c1: rgb(227, 229, 232);
+$c2: rgb(209, 211, 214);
+$c3: #10244C;
+$c4: #213159;
+img {
+    float: left;
+}
+
+h2,
+h3,
+label {
+    color: black;
+}
+
+.navbar-default {
+    background-color: #10244C;
+    border: none;
+    border-radius: 0;
+}
+
+.nav {
+    color: black;
+    border-radius: 0;
+}
+
+.navbar-header {
+    color: black;
+}
+
+.vertical-center {
+    padding-top: 10%;
+    padding-left: 20%;
+}
+
+#query-form {
+    width: 60%;
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
+}
+
+#reason {
+    width: 100%;
+    height: 50%;
+    background-color: rgb(227, 229, 232);
+    border-radius: 0;
+}
+
+textarea {
+    resize: none;
+    color: black;
+}
+
+.lefter {
+    float: left;
+}
+
+.righter {
+    float: right;
+    color: #10244C;
+}
+
+.contain {
+    display: inline-block;
+}

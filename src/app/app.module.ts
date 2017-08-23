@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 //import { UserMockServerProvider } from './users.mockserver';
@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
+
 import { MarksComponent } from './marks/marks.component';
 
 
@@ -25,6 +26,7 @@ import { AuthService } from './services/auth-service/auth.service';
 import { ApiService } from './services/api-service/api.service';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AssessmentsApi } from './services/api-service/assessments-api/assessments.api.mock';
+import { StudentQueryComponent } from './student-query/student-query.component';
 
 
 @NgModule({
@@ -33,8 +35,8 @@ import { AssessmentsApi } from './services/api-service/assessments-api/assessmen
     LoginComponent,
     DashboardComponent,
     MarksComponent,
-    LeaderboardComponent
-
+    LeaderboardComponent,
+    StudentQueryComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { AssessmentsApi } from './services/api-service/assessments-api/assessmen
     MdInputModule,
     MdButtonModule,
     MdCheckboxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     AppConfig,
