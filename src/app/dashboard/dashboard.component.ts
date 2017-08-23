@@ -18,7 +18,7 @@ import { AppConfig } from '../app.config';
 export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService,private userService : UsersApi) { }
-
+ public testOutput:string="testthis";
   ngOnInit() {
     this.getCurrentUser();
   }
