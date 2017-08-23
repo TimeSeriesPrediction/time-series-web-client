@@ -23,13 +23,12 @@ import { MarksComponent } from './marks/marks.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AdminQueryComponent } from './admin-query/admin-query.component';
-
+import { RedComponentComponent } from './red-component/red-component.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-
   },  
   {
     path: 'marks',
@@ -37,15 +36,11 @@ const routes: Routes = [
   },
   {
     path: '',
-   redirectTo: 'login',
-
+    redirectTo: 'login',
     pathMatch: 'full'
-
   },
   {
-
     path: 'dash',
-
     component: DashboardComponent
   },
   {
@@ -62,37 +57,28 @@ const routes: Routes = [
 
   },
   {
-
     path: 'leaderboard',
-
     component: LeaderboardComponent
-
   },
   {
     path: 'admin-marks',
     component: AdminMarksInterfaceComponent
-
-
   },
   {
-
     path: 'marks',
-
     component: MarksComponent
-
   },
-
   {
-
     path: 'student-query',
-
     component: StudentQueryComponent
-
   },
   {
     path: 'admin-query',
     component: AdminQueryComponent
-
+  },
+  {
+    path: 'red',
+    component: RedComponentComponent
   }
 ];
 
