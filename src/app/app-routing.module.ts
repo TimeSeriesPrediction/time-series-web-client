@@ -39,7 +39,7 @@ const routes: Routes = [
     path: 'student-query',
     component: StudentQueryComponent
   }
-  }
+  
 ];
 
 @NgModule({
