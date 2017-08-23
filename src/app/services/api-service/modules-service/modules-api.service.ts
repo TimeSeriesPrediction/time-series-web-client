@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ModulesApiService 
 {
-
+  providers: [ApiService];
   constructor(private _api : ApiService){
 
   }

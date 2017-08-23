@@ -9,7 +9,6 @@ import {AssignmentsComponent} from './assignments/assignments.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { MarksComponent } from './marks/marks.component';
 import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';
-import { MarkersMarkInterfaceComponent } from './markers-mark-interface/markers-mark-interface.component';
 
 //import {StudentQueryComponent} from './student-query/student-query.component';
 
@@ -50,10 +49,6 @@ const routes: Routes = [
   {
     path: 'admin-marks',
     component: AdminMarksInterfaceComponent
-  },
-  {
-    path: 'marker-marks',
-    component: MarkersMarkInterfaceComponent
   }
 ];
 
