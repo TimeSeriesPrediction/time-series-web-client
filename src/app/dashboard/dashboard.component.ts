@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { AuthService } from '../services/auth-service/auth.service';
-import {UsersApi} from '../services/api-service/users-api/users-api.mock';
+import {UsersApi} from '../services/api-service/users-api/users-api';
 import {User} from '../models/User';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../services/api-service/api.service';
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
 
   getCurrentUser(){
     this.userService.getCurrentUser().subscribe(
-    function(response) { this.currentUser=response},
+    function(user) { this.currentUser = user },
     function(error) { console.log("Error happened" + error)},
     function() {document.getElementById('studentDeets').innerHTML=this.currentUser.username}
 )

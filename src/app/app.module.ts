@@ -18,7 +18,7 @@ import {MaterialModule} from '@angular/material';
 import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
-import {UsersApi} from './services/api-service/users-api/users-api.mock';
+import {UsersApi} from './services/api-service/users-api/users-api';
 import 'hammerjs';
 import { MarksComponent } from './marks/marks.component';
 import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';

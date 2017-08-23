@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptionsArgs } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
@@ -29,9 +29,9 @@ export class ApiService {
 
     if(!data){
       observable = method.call(this._http, url, { headers : headers });
+    } else {
+      observable = method.call(this._http, url, data, { headers : headers });
     }
-
-    observable = method.call(this._http, url, data, { headers : headers });
 
     observable.subscribe((response) => {
       var result = response.json();

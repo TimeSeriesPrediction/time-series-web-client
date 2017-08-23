@@ -15,7 +15,9 @@ export class UsersApi {
 
   getCurrentUser() : Observable<User>{
     return this._api.get('/users/profile')
-      .map((response: Response) => <User>response.json());
+      .map( (response: Response) =>
+        <User>response.json().user
+      );
   }
 
 }
