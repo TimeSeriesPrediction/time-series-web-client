@@ -29,9 +29,11 @@
 /connect.lock
 /coverage
 /libpeerconnection.log
+debug.log
 npm-debug.log
 testem.log
 /typings
+*.orig
 
 # e2e
 /e2e/*.js
@@ -40,3 +42,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
