@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { AuthService } from '../auth.service'
+import { AuthService } from '../services/auth-service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.model.username, this.model.password, this.model.remember)
+    this.authService.login(this.model.username, this.model.password)
       .subscribe(
         data => {
           this.router.navigate(['/dash']);

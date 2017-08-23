@@ -10,7 +10,7 @@ import { MdInputModule, MdButtonModule } from '@angular/material';
 
 import { UserMockServerProvider } from '../users.mockserver';
 import { LoginComponent } from './login.component';
-import { AuthService} from '../auth.service'
+import { AuthService} from '../services/auth-service/auth.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

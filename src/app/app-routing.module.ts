@@ -5,7 +5,12 @@ import { StudentQueryComponent} from './student-query/student-query.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { AuthGuard } from './auth.guard';
+import { MarksComponent } from './marks/marks.component';
+
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+
+import { AuthGuard } from './services/auth-guard/auth.guard';
+
 
 const routes: Routes = [
   {
@@ -14,18 +19,26 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'dash',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'dash',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
-    children: []
+    canActivate: [AuthGuard] 
+  },
+  {
+    path: 'leaderboard',
+    component: LeaderboardComponent
+  },
+  {
+    path: 'marks',
+    component: MarksComponent
   },
   {
     path: 'student-query',
     component: StudentQueryComponent
+  }
   }
 ];
 
