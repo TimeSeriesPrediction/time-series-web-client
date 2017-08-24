@@ -12,7 +12,7 @@ import { AppConfig } from '../app.config';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-   providers: [UsersApi,ApiService,AppConfig],
+  providers: [UsersApi,ApiService,AppConfig],
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
@@ -26,17 +26,17 @@ export class DashboardComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
-     this.getCurrentUser();
+    this.getCurrentUser();
   }
-     currentUser : User;
+  currentUser : any = {};
 
   getCurrentUser(){
-    this.userService.getCurrentUser().subscribe(
-    function(user) { this.currentUser = user },
-    function(error) { console.log("Error happened" + error)},
-    function() {document.getElementById('studentDeets').innerHTML=this.currentUser.username}
-)
-
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+    }, (error) => {
+      console.log("Error happened: " + error)
+    });
+  }
 
 }
-}
+
