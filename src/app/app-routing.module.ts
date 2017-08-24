@@ -19,7 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { MarksComponent } from './marks/marks.component';
-
+import { StudentDashComponent} from './student-dash/student-dash.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AdminQueryComponent } from './admin-query/admin-query.component';
@@ -79,6 +79,10 @@ const routes: Routes = [
   {
     path: 'red',
     component: RedComponentComponent
+  },
+  {
+    path: 'student-dash',
+    component: StudentDashComponent
   }
 ];
 

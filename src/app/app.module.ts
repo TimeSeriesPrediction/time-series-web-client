@@ -33,6 +33,7 @@ import {AgGridModule} from "ag-grid-angular/main";
 
 import { StudentQueryComponent } from './student-query/student-query.component';
 import { AdminQueryComponent } from './admin-query/admin-query.component';
+import { StudentDashComponent } from './student-dash/student-dash.component';
 
 
 
@@ -52,7 +53,9 @@ import { AdminQueryComponent } from './admin-query/admin-query.component';
    
     RedComponentComponent,
 
-    StudentQueryComponent
+    StudentQueryComponent,
+
+    StudentDashComponent
 
 
   ],
