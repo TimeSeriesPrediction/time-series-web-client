@@ -6,15 +6,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule } from '@angular/http';
-
-//import { UserMockServerProvider } from './users.mockserver';
-//import { MockBackend, MockConnection } from '@angular/http/testing';
-//import { BaseRequestOptions } from '@angular/http';
-
-
+import { MdCardModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule, MdButtonModule, MdCheckboxModule, MdDatepickerModule } from '@angular/material';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config';
 import { LoginComponent } from './login/login.component';

@@ -1,25 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MdCardModule} from '@angular/material';
 import { StudentDashComponent } from './student-dash.component';
+import {MaterialModule} from'@angular/material';
 
 describe('StudentDashComponent', () => {
-  let component: StudentDashComponent;
-  let fixture: ComponentFixture<StudentDashComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StudentDashComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StudentDashComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
   });
 });
