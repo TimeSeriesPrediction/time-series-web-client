@@ -4,6 +4,41 @@
   background-color:#17294D;
 }
 
+ .navbar-header, #site-head
+{
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 16pt !important;
+    text-align: center;   
+}
+
+#site-head{
+    padding-top: 7%;
+}
+
+#logo
+{
+    float: left;
+}
+
+#li
+{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 10pt !important;
+  color: white;
+}
+
+#li  :hover, a :hover
+{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 10pt !important;
+  color: #17294D !important;
+}
+
+a#sub :hover
+ {
+   color: white !important
+ }
+
 .container1
 {
   
@@ -15,22 +50,14 @@
   padding-left: 25%;
   padding-top :2%;
 }
-#li
+
+#li1
 {
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 150%;
+   font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 10pt !important;
+  color: #17294D;
 }
-  #li1
-{
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 300%;
-}
-  #site-head
-{
-    font-family: "Times New Roman", Times, serif;
-    font-size: 150%;
-    float: none;
-}
+
 #rcorners1 
 {
    display: block;

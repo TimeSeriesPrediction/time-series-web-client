@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { NgForm, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { SharedDataService } from '../shared-data.service';
+import { Router } from '@angular/router'
+
+import { AuthService } from '../services/auth-service/auth.service';
+import {UsersApi} from '../services/api-service/users-api/users-api';
 @Component({
   selector: 'app-student-query',
   templateUrl: './student-query.component.html',
@@ -13,7 +17,7 @@ export class StudentQueryComponent {
   assType: string = "test";
   assNumber: number = 9;
 
-  constructor(private _sharedDataService : SharedDataService, public fb: FormBuilder) { }
+  constructor(private router: Router, private authService: AuthService,private userService : UsersApi,private _sharedDataService : SharedDataService, public fb: FormBuilder) { }
 
 
  ngOnInit() : void { 
@@ -22,6 +26,7 @@ export class StudentQueryComponent {
 
       this.assType = this._sharedDataService.getAssessmentType();
       this.assNumber = this._sharedDataService.getAssessmentNumber();
+       this.getCurrentUser();
    } 
 
  public queryForm = this.fb.group({
@@ -31,6 +36,21 @@ export class StudentQueryComponent {
   query(event) {
     console.log(event);
     alert(this.queryForm.value.reason);
+  }
+  logout() {
+      this.authService.logout(); 
+      this.router.navigate(['/login']);
+      this.getCurrentUser();
+     this.getCurrentUser();
+    }
+    currentUser : any = {};
+  
+    getCurrentUser(){
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+    }, (error) => {
+      console.log("Error happened: " + error)
+    });
   }
 
 }

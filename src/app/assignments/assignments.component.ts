@@ -10,6 +10,9 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router'
+
+import { AuthService } from '../services/auth-service/auth.service';
 import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../services/api-service/users-api/users-api.mock';
@@ -35,7 +38,7 @@ export class AssignmentsComponent {
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
 
-  constructor(private userService : UsersApi, private assessmentService : AssessmentsApi) 
+  constructor(private router: Router, private authService: AuthService,private userService : UsersApi, private assessmentService : AssessmentsApi) 
   {
   
   }
@@ -45,16 +48,20 @@ export class AssignmentsComponent {
     this.getModules();
   }
 
-  public currentUser : User;
-
-  getCurrentUser()
-  {
-    this.userService.getCurrentUser().subscribe(
-    function(response) { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)}
-);
- 
-
+  logout() {
+      this.authService.logout(); 
+      this.router.navigate(['/login']);
+      this.getCurrentUser();
+     this.getCurrentUser();
+    }
+    currentUser : any = {};
+  
+    getCurrentUser(){
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+    }, (error) => {
+      console.log("Error happened: " + error)
+    });
   }
 getModules()
   {

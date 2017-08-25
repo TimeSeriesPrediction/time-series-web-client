@@ -1,8 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth-service/auth.service';
+import {UsersApi} from '../services/api-service/users-api/users-api.mock';
+import {AssessmentsApi} from '../services/api-service/assessments-api/assessments.api.mock';
+import {User} from '../models/User';
+import {Assessment} from '../models/Assessment';
+import {Injectable} from '@angular/core';
+import {ApiService} from '../services/api-service/api.service';
+import { HttpModule } from '@angular/http';
+import { AppConfig } from '../app.config';
 
 @Component({
   selector: 'app-admin-query',
   templateUrl: './admin-query.component.html',
+  providers: [UsersApi,ApiService,AppConfig],
   styleUrls: ['./admin-query.component.scss']
 })
 export class AdminQueryComponent implements OnInit {
@@ -11,7 +22,7 @@ export class AdminQueryComponent implements OnInit {
     //TO DO: process data received from the server
     public modules;
 
-  constructor() {
+  constructor(private router: Router, private authService: AuthService,private userService : UsersApi, private assessmentService : AssessmentsApi) {
     this.modules =  [
         { code: 'COS301',
           queries :  [
@@ -46,7 +57,25 @@ export class AdminQueryComponent implements OnInit {
      document.getElementById("display").innerHTML = document.getElementById(event).innerHTML;
    }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+    this.getCurrentUser();
+  }
+
+  logout() {
+      this.authService.logout(); 
+      this.router.navigate(['/login']);
+      this.getCurrentUser();
+     this.getCurrentUser();
+    }
+    currentUser : any = {};
+  
+    getCurrentUser(){
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+    }, (error) => {
+      console.log("Error happened: " + error)
+    });
   }
 
 

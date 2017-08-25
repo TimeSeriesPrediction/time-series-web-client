@@ -15,25 +15,32 @@ label {
     color: black;
 }
 
-.navbar-default {
-    background-color: #10244C;
-    border: none;
-    border-radius: 0;
+.navbar-default 
+{
+  background-color:#17294D;
 }
 
-.nav {
-    color: black;
-    border-radius: 0;
+ .navbar-header, #site-head
+{
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 16pt !important;
+    text-align: center;   
 }
 
-.navbar-header {
-    color: black;
-
+#site-head{
+    padding-top: 7%;
 }
 
-.vertical-center {
-    padding-top: 10%;
-    padding-left: 20%;
+#logo
+{
+    float: left;
+}
+
+.vertical-center 
+{
+	padding-top: 5%;
+    padding-left: 0%;
+   
 }
 
 #query-form {
