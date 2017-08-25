@@ -29,10 +29,11 @@ import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-mark
 //import {StudentQueryComponent} from './student-query/student-query.component';
 import {RedComponentComponent} from "./red-component/red-component.component";
 import {AgGridModule} from "ag-grid-angular/main";
-
+import { ChartsModule } from 'ng2-charts';
 
 import { StudentQueryComponent } from './student-query/student-query.component';
 import { AdminQueryComponent } from './admin-query/admin-query.component';
+import { StudentDashComponent } from './student-dash/student-dash.component';
 
 
 
@@ -52,7 +53,9 @@ import { AdminQueryComponent } from './admin-query/admin-query.component';
    
     RedComponentComponent,
 
-    StudentQueryComponent
+    StudentQueryComponent,
+
+    StudentDashComponent
 
 
   ],
@@ -66,7 +69,7 @@ import { AdminQueryComponent } from './admin-query/admin-query.component';
     MdButtonModule,
     MdCheckboxModule,
     AppRoutingModule,
-
+    ChartsModule,
     MaterialModule,
     AgGridModule.withComponents(
       [RedComponentComponent]
