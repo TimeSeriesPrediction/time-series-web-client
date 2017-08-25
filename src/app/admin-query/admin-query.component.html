@@ -1,24 +1,36 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header">
-
-            <img src="../../../assets/images/Logo.png" alt="Logo" style="width: 50px; height: 50px; float: left;">
-
-            <a class="navbar-brand" style="color:white;" href="#">Saffron </a>
-        </div>
-
-        <div class="container ">
-            <div class="col-md-2 text-right pull-right" style="color:rgb(67, 82, 89);">
-
-                <span class="pull-right"><span class="glyphicon glyphicon-user"></span></span>
-                <p>Admin
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="navbar-header">
+      <img id="logo" src="../../../assets/images/Logo.png" alt="Logo" style ="width: 50px; height: 50px;">
+      <a id="site-head" class="navbar-brand" style="color:white;" href="admin-dash">Saffron </a>
     </div>
+
+      
+    <div class="container "style="color:white;"> 
+      <div class="col-md-2 text-right pull-right" >
+        <span class="pull-right">
+            <span class="glyphicon glyphicon-user"></span>
+        </span>
+        <div>{{currentUser.username}}</div>
+        <a  class="button" href="#">Logout<span class="glyphicon glyphicon-log-out"></span></a>
+    </div>
+    <ul class="nav nav-pills" >
+      <li  id="li" class="dropdown"><a style="color:white;" id="li" class="dropdown-toggle" data-toggle="dropdown" href="Grading">Manage Marks</a>
+        <ul class="dropdown-menu">
+          <li>
+            <a id="sub" href="admin-marks" style="  background-color:#17294D; text-transform: uppercase; color:white">Marksheet Setup</a>
+          </li>
+          <li>
+            <a id="sub" href="marker-marks" style="  background-color:#17294D;text-transform: uppercase; color:white">Enter Marks</a>
+          </li>
+        </ul>
+      </li>
+      <li id="li" ><a href="Assignment" style="color:white;">Manage Assignments</a></li>
+      <li id="li" ><a href="Weights" style="color:white;">Manage Weightings</a></li>
+      <li id="li" ><a href="admin-query" style="color:white;">View Queries</a></li>
+    </ul> 
+    </div>  
+  </div>
 </nav>
 
 

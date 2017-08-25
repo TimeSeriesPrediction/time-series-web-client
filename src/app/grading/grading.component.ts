@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth-service/auth.service';
 import {UsersApi} from '../services/api-service/users-api/users-api.mock';
 import {User} from '../models/User';
 import {Injectable} from '@angular/core';
@@ -13,19 +15,27 @@ import { AppConfig } from '../app.config';
 })
 export class GradingComponent implements OnInit {
 
-  constructor(private userService : UsersApi) { }
+  constructor(private router: Router, private authService: AuthService,private userService : UsersApi) { }
 
    ngOnInit() {
     this.getCurrentUser();
     //this.getModules();
   }
-     currentUser : User;
 
-  getCurrentUser(){
-    this.userService.getCurrentUser().subscribe(
-    function(response) { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)}
-)
+  logout() {
+      this.authService.logout();
+      this.router.navigate(['/login']);
+      this.getCurrentUser();
+     this.getCurrentUser();
+    }
+    currentUser : any = {};
+  
+    getCurrentUser(){
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+    }, (error) => {
+      console.log("Error happened: " + error)
+    });
 }
 
  getModules()

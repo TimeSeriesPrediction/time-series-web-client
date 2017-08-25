@@ -3,6 +3,41 @@
 {
   background-color:#17294D;
 }
+
+ .navbar-header, #site-head
+{
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 16pt !important;
+    text-align: center;   
+}
+
+#site-head{
+    padding-top: 7%;
+}
+
+#logo
+{
+    float: left;
+}
+
+#li
+{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 10pt !important;
+  color: white;
+}
+
+#li  :hover, a :hover
+{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 10pt !important;
+  color: #17294D !important;
+}
+
+a#sub :hover
+ {
+   color: white !important
+ }
 .center
 {
   
@@ -20,22 +55,8 @@
     background-color: rgb(227, 229, 232);
     align-content: center;
 }
-#li
-{
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 150%;
-}
-#li1
-{
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 300%;
-}
-  #site-head
-{
-    font-family: "Times New Roman", Times, serif;
-    font-size: 150%;
-    float: none;
-}
+
+
 .btn,.btn-default
 {
   background-color:orangered;
@@ -75,14 +96,3 @@ label
    margin-top: 2%;
 }
 
-.button {
-    display: block;
-    width: 115px;
-    height: 25px;
-    
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-}

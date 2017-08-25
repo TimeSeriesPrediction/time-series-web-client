@@ -2,6 +2,10 @@
     import {RedComponentComponent} from "../red-component/red-component.component";
     import {GridOptions} from "ag-grid/main";
     import {AgGridModule} from "ag-grid-angular";
+    import { Router } from '@angular/router'
+
+import { AuthService } from '../services/auth-service/auth.service';
+import {UsersApi} from '../services/api-service/users-api/users-api';
     
 @Component({
     selector: 'app-admin-marks-interface',
@@ -13,7 +17,7 @@
         columnDefs: any[]
         rowData: any[];
         i=0;
-        constructor() {
+        constructor(private router: Router, private authService: AuthService,private userService : UsersApi) {
             this.gridOptions = <GridOptions>{rowSelection: 'multiple'};
     
             this.columnDefs = [
@@ -28,7 +32,26 @@
                 {id: "u20982211", total: "0"}
             ]
         }
-    
+
+        ngOnInit() {
+            this.getCurrentUser();
+        }
+        
+        logout() {
+            this.authService.logout();
+            this.router.navigate(['/login']);
+            this.getCurrentUser();
+            this.getCurrentUser();
+            }
+            currentUser : any = {};
+        
+            getCurrentUser(){
+            this.userService.getCurrentUser().subscribe((user) => {
+            this.currentUser = user;
+            }, (error) => {
+            console.log("Error happened: " + error)
+            });
+        }
         addColumn(colHeader)
         {
             var columnDefs = this.gridOptions.columnDefs;

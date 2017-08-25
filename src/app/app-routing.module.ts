@@ -24,6 +24,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AdminQueryComponent } from './admin-query/admin-query.component';
 import { RedComponentComponent } from './red-component/red-component.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,10 @@ const routes: Routes = [
   {
     path: 'red',
     component: RedComponentComponent
+  },
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent
   }
 ];
 
