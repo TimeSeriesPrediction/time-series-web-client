@@ -1,18 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {MdCardModule} from '@angular/material';
+import {AuthService } from '../services/auth-service/auth.service';
+import {UsersApi} from '../services/api-service/users-api/users-api.mock';
+import {User} from '../models/User';
+import {Modules} from '../models/Modules';
+import {Injectable} from '@angular/core';
+import {ApiService} from '../services/api-service/api.service';
+import {HttpModule } from '@angular/http';
+import {AppConfig } from '../app.config';
 @Component({
   selector: 'app-student-dash',
   templateUrl: './student-dash.component.html',
+  providers: [UsersApi,ApiService,AppConfig],
   styleUrls: ['./student-dash.component.scss']
 })
 export class StudentDashComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor( private authService: AuthService,private userService : UsersApi) { }
+  currentUser : User;
+  public moduleList :string;
+modules: Array<string> = [];;
+  ngOnInit()
+  {
+    this.getCurrentUser();
   }
-  public lineChartData:Array<any> = [
-    {data: [40, 45, 50, 90], label: 'Marks'},
+  ///this is the get user stuff
+  userName:string;
+  getCurrentUser(){
+    this.userService.getCurrentUser().subscribe(
+      (user) =>  { 
+        this.currentUser = user;
+        this.userName=this.currentUser.username;
+        this.modules=this.currentUser.modules;
+        this.moduleList=" ";
+        for (var I = 0; I < this.modules.length; I++)
+          {
+               this.moduleList += this.currentUser.modules[I]+"\n";
+          }
+         
+        },
+    (error)=> { console.log("Error happened" + error)}
+  )}
+  ////this is the get modules stuff
+
+
+ ///////this is the chart stuff
+    public lineChartData:Array<any> = [
+    {data: [40, 60,90, 40], label: 'Marks'},
    
   ];
   public lineChartLabels:Array<any> = ['Pluto', 'You', 'Daisy Duck','MickyMouse'];
@@ -51,4 +85,6 @@ export class StudentDashComponent implements OnInit {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+  
 }

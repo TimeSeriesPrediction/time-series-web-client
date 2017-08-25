@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.model.username, this.model.password)
       .subscribe(
         data => {
-          this.router.navigate(['/dash']);
+          this.router.navigate(['/student-dash']);
         },
         error => { alert(error) }
       );

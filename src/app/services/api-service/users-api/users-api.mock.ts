@@ -14,7 +14,7 @@ export class UsersApi {
   }
 
   getCurrentUser() : Observable<User>{
-    var user = new User("u123456789", "u123456789@tuks.co.za",["COS132", "COS151", "COS212"]);
+    var user = new User("u123456789", "u123456789@tuks.co.za",["COS132", "COS151", "COS110","COS121","COS122"]);
 
     return Observable.of(user);
   }
