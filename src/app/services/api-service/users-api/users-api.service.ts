@@ -3,22 +3,23 @@ import { ApiService } from '../api.service';
 import {Assessment} from '../../../models/Assessment';
 import {Observable} from 'rxjs/Observable';
 import {Response} from '@angular/http'
+import {AddUserModel} from '../../../models/AddUserModel';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class AssessmentsApi {
+export class UsersApi {
 
   constructor(private _api : ApiService){
 
   }
 
-  addAssessment(moduleCode: String, year: number, assessment: Assessment) : Observable<String> {
-    return this._api.put('/modules/assessment', {code: moduleCode, year: year, assessment: assessment})
+  addUsers(users: AddUserModel[]) : Observable<String> {
+    return this._api.post('/users/add-users', { users: users})
       .map((response: Response) => <String>response.json().message);
   }
 
-  addQuery(moduleCode: String, year: number, assessmentNumber: number, query: String) {
-    return this._api.post('/modules/query', {code: moduleCode, year: year, number: assessmentNumber, query: query})
+  addUser(userId: String, password: String, email: String) : Observable<String> {
+    return this._api.post('/users/add-users', { userId: userId, password: password, email: email})
       .map((response: Response) => <String>response.json().message);
   }
 
