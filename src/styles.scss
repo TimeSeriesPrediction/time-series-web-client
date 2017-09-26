@@ -1,10 +1,27 @@
-$c1: rgb(227, 229, 232);
-$c2: rgb(209, 211, 214);
-$c3: #10244C;
-$c4: #213159;
-body,
-html {
+
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/*make sure you have this bootstrap installed:
+
+npm install --save bootstrap@4.0.0-alpha.6 font-awesome
+*/
+
+@import 
+"~bootstrap/dist/css/bootstrap.min.css";
+@import 
+"~font-awesome/css/font-awesome.css";
+
+$c1 : #213159;
+$c2 : #3d6098;
+$c3 : #f04b4c;
+$c4 : #e7e7e7;
+
+body,html{
     display: block;
-    height: 120%;
-    background-image: url('/assets/images/102.jpeg') !important;
+    height:120%;
+
+background-image:  url('/assets/images/102.jpeg') !important;
 }
+

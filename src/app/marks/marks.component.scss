@@ -1,0 +1,137 @@
+
+$c1: rgb(227, 229, 232);
+$c2: rgb(209, 211, 214);
+$c3: #10244C;
+$c4: #213159;
+.navbar-default {
+    background-color: $c3;
+    border: none;
+    border-radius: 0;
+
+}
+
+.nav {
+    color: #e7e7e7;
+}
+
+.navbar-header {
+    color: #e7e7e7;
+}
+
+.vertical-center {
+    padding-top: 10%;
+    padding-left: 20%;
+}
+
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100% !important;
+}
+
+a {
+
+    color: black;
+
+}
+
+button {
+    color: black;
+}
+
+.full,
+#lower-privilege,
+table {
+    width: 100%;
+}
+
+table {
+
+    border: 1px solid rgb(209, 211, 214)
+
+}
+
+th.cell,
+th,
+.th .cell,
+div th .cell,
+td {
+    text-align: left;
+    padding: 8px;
+    width: 20% !important;
+    color: #213159;
+
+
+    border: 1px solid rgb(209, 211, 214)
+}
+
+.header-row {
+    background-color: rgb(227, 229, 232) !important;
+
+    color: black;
+}
+
+tr {
+
+    background-color: rgb(209, 211, 214) !important;
+
+    color: #213159
+}
+
+tr:nth-child(1) {
+
+    background-color: rgb(227, 229, 232)!important;
+    color: black;
+}
+
+h4 {
+    color: black
+
+}
+
+ul {
+    border-color: transparent;
+}
+
+.tab-content {
+    padding: 2%;
+
+    background-color: rgba(164, 164, 165, 0.5);
+    color: black;
+}
+
+.active a {
+    background-color: rgba(164, 164, 165, 0.5) !important;
+    color: black;
+}
+
+.nav-tabs>li>a:hover {
+    background-color: rgb(209, 211, 214)!important;
+
+    border: medium none;
+    border-radius: 0;
+    color: black;
+}
+
+.nav-tabs>li>a {
+
+    color: black;
+    border-color: transparent;
+}
+
+img {
+    float: left;
+
+}
+
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
