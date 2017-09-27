@@ -3,7 +3,7 @@ import { ApiService } from '../api.service';
 import {Assessment} from '../../../models/Assessment';
 import {Observable} from 'rxjs/Observable';
 import {Response} from '@angular/http'
-import {AddUserModel} from '../../../models/AddUserModel';
+import {AddUserModel} from '../../../models/user-models/AddUserModel';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class UsersApi {
   }
 
   addUser(userId: String, password: String, email: String) : Observable<String> {
-    return this._api.post('/users/add-users', { userId: userId, password: password, email: email})
+    return this._api.post('/users/', { userId: userId, password: password, email: email})
       .map((response: Response) => <String>response.json().message);
   }
 

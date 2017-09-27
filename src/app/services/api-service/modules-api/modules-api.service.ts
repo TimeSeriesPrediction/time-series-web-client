@@ -30,7 +30,7 @@ export class ModulesApi {
   }
 
   enrollStudents(moduleCode: String, year: number, studentNrs: String[]) : Observable<String> {
-    return this._api.put('/modules/enroll' {code: moduleCode, year: year, studentNrs: studentNrs})
+    return this._api.put('/modules/enroll', {code: moduleCode, year: year, studentNrs: studentNrs})
       .map((response: Response) => <String>response.json().message);
   }
 
