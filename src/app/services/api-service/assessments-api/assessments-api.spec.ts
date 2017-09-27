@@ -48,7 +48,7 @@ describe('AssessmentsApiService', () => {
     });
 
     it ('should call api get with correct args', function (done) {
-      inject([ModulesApi], function(service: ModulesApi) {
+      inject([AssessmentsApi], function(service: AssessmentsApi) {
         service.getAssessmentsByModule('COS301', 2017).subscribe((assessments) => {
           expect(mockApi.get.calls.mostRecent().args[0]).toBe('/modules/assessments/2017/COS301');
           done();
@@ -57,7 +57,7 @@ describe('AssessmentsApiService', () => {
     });
 
     it('should return array of assessments', function(done) {
-      inject([ModulesApi], function(service: ModulesApi) {
+      inject([AssessmentsApi], function(service: AssessmentsApi) {
         service.getAssessmentsByModule('COS301', 2017).subscribe((assessments) => {
           expect(assessments[0].name).toBe('Prac 1');
           expect(assessments[1].name).toBe('Prac 2');
