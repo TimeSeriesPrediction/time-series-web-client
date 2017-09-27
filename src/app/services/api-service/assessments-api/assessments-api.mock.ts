@@ -20,9 +20,7 @@ public assessments: Assessment[] =[];
   addAssessment(moduleID:string,name:string,deadline:string,link:string)
   {
     var newAssessment = new Assessment(moduleID,0,name,deadline,link);
-   // alert(newAssessment.name+newAssessment.deadline+newAssessment.moduleId+newAssessment.link);
-  
-   this.assessments.push(newAssessment);
+    this.assessments.push(newAssessment);
   }
 
 }

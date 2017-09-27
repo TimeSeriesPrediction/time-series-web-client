@@ -3,7 +3,7 @@ import {MdCardModule} from '@angular/material';
 import {AuthService } from '../services/auth-service/auth.service';
 import {UsersApi} from '../services/api-service/users-api/users-api.mock';
 import {User} from '../models/User';
-import {Modules} from '../models/Modules';
+import {Module} from '../models/Module';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../services/api-service/api.service';
 import {HttpModule } from '@angular/http';
@@ -28,7 +28,7 @@ modules: Array<string> = [];;
   userName:string;
   getCurrentUser(){
     this.userService.getCurrentUser().subscribe(
-      (user) =>  { 
+      (user) =>  {
         this.currentUser = user;
         this.userName=this.currentUser.username;
         this.modules=this.currentUser.modules;
@@ -37,7 +37,7 @@ modules: Array<string> = [];;
           {
                this.moduleList += this.currentUser.modules[I]+"\n";
           }
-         
+
         },
     (error)=> { console.log("Error happened" + error)}
   )}
@@ -47,7 +47,7 @@ modules: Array<string> = [];;
  ///////this is the chart stuff
     public lineChartData:Array<any> = [
     {data: [40, 60,90, 40], label: 'Marks'},
-   
+
   ];
   public lineChartLabels:Array<any> = ['Pluto', 'You', 'Daisy Duck','MickyMouse'];
   public lineChartOptions:any = {
@@ -86,5 +86,5 @@ modules: Array<string> = [];;
     console.log(e);
   }
 
-  
+
 }

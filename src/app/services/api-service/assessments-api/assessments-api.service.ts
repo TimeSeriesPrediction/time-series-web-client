@@ -12,9 +12,19 @@ export class AssessmentsApi {
 
   }
 
-  getAssessmentsByModule(moduleId : number) : Observable<Assessment[]>{
-    return this._api.get('/assessments?moduleId=' + moduleId)
-      .map((response: Response) => <Assessment[]>response.json());
+  getAssessmentsByModule(moduleCode: String, year: number) : Observable<Assessment[]> {
+    return this._api.get('/modules/assessments/' + year + '/' + moduleCode)
+      .map((response: Response) => <Assessment[]>response.json().assessments);
+  }
+
+  addAssessment(moduleCode: String, year: number, assessment: Assessment) : Observable<String> {
+    return this._api.put('/modules/assessment', {code: moduleCode, year: year, assessment: assessment})
+      .map((response: Response) => <String>response.json().message);
+  }
+
+  addQuery(moduleCode: String, year: number, assessmentNumber: number, query: String) {
+    return this._api.post('/modules/query', {code: moduleCode, year: year, number: assessmentNumber, query: query})
+      .map((response: Response) => <String>response.json().message);
   }
 
 }

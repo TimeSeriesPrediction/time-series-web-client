@@ -13,7 +13,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../services/api-service/users-api/users-api.mock';
-import {AssessmentsApi} from '../services/api-service/assessments-api/assessments.api.mock';
+import {AssessmentsApi} from '../services/api-service/assessments-api/assessments-api.service';
 import {User} from '../models/User';
 import {Assessment} from '../models/Assessment';
 import {Injectable} from '@angular/core';
@@ -35,9 +35,9 @@ export class AssignmentsComponent {
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
 
-  constructor(private userService : UsersApi, private assessmentService : AssessmentsApi) 
+  constructor(private userService : UsersApi, private assessmentService : AssessmentsApi)
   {
-  
+
   }
   ngOnInit()
   {
@@ -53,27 +53,27 @@ export class AssignmentsComponent {
     function(response) { this.currentUser=response},
     function(error) { console.log("Error happened" + error)}
 );
- 
+
 
   }
 getModules()
   {
-  
+
     this.userService.getCurrentUser().subscribe(
     function(response) { this.currentUser=response},
     function(error) { console.log("Error happened" + error)},
-    function() 
+    function()
     {
       document.getElementById("sel1").innerHTML = "";
       for (var I = 0; I < this.currentUser.modules.length; I++)
       {
           var moduleList = "<option>" + this.currentUser.modules[I] + "</option>";
           document.getElementById("sel1").innerHTML += moduleList;
-          
+
       }
     });
-  
- 
+
+
 }
 
 
@@ -90,9 +90,9 @@ addAssignment()
   var date =dateInput.value;
   var linkIput = document.getElementById('for-file') as HTMLInputElement;
   var link = linkIput.value;
-  this.assessmentService.addAssessment(selected,name,date,link);
 
-  
+  var newAssignment = new Assessment(name, 10, selected, date, link) //TODO: Hardcoded weight - please fix
+  this.assessmentService.addAssessment(selected, new Date().getFullYear(), newAssignment);
 }
 
 }
