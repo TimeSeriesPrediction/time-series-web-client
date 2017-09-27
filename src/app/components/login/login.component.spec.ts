@@ -8,9 +8,9 @@ import { Http, BaseRequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule, MdButtonModule } from '@angular/material';
 
-import { UserMockServerProvider } from '../users.mockserver';
+import { UserMockServerProvider } from '../../users.mockserver';
 import { LoginComponent } from './login.component';
-import { AuthService} from '../services/auth-service/auth.service';
+import { AuthService} from '../../services/auth-service/auth.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

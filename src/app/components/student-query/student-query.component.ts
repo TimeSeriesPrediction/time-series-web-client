@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { NgForm, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { SharedDataService } from '../shared-data.service';
+import { SharedDataService } from '../../shared-data.service';
 @Component({
   selector: 'app-student-query',
   templateUrl: './student-query.component.html',
@@ -16,18 +16,18 @@ export class StudentQueryComponent {
   constructor(private _sharedDataService : SharedDataService, public fb: FormBuilder) { }
 
 
- ngOnInit() : void { 
+ ngOnInit() : void {
 
       this.moduleCode = this._sharedDataService.getModuleCode();
 
       this.assType = this._sharedDataService.getAssessmentType();
       this.assNumber = this._sharedDataService.getAssessmentNumber();
-   } 
+   }
 
  public queryForm = this.fb.group({
     reason: ["", Validators.required]
   });
-  
+
   query(event) {
     console.log(event);
     alert(this.queryForm.value.reason);

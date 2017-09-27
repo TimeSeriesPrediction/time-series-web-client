@@ -2,12 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeightingsComponent } from './weightings.component';
 
-import {UsersApi} from '../services/api-service/users-api/users-api.mock';
-import {User} from '../models/User';
+import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
+import {User} from '../../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { ApiService } from '../services/api-service/api.service';
+import { ApiService } from '../../services/api-service/api.service';
 
 
 describe('WeightingsComponent', () => {
