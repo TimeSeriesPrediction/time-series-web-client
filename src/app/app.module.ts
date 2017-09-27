@@ -10,29 +10,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppConfig } from './app.config';
 import { AppComponent } from './app.component';
 
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
 
-import { GradingComponent } from './grading/grading.component';
-import { AssignmentsComponent } from './assignments/assignments.component';
-import { WeightingsComponent } from './weightings/weightings.component';
+import { GradingComponent } from './components/grading/grading.component';
+import { AssignmentsComponent } from './components/assignments/assignments.component';
+import { WeightingsComponent } from './components/weightings/weightings.component';
 import {ApiService} from './services/api-service/api.service';
-import {LeaderboardComponent} from './leaderboard/leaderboard.component';
+import {LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
 import {UsersApi} from './services/api-service/users-api/users-api.service';
 import 'hammerjs';
-import { MarksComponent } from './marks/marks.component';
-import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';
+import { MarksComponent } from './components/marks/marks.component';
+import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
 //import {StudentQueryComponent} from './student-query/student-query.component';
-import {RedComponentComponent} from "./red-component/red-component.component";
+import {RedComponentComponent} from "./components/red-component/red-component.component";
 import {AgGridModule} from "ag-grid-angular/main";
 import { ChartsModule } from 'ng2-charts';
 
-import { StudentQueryComponent } from './student-query/student-query.component';
-import { AdminQueryComponent } from './admin-query/admin-query.component';
-import { StudentDashComponent } from './student-dash/student-dash.component';
+import { StudentQueryComponent } from './components/student-query/student-query.component';
+import { AdminQueryComponent } from './components/admin-query/admin-query.component';
+import { StudentDashComponent } from './components/student-dash/student-dash.component';
 
 
 

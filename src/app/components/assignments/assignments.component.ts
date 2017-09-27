@@ -12,14 +12,14 @@ import {
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
-import {UsersApi} from '../services/api-service/users-api/users-api.mock';
-import {AssessmentsApi} from '../services/api-service/assessments-api/assessments-api.service';
-import {User} from '../models/User';
-import {Assessment} from '../models/Assessment';
+import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
+import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
+import {User} from '../../models/User';
+import {Assessment} from '../../models/Assessment';
 import {Injectable} from '@angular/core';
-import {ApiService} from '../services/api-service/api.service';
+import {ApiService} from '../../services/api-service/api.service';
 import { HttpModule } from '@angular/http';
-import { AppConfig } from '../app.config';
+import { AppConfig } from '../../app.config';
 const Moment: any = (<any>moment).default || moment;
 
 

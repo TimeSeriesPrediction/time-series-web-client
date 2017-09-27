@@ -4,32 +4,32 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 
-import {WeightingsComponent} from './weightings/weightings.component';
-import {GradingComponent} from './grading/grading.component';
-import {AssignmentsComponent} from './assignments/assignments.component';
+import {WeightingsComponent} from './components/weightings/weightings.component';
+import {GradingComponent} from './components/grading/grading.component';
+import {AssignmentsComponent} from './components/assignments/assignments.component';
 
 
-import { AdminMarksInterfaceComponent } from './admin-marks-interface/admin-marks-interface.component';
+import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
 
 
 
-import { StudentQueryComponent} from './student-query/student-query.component';
+import { StudentQueryComponent} from './components/student-query/student-query.component';
 
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-import { MarksComponent } from './marks/marks.component';
-import { StudentDashComponent} from './student-dash/student-dash.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { MarksComponent } from './components/marks/marks.component';
+import { StudentDashComponent} from './components/student-dash/student-dash.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
-import { AdminQueryComponent } from './admin-query/admin-query.component';
-import { RedComponentComponent } from './red-component/red-component.component';
+import { AdminQueryComponent } from './components/admin-query/admin-query.component';
+import { RedComponentComponent } from './components/red-component/red-component.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  },  
+  },
   {
     path: 'marks',
     component: MarksComponent

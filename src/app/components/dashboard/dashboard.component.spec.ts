@@ -4,12 +4,12 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { Http, BaseRequestOptions } from '@angular/http';
 
-import { UserMockServerProvider } from '../users.mockserver';
+import { UserMockServerProvider } from '../../users.mockserver';
 import { DashboardComponent } from './dashboard.component';
-import { AuthService } from '..//services/auth-service/auth.service'
+import { AuthService } from '../../services/auth-service/auth.service'
 
-import {UsersApi} from '../services/api-service/users-api/users-api.mock';
-import {User} from '../models/User';
+import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
+import {User} from '../../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 

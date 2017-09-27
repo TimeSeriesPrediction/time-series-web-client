@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { AuthService } from '../services/auth-service/auth.service';
-import {User} from '../models/User';
+import { AuthService } from '../../services/auth-service/auth.service';
+import {User} from '../../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { AppConfig } from '../app.config';
+import { AppConfig } from '../../app.config';
 
 @Component({
   selector: 'app-dashboard',

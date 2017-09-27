@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule }      from '@angular/core';
-import { SharedDataService } from '../shared-data.service';
+import { SharedDataService } from '../../shared-data.service';
 
 @Component({
   selector: 'app-marks',
@@ -12,7 +12,7 @@ export class MarksComponent implements OnInit {
 
   public modules;
 
-  constructor(private _sharedDataService : SharedDataService) { 
+  constructor(private _sharedDataService : SharedDataService) {
     this.modules =  [
         { code: 'COS301',
           marks :  [
