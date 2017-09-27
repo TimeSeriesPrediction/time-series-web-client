@@ -12,6 +12,11 @@ export class AssessmentsApi {
 
   }
 
+  getAssessmentsByModule(moduleCode: String, year: number) : Observable<Assessment[]> {
+    return this._api.get('/modules/assessments/' + year + '/' + moduleCode)
+      .map((response: Response) => <Assessment[]>response.json().assessments);
+  }
+
   addAssessment(moduleCode: String, year: number, assessment: Assessment) : Observable<String> {
     return this._api.put('/modules/assessment', {code: moduleCode, year: year, assessment: assessment})
       .map((response: Response) => <String>response.json().message);

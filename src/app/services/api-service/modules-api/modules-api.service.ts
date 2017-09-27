@@ -44,11 +44,6 @@ export class ModulesApi {
       .map((response: Response) => <Module>response.json().module);
   }
 
-  getAssessmentsByModule(moduleCode: String, year: number) : Observable<Assessment[]> {
-    return this._api.get('/modules/assessments/' + year + '/' + moduleCode)
-      .map((response: Response) => <Assessment[]>response.json().assessments);
-  }
-
   getStudentsByModule(moduleCode: String, year: number) : Observable<User[]> {
     return this._api.get('/modules/students/'+ year + '/' + moduleCode)
       .map((response: Response) => <User[]>response.json().students);

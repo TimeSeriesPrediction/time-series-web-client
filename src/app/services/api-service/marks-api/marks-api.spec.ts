@@ -94,20 +94,4 @@ describe('AssessmentsApiService', () => {
       })();
     });
   });
-
 });
-
-
-          // expect(mockApi.get.calls.mostRecent().args[1]).toEqual({
-          //   assessmentId: '123',
-          //   marks: [
-          //     {
-          //       userId: 'u12345678',
-          //       mark: 50
-          //     },
-          //     {
-          //       userId: 'u87654321',
-          //       mark: 80
-          //     }
-          //   ]
-          // });

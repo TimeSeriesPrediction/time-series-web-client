@@ -34,6 +34,39 @@ describe('AssessmentsApiService', () => {
     expect(service).toBeTruthy();
   }));
 
+  describe('getAssessmentsByModule', function() {
+
+    beforeEach(function() {
+      var assessments = [
+        new Assessment('Prac 1', 10, 'COS301', '01-02-2017', ''),
+        new Assessment('Prac 2', 20, 'COS301', '01-01-2017', '')
+      ];
+
+      mockApi.get = observables.ResolveObservable({ assessments })
+
+      spyOn(mockApi, 'get').and.callThrough();
+    });
+
+    it ('should call api get with correct args', function (done) {
+      inject([ModulesApi], function(service: ModulesApi) {
+        service.getAssessmentsByModule('COS301', 2017).subscribe((assessments) => {
+          expect(mockApi.get.calls.mostRecent().args[0]).toBe('/modules/assessments/2017/COS301');
+          done();
+        })
+      })();
+    });
+
+    it('should return array of assessments', function(done) {
+      inject([ModulesApi], function(service: ModulesApi) {
+        service.getAssessmentsByModule('COS301', 2017).subscribe((assessments) => {
+          expect(assessments[0].name).toBe('Prac 1');
+          expect(assessments[1].name).toBe('Prac 2');
+          done();
+        })
+      })();
+    });
+  });
+
   describe('AddAssessment', function() {
     it ('should call api put with correct args', function (done) {
       inject([AssessmentsApi], function(service: AssessmentsApi) {
