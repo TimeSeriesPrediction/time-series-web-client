@@ -1,0 +1,23 @@
+[  
+   {  
+      "assessment_type":"Assignment",
+      "number":1,
+      "total":40,
+      "mark":35,
+      "class_average":36
+   },
+   {  
+      "assessment_type":"Assignment",
+      "number":13,
+      "total":20,
+      "mark":15,
+      "class_average":16
+   },
+   {  
+      "assessment_type":"Assignment",
+      "number":11,
+      "total":60,
+      "mark":55,
+      "class_average":56
+   }
+]

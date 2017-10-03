@@ -28,10 +28,10 @@ export class ApiService {
     var observable;
 
     if(!data){
-      observable = method.call(this._http, url, {headers : headers });
+      observable = method.call(this._http, url, { headers : headers });
+    } else {
+      observable = method.call(this._http, url, data, { headers : headers });
     }
-
-    observable = method.call(this._http, url, data, {headers : headers });
 
     observable.subscribe((response) => {
       var result = response.json();

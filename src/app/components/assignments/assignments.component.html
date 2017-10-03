@@ -1,0 +1,73 @@
+<nav class="navbar navbar-default" style="color:white;">
+  <div class="container-fluid">
+    <div class="navbar-header"  >
+      <img src="../../../assets/images/Logo.png" alt="Logo" style ="width: 50px; height: 50px;">
+       <a id="site-head" class="navbar-brand" style="color:white;" href="dash">Saffron </a>
+       
+   </div>
+
+     
+     <div class="container "style="color:white;"> 
+
+
+         <div class="col-md-2 text-right pull-right" >
+             <span class="pull-right">
+                <span class="glyphicon glyphicon-user"></span>
+             </span>
+             <div>Student Number</div>
+              <a class="button" href="#">Logout</a>
+     </div>
+       <ul class="nav nav-pills" >
+   
+         <li><div><a class="button" href="dash">Back </a> </div></li>
+            
+      </ul> 
+        
+     </div>
+  
+  </div>
+</nav>
+
+  <div  id="rcorners1">
+   <h3 id="li1"  class="center">Add Assignment</h3>
+   
+    <form (ngSubmit)="addAssignment()"  id="myForm">
+    
+      <div id="wrapper"class="row">
+        <label id="li">Module:</label>
+          <select  id="sel1">
+            <option>COS 151</option>
+            <option>COS 132</option>
+            <option>COS 110</option>
+            <option>COS 121</option>
+          </select>
+      </div>
+    
+      
+      <div id="wrapper"class="row" >
+        <label id="li">Assessment:</label>
+        <input id="for-file" type="text" >
+      </div>
+
+      <div id="wrapper" class="row" >
+        <label id="li">Deadline:</label>
+        <input id="for-file" type="date" >
+      </div>
+
+      <div id="wrapper" class="row" >
+        <label for="for-file" id="li">Select File:</label> 
+        <input id="for-file" type="link"  data-show-preview="false"> 
+      </div>  
+              
+
+      <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
+        
+
+    </form>
+  </div>
+
+
+
+
+
+  

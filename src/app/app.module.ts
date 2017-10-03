@@ -1,57 +1,82 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { HttpModule } from '@angular/http';
-
-//import { UserMockServerProvider } from './users.mockserver';
-//import { MockBackend, MockConnection } from '@angular/http/testing';
-//import { BaseRequestOptions } from '@angular/http';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdInputModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
-
+import { MdInputModule, MdButtonModule,MdNativeDateModule, MdCheckboxModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
-import { AppConfig } from './app.config'
+import { AppConfig } from './app.config';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
-
-import { MarksComponent } from './marks/marks.component';
-
-
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
-import { ApiService } from './services/api-service/api.service';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { AssessmentsApi } from './services/api-service/assessments-api/assessments.api.mock';
+
+import { GradingComponent } from './components/grading/grading.component';
+import { AssignmentsComponent } from './components/assignments/assignments.component';
+import { WeightingsComponent } from './components/weightings/weightings.component';
+import {ApiService} from './services/api-service/api.service';
+import {LeaderboardComponent} from './components/leaderboard/leaderboard.component';
+import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
+import {UsersApi} from './services/api-service/users-api/users-api.service';
+import 'hammerjs';
+import { MarksComponent } from './components/marks/marks.component';
+import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
+//import {StudentQueryComponent} from './student-query/student-query.component';
+import {RedComponentComponent} from "./components/red-component/red-component.component";
+import {AgGridModule} from "ag-grid-angular/main";
+import { ChartsModule } from 'ng2-charts';
+
+import { StudentQueryComponent } from './components/student-query/student-query.component';
+import { AdminQueryComponent } from './components/admin-query/admin-query.component';
+import { StudentDashComponent } from './components/student-dash/student-dash.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdminQueryComponent,
     LoginComponent,
     DashboardComponent,
+    GradingComponent,
+    AssignmentsComponent,
+    WeightingsComponent,
     MarksComponent,
-    LeaderboardComponent
-
+    LeaderboardComponent,
+    AdminMarksInterfaceComponent,
+    RedComponentComponent,
+    StudentQueryComponent,
+    StudentDashComponent
   ],
   imports: [
+    MdNativeDateModule,
     BrowserModule,
-    FormsModule,
+    FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     HttpModule,
     BrowserAnimationsModule,
     MdInputModule,
     MdButtonModule,
     MdCheckboxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule,
+    AgGridModule.withComponents(
+      [RedComponentComponent]
+  ),
+
+    ReactiveFormsModule
+
   ],
   providers: [
     AppConfig,
     AuthGuard,
     ApiService,
     AuthService,
-    AssessmentsApi
+    AssessmentsApi,
+    UsersApi
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions

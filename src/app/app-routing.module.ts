@@ -1,16 +1,38 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
+
+import {WeightingsComponent} from './components/weightings/weightings.component';
+import {GradingComponent} from './components/grading/grading.component';
+import {AssignmentsComponent} from './components/assignments/assignments.component';
+
+
+import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
+
+
+
+import { StudentQueryComponent} from './components/student-query/student-query.component';
+
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { MarksComponent } from './components/marks/marks.component';
+import { StudentDashComponent} from './components/student-dash/student-dash.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { AuthGuard } from './services/auth-guard/auth.guard';
+import { AdminQueryComponent } from './components/admin-query/admin-query.component';
+import { RedComponentComponent } from './components/red-component/red-component.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'marks',
+    component: MarksComponent
   },
   {
     path: '',
@@ -19,12 +41,48 @@ const routes: Routes = [
   },
   {
     path: 'dash',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
+    component: DashboardComponent
+  },
+  {
+    path: 'Grading',
+    component: GradingComponent
+  },
+  {
+    path:'Assignment',
+    component: AssignmentsComponent
+  },
+  {
+    path:'Weights',
+    component: WeightingsComponent
+
   },
   {
     path: 'leaderboard',
     component: LeaderboardComponent
+  },
+  {
+    path: 'admin-marks',
+    component: AdminMarksInterfaceComponent
+  },
+  {
+    path: 'marks',
+    component: MarksComponent
+  },
+  {
+    path: 'student-query',
+    component: StudentQueryComponent
+  },
+  {
+    path: 'admin-query',
+    component: AdminQueryComponent
+  },
+  {
+    path: 'red',
+    component: RedComponentComponent
+  },
+  {
+    path: 'student-dash',
+    component: StudentDashComponent
   }
 ];
 

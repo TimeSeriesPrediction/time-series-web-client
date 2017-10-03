@@ -1,0 +1,88 @@
+
+.navbar-default 
+{
+  background-color:#17294D;
+}
+.center
+{
+  
+  background-color: rgb(209, 211, 214);
+  padding: 5%;
+
+}
+
+#rcorners1 
+{
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height:50% ;
+    background-color: rgb(227, 229, 232);
+    align-content: center;
+}
+#li
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+}
+#li1
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 300%;
+}
+  #site-head
+{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 150%;
+    float: none;
+}
+.btn,.btn-default
+{
+  background-color:orangered;
+  text-transform: uppercase;
+  width: 50%;
+}
+input,select
+{
+ float: right;
+ width: 60%;
+  margin-bottom:2%;
+  height:50%;
+}
+label
+{
+  float: left;
+  margin-right: 8%;
+  margin-bottom:2%;
+  width: 20%;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+}
+  
+#wrapper
+{
+  float:left;
+  width: 95%;
+  margin-left:5%;
+  height:15%;
+}
+#btnSub
+{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+   position: center;
+   margin-left: 25%;
+   margin-top: 2%;
+}
+
+.button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
