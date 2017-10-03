@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
 
@@ -39,6 +41,7 @@ import { StudentDashComponent } from './components/student-dash/student-dash.com
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     AdminQueryComponent,
     LoginComponent,
     DashboardComponent,
