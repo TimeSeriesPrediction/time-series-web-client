@@ -1,7 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StudentQueryComponent } from './student-query.component';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from '../../services/auth-service/auth.service';
+import { ApiService } from '../../services/api-service/api.service';
+import { AppConfig } from '../../app.config';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 describe('StudentQueryComponent', () => {
@@ -13,6 +17,7 @@ describe('StudentQueryComponent', () => {
       declarations: [
         StudentQueryComponent
       ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

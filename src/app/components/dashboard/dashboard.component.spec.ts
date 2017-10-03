@@ -13,6 +13,9 @@ import {User} from '../../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 
+import { ApiService } from '../../services/api-service/api.service';
+import { AppConfig } from '../../app.config';
+
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;

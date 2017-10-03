@@ -13,19 +13,31 @@ import {User} from '../../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 
+import { ApiService } from '../../services/api-service/api.service';
+import { AppConfig } from '../../app.config';
+import { ObservablesMock } from '../../mocks/observables.mock';
+
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async(() => {
+    let observables = new ObservablesMock();
+
+    let mockAuthService = {
+      getCurrentLoggedInUser: observables.ResolveObservable({ username: 'testuser123' })
+    }
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,HttpModule],
       declarations: [ NavbarComponent ],
       providers: [
-        AuthService,
+        { provide: AuthService, useValue: mockAuthService },
         { provide: Http, useValue: UserMockServerProvider },
         MockBackend,
-        BaseRequestOptions
+        BaseRequestOptions,
+        ApiService,
+        AppConfig
       ]
     })
     .compileComponents();

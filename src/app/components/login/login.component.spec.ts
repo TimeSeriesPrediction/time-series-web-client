@@ -12,6 +12,9 @@ import { UserMockServerProvider } from '../../users.mockserver';
 import { LoginComponent } from './login.component';
 import { AuthService} from '../../services/auth-service/auth.service';
 
+import { ApiService } from '../../services/api-service/api.service';
+import { AppConfig } from '../../app.config';
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
