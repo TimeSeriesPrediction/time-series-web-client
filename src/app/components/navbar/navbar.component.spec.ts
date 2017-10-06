@@ -5,7 +5,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 
 import { UserMockServerProvider } from '../../users.mockserver';
-import { DashboardComponent } from './dashboard.component';
+import { NavbarComponent } from './navbar.component';
 import { AuthService } from '../../services/auth-service/auth.service'
 
 import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
@@ -15,28 +15,41 @@ import { HttpModule } from '@angular/http';
 
 import { ApiService } from '../../services/api-service/api.service';
 import { AppConfig } from '../../app.config';
+import { ObservablesMock } from '../../mocks/observables.mock';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async(() => {
+    let observables = new ObservablesMock();
+
+    let mockAuthService = {
+      getCurrentLoggedInUser: observables.ResolveObservable({ username: 'testuser123' })
+    }
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,HttpModule],
-      declarations: [ DashboardComponent ],
+      declarations: [ NavbarComponent ],
       providers: [
-        AuthService,
+        { provide: AuthService, useValue: mockAuthService },
         { provide: Http, useValue: UserMockServerProvider },
         MockBackend,
-        BaseRequestOptions
+        BaseRequestOptions,
+        ApiService,
+        AppConfig
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
   });
 });

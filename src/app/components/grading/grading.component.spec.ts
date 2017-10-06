@@ -9,6 +9,11 @@ import {User} from '../../models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from '../../services/auth-service/auth.service';
+import { AppConfig } from '../../app.config';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 describe('GradingComponent', () => {
   let component: GradingComponent;
   let fixture: ComponentFixture<GradingComponent>;
@@ -17,7 +22,8 @@ describe('GradingComponent', () => {
     TestBed.configureTestingModule({
         imports: [HttpModule],
       declarations: [ GradingComponent ],
-      providers: [UsersApi,ApiService]
+      providers: [UsersApi,ApiService],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
