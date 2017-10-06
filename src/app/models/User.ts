@@ -1,12 +1,22 @@
 export class User {
 
-  constructor(username: string, email: string,modules: string[]){
+  constructor(username: string, fullname: string, email: string, permissions){
     this.username = username;
+    this.fullname = fullname;
     this.email = email;
-    this.modules= modules;
+    this.permissions= permissions;
   }
 
-  username: string;
-  email: string;
-  modules: string [];//stores all the modules that this user has access to
+    username: string;
+    fullname: string;
+    email: string;
+    permissions: {
+        admin: boolean,
+        modules: [
+            {
+                moduleCode: string,
+                permission: number
+            }
+        ]
+    }
 }
