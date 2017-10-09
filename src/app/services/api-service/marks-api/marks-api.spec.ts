@@ -78,8 +78,8 @@ describe('AssessmentsApiService', () => {
 
     it ('should call api post with correct args', function (done) {
       inject([MarksApi], function(service: MarksApi) {
-        service.addFinalMarksToAssessment('123', marks).subscribe((message) => {
-          expect(mockApi.post.calls.mostRecent().args).toEqual(['/marks/', { assessmentId: '123', marks: [{ mark: 50, userId: 'u12345678'}, {mark: 80, userId: 'u87654321'}]}]);
+        service.addFinalMarksToAssessment('123', marks,'COS121').subscribe((message) => {
+          expect(mockApi.post.calls.mostRecent().args).toEqual(['/marks/', { assessmentId: '123', marks: [{ mark: 50, userId: 'u12345678'}, {mark: 80, userId: 'u87654321'}], moduleCode:'COS121'}]);
           done();
         })
       })();
@@ -87,7 +87,7 @@ describe('AssessmentsApiService', () => {
 
     it('should return a response message', function(done) {
       inject([MarksApi], function(service: MarksApi) {
-        service.addFinalMarksToAssessment('123', marks).subscribe((message) => {
+        service.addFinalMarksToAssessment('123', marks,'COS121').subscribe((message) => {
           expect(message).toBe('response message');
           done();
         })
