@@ -18,7 +18,7 @@ export class MarksApi {
       .map((response: Response) => <Mark[]>response.json().marks);
   }
 
-  addFinalMarksToAssessment(assessmentId: String, marks: Mark[]) : Observable<String> {
+  addFinalMarksToAssessment(assessmentId: String, marks: Mark[],moduleCode :String) : Observable<String> {
     var marksAdded = marks.map((mark) => {
       return {
         mark: mark.finalResult,
@@ -26,7 +26,7 @@ export class MarksApi {
       }
     })
 
-    return this._api.post('/marks/', {assessmentId: assessmentId, marks: marksAdded})
+    return this._api.post('/marks/', {assessmentId: assessmentId, marks: marksAdded,moduleCode: moduleCode})
       .map((response: Response) => <String>response.json().message);
   }
 
