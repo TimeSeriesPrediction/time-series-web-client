@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 import { Assessment } from '../../../models/Assessment';
 import 'rxjs/add/operator/do';
 import { Module } from '../../../models/Module';
-import { User } from '../../../models/User';
+import { User } from '../../../models/user-models/User';
 
 describe('ModulesApiService', () => {
   let mockApi, appConfig;
@@ -193,8 +193,8 @@ describe('ModulesApiService', () => {
 
     beforeEach(function() {
       var students = [
-        new User('u12345678', 'test@tuks.co.za', []),
-        new User('u87654321', 'test2@tuks.co.za', [])
+        new User('u12345678', 'Jim', 'test@tuks.co.za', []),
+        new User('u87654321', 'Jom', 'test2@tuks.co.za', [])
       ];
 
       mockApi.get = observables.ResolveObservable({ students })
