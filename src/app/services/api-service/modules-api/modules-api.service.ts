@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Response} from '@angular/http'
 import {Module} from '../../../models/Module';
 import {Assessment} from '../../../models/Assessment';
-import {User} from '../../../models/User';
+import {User} from '../../../models/user-models/User';
 import 'rxjs/add/operator/map';
 
 @Injectable()
