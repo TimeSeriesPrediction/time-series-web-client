@@ -14,7 +14,7 @@ import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Assessment} from '../../models/Assessment';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../../services/api-service/api.service';

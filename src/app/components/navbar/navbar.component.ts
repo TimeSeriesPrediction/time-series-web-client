@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { AuthService } from '../../services/auth-service/auth.service';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
