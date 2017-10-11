@@ -14,7 +14,7 @@ import { ObservablesMock } from '../../mocks/observables.mock';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
-fdescribe('Authorisation Service', () => {
+describe('Authorisation Service', () => {
   let mockAuthentication, mockUser, appConfig, service;
   let observables = new ObservablesMock();
 
