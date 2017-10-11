@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { AppConfig } from '../../app.config';
 import { User } from '../../models/user-models/User';
 import { AuthService } from '../auth-service/auth.service';
-import  _  from 'underscore';
+import  { _ }  from 'underscore';
 
 @Injectable()
 export class AuthorisationService {
@@ -18,7 +18,8 @@ export class AuthorisationService {
   }
 
   init() {
-    this.authentication.getCurrentLoggedInUser().subscribe((user) => {
+    this.authentication.getCurrentLoggedInUser()
+    .subscribe((user) => {
       this.user = user;
     });
   }
@@ -58,7 +59,7 @@ export class AuthorisationService {
 
     var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
 
-    return mod.permission == this.config.PERMISSION_TYPE.STUDENT;
+    return mod && mod.permission == this.config.PERMISSION_TYPE.STUDENT;
   };
 
   isStaffMemberForModule(moduleCode) {
@@ -68,7 +69,7 @@ export class AuthorisationService {
 
     var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
 
-    return mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW;
+    return mod && mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW;
   };
 
 }
