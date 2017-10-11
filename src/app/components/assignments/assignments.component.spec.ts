@@ -3,7 +3,7 @@ import { MdDatepickerModule,MdInputModule } from '@angular/material';
 import { AssignmentsComponent } from './assignments.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
