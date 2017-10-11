@@ -2,7 +2,7 @@ import {Component, OnInit } from '@angular/core';
 import {MdCardModule} from '@angular/material';
 import {AuthService } from '../../services/auth-service/auth.service';
 import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Module} from '../../models/Module';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../../services/api-service/api.service';
@@ -31,11 +31,11 @@ modules: Array<string> = [];;
       (user) =>  {
         this.currentUser = user;
         this.userName=this.currentUser.username;
-        this.modules=this.currentUser.modules;
+        //this.modules=this.currentUser.permissions.modules;
         this.moduleList=" ";
         for (var I = 0; I < this.modules.length; I++)
           {
-               this.moduleList += this.currentUser.modules[I]+"\n";
+               //this.moduleList += this.currentUser.modules[I]+"\n";
           }
 
         },

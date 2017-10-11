@@ -1,4 +1,4 @@
-import {User} from './User';
+import {User} from './user-models/User';
 import {Assessment} from './Assessment';
 
 export class Module {

@@ -4,7 +4,7 @@ import { WeightingsComponent } from './weightings.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 
