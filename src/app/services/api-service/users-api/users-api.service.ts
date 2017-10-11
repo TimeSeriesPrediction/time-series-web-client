@@ -18,8 +18,8 @@ export class UsersApi {
       .map((response: Response) => <String>response.json().message);
   }
 
-  addUser(userId: String, password: String, email: String) : Observable<String> {
-    return this._api.post('/users/', { userId: userId, password: password, email: email})
+  addUser(userId: AddUserModel) : Observable<String> {
+    return this._api.post('/users/', { username: userId.username, password: userId.password, email: userId.email, fullname : userId.fullname})
       .map((response: Response) => <String>response.json().message);
   }
 

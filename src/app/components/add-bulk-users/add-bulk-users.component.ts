@@ -21,7 +21,6 @@ import {ApiService} from '../../services/api-service/api.service';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
-import {MdDialog,MdDialogRef } from '@angular/material';
 import {AuthService} from  '../../services/auth-service/auth.service';
 import {AddUserModel} from '../../models/user-models/AddUserModel';
 const Moment: any = (<any>moment).default || moment;
@@ -86,7 +85,7 @@ getModules()
 }
 
 
-newUser : AddUserModel;
+public newUser : AddUserModel;
 addSingleUser() // why does alll the form elements disappear
 {
   var FullName = (document.getElementById("in1")) as HTMLSelectElement;
@@ -106,7 +105,9 @@ addSingleUser() // why does alll the form elements disappear
 
   alert("Name: " + fname + " Username: " + uname + " Email: " + email);
 
-  this.userService.addUser(uname,"",email); //is this right? - add full name?
+  this.newUser = new AddUserModel(uname,"",email,fname);
+
+  this.userService.addUser(this.newUser); 
   location.reload();
 }
 
@@ -175,11 +176,11 @@ onFileChange(evt: any) {
                 toSend.push(obj);
 
             }
-
+            this.userService.addUsers(toSend); 
 
             
         } else {
-            txt = "Please provide a file with the right format.";
+            alert('Please provide a file with the right format.');
         }
 
 
