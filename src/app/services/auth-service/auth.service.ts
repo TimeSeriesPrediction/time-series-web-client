@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { ApiService } from '../api-service/api.service';
 import { Observable } from 'rxjs/Observable';
 import { AppConfig } from '../../app.config';
-import { User } from '../../models/User';
+import { User } from '../../models/user-models/User';
 
 @Injectable()
 export class AuthService {
