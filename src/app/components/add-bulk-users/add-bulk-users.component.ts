@@ -14,7 +14,7 @@ import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../../services/api-service/users-api/users-api.service';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Assessment} from '../../models/Assessment';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../../services/api-service/api.service';
@@ -22,7 +22,8 @@ import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
 import {MdDialog,MdDialogRef } from '@angular/material';
-//import { ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
+import {AuthService} from  '../../services/auth-service/auth.service';
+import {AddUserModel} from '../../models/user-models/AddUserModel';
 const Moment: any = (<any>moment).default || moment;
 var data : any;
 
@@ -43,7 +44,7 @@ export class AddBulkUsersComponent {
         false
     ];
 
-  constructor(private userService : UsersApi/*, public dialogBox : MdDialog*/)
+  constructor(private userService : UsersApi, public authService : AuthService)
   {
 
   }
@@ -57,8 +58,8 @@ export class AddBulkUsersComponent {
 
   getCurrentUser()
   {
-    this.userService.getCurrentUser().subscribe(
-    function(response) { this.currentUser=response},
+    this.authService.getCurrentLoggedInUser().subscribe(
+    (response)=> { this.currentUser=response},
     function(error) { console.log("Error happened" + error)}
 );
 
@@ -67,8 +68,8 @@ export class AddBulkUsersComponent {
 getModules()
   {
 
-    this.userService.getCurrentUser().subscribe(
-    function(response) { this.currentUser=response},
+    this.authService.getCurrentLoggedInUser().subscribe(
+    (response)=> { this.currentUser=response},
     function(error) { console.log("Error happened" + error)},
     function()
     {
@@ -85,7 +86,7 @@ getModules()
 }
 
 
-newUser : User;
+newUser : AddUserModel;
 addSingleUser() // why does alll the form elements disappear
 {
   var FullName = (document.getElementById("in1")) as HTMLSelectElement;
@@ -139,8 +140,7 @@ onFileChange(evt: any) {
       var emails = new Array();
 
       var count = 3;
-    alert(data.length);
-
+    
     for(var i = 0; i < data.length; i++){
 
           usernames.push(data[i][0]);
@@ -159,7 +159,25 @@ onFileChange(evt: any) {
         }
         var r = confirm(txt);
         if (r == true) {
-            txt = "Saving changes.";
+            //create the json objects
+
+            var toSend = new Array();
+            for(var i = 0; i < data.length; i++){
+                var obj = {
+                  fullname : fullnames[i],
+                  username : usernames[i],
+                  password : "",
+                  email : emails[i]
+                }
+
+                alert(obj.fullname+ " " + obj.username + " " + obj.email);
+
+                toSend.push(obj);
+
+            }
+
+
+            
         } else {
             txt = "Please provide a file with the right format.";
         }
