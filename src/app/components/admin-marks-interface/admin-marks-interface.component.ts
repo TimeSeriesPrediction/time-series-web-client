@@ -1,6 +1,13 @@
 import { Component } from "@angular/core";
-import { GridOptions } from "ag-grid/main";
-import { AgGridModule } from "ag-grid-angular";
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AssessmentsApi } from '../../services/api-service/assessments-api/assessments-api.service';
+import { Assessment } from '../../models/Assessment';
+import { NgFor } from '@angular/common';
+import {MdButtonModule} from '@angular/material';
+import { _ } from 'underscore';
+import {User} from '../../models/User';
+import { ModulesApi } from '../../services/api-service/modules-api/modules-api.service';
+
 
 @Component({
   selector: 'app-admin-marks-interface',
@@ -8,56 +15,44 @@ import { AgGridModule } from "ag-grid-angular";
   styleUrls: ['./admin-marks-interface.component.scss']
 })
 export class AdminMarksInterfaceComponent {
-  gridOptions: GridOptions;
-  columnDefs: any[]
-  rowData: any[];
-  i = 0;
-  constructor() {
-    this.gridOptions = <GridOptions>{ rowSelection: 'multiple' };
 
-    this.columnDefs = [
-      { headerName: "ID", field: "id", editable: true },
-      { headerName: "Total", field: "total", filter: 'number', editable: true, aggfunction: 'sum' },
+  moduleCode: String;
+  assessments: Assessment[];
+  students: User[];
+  chosenAssessment: Assessment;
 
-    ];
-
-    this.rowData = [
-      { id: "u15062440", total: "0" },
-      { id: "u12345678", total: "0" },
-      { id: "u20982211", total: "0" }
-    ]
+  constructor(private activatedRoute: ActivatedRoute, private assessmentsApi: AssessmentsApi, private modulesApi: ModulesApi) {
+   this.activatedRoute.params.subscribe((params: Params) => {
+        this.moduleCode = params['moduleCode'];
+        this.getAssignments();
+        this.getStudents();
+      });
   }
 
-  addColumn(colHeader) {
-    var columnDefs = this.gridOptions.columnDefs;
-    columnDefs.push({ field: 'questions', headerName: 'Question ' + ++this.i, editable: true });
-    this.gridOptions.api.setColumnDefs(columnDefs);
+  getAssignments() {
+    var year = new Date().getFullYear();
+    this.assessmentsApi.getAssessmentsByModule(this.moduleCode, year).subscribe((assessments) => {
+      this.assessments = assessments;
+    });
+  };
+
+  getStudents() {
+    var year = new Date().getFullYear();
+    this.modulesApi.getStudentsByModule(this.moduleCode, year).subscribe((students) => {
+      this.students = students;
+    });
   }
 
-  removeColumn() {
-    var selectedRowData = this.gridOptions.api.getSelectedRows();
-    this.gridOptions.api.updateRowData({ remove: selectedRowData });
-  }
+  editAssignmentMarks(id) {
+    this.chosenAssessment = _.findWhere(this.assessments, { _id: id});
+  };
 
-  removeRow() {
-    var selectedRowData = this.gridOptions.api.getSelectedRows();
-    this.gridOptions.api.updateRowData({ remove: selectedRowData });
-  }
+  saveMarks() {
 
-  addRow() {
-    var transactions = {
-      add: [{ id: "x", total: "0" },]
-    }
+  };
 
-    this.gridOptions.api.updateRowData(transactions);
-  }
-
-  onGridReady(params) {
-    params.api.sizeColumnsToFit();
-  }
-
-  selectAllRows() {
-    this.gridOptions.api.selectAll();
-  }
+  cancelEdit() {
+    this.chosenAssessment = null;
+  };
 }
 

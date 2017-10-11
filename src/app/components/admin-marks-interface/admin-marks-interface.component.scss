@@ -1,5 +1,5 @@
 
-.navbar-default 
+.navbar-default
 {
   background-color:#17294D;
   text-transform: uppercase;
@@ -8,7 +8,7 @@
 
 .center
 {
-  
+
   background-color: rgb(209, 211, 214);
   padding: 5%;
 
@@ -29,7 +29,7 @@ $c1 : #3d6098;
 $c2 : #213159;
 $c3 : #f04b4c;
 $c4 : #e7e7e7;
-#rcorners1 
+.rcorners1
 {
     display: block;
     margin: 0 auto;
@@ -38,7 +38,36 @@ $c4 : #e7e7e7;
     background-color: rgb(227, 229, 232);
     align-content: center;
 }
-  
+
+.marks-table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+
+  thead {
+    font-size: 2em;
+    text-align: center;
+  }
+
+
+}
+
+.marks-footer{
+  top: 95%;
+  position: relative;
+}
+
+.assessments-table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+
+  thead {
+    font-size: 2em;
+    text-align: center;
+  }
+}
+
 #site-head
 {
     font-family: "Times New Roman", Times, serif;
