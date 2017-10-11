@@ -162,22 +162,21 @@ onFileChange(evt: any) {
         if (r == true) {
             //create the json objects
 
-            var toSend = new Array();
+           var myObj = new Array();// check the structure of this object, it differs from one in postman :(
+              
             for(var i = 0; i < data.length; i++){
-                var obj = {
-                  fullname : fullnames[i],
-                  username : usernames[i],
-                  password : "",
-                  email : emails[i]
-                }
+                var obj = new AddUserModel(
+                  usernames[i],
+                  fullnames[i],
+                  emails[i],
+                   ""
+                );
 
-                alert(obj.fullname+ " " + obj.username + " " + obj.email);
-
-                toSend.push(obj);
+                myObj.push(obj);
 
             }
-            this.userService.addUsers(toSend); 
-
+            this.userService.addUsers(myObj); 
+            alert(JSON.stringify(myObj));
             
         } else {
             alert('Please provide a file with the right format.');

@@ -13,7 +13,7 @@ export class UsersApi {
 
   }
 
-  addUsers(users: AddUserModel[]) : Observable<String> {
+  addUsers(users: AddUserModel[]) : Observable<String> {// check the format of the object that is sent here against the one that is sent in postman, not the same structure. Postman adds "user" property, where this one only sends an array of objects.
     return this._api.post('/users/add-users', { users: users})
       .map((response: Response) => <String>response.json().message);
   }
