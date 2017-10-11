@@ -21,7 +21,8 @@ import {ApiService} from '../../services/api-service/api.service';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
-
+import {MdDialog,MdDialogRef } from '@angular/material';
+//import { ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 const Moment: any = (<any>moment).default || moment;
 var data : any;
 
@@ -34,7 +35,7 @@ var data : any;
 })
 
 export class AddBulkUsersComponent {
-
+ // dialogRef: MdDialogRef<ConfirmationDialogComponent>;
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
   public svisible: boolean[] = [
@@ -42,7 +43,7 @@ export class AddBulkUsersComponent {
         false
     ];
 
-  constructor(private userService : UsersApi)
+  constructor(private userService : UsersApi/*, public dialogBox : MdDialog*/)
   {
 
   }
@@ -129,12 +130,48 @@ onFileChange(evt: any) {
       /* grab first sheet */
       const wsname: string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
+     
       /* save data */
       data = (XLSX.utils.sheet_to_json(ws, {header: 1}));
+
+      var usernames = new Array();
+      var fullnames = new Array();
+      var emails = new Array();
+
+      var count = 3;
+    alert(data.length);
+
+    for(var i = 0; i < data.length; i++){
+
+          usernames.push(data[i][0]);
+          fullnames.push(data[i][1]);
+          emails.push(data[i][2]);
+    }
+
+      //for(var t = 0; t < usernames.length; t++)
+        //alert(usernames[t]);
+        var txt = "Is this format correct? \n Username     Full Name     Email \n\n" ;
+
+        for(var i = 0; i < data.length; i++){
+          txt += usernames[i] + "     " + fullnames[i] + "     " + emails[i] + "\n";
+          if(i > 9)
+            break;
+        }
+        var r = confirm(txt);
+        if (r == true) {
+            txt = "Saving changes.";
+        } else {
+            txt = "Please provide a file with the right format.";
+        }
+
+
     };
     reader.readAsBinaryString(target.files[0]);
-    alert(target.files[0]);
-  }
+
+   
+
+
+}
+
 }
 

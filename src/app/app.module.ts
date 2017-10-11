@@ -37,8 +37,6 @@ import { AdminQueryComponent } from './components/admin-query/admin-query.compon
 import { StudentDashComponent } from './components/student-dash/student-dash.component';
 import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
