@@ -35,6 +35,7 @@ import { ChartsModule } from 'ng2-charts';
 import { StudentQueryComponent } from './components/student-query/student-query.component';
 import { AdminQueryComponent } from './components/admin-query/admin-query.component';
 import { StudentDashComponent } from './components/student-dash/student-dash.component';
+import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
 
 
 
@@ -53,7 +54,8 @@ import { StudentDashComponent } from './components/student-dash/student-dash.com
     AdminMarksInterfaceComponent,
     RedComponentComponent,
     StudentQueryComponent,
-    StudentDashComponent
+    StudentDashComponent,
+    AddBulkUsersComponent
   ],
   imports: [
     MdNativeDateModule,
