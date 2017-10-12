@@ -37,6 +37,7 @@ import { StudentQueryComponent } from './components/student-query/student-query.
 import { AdminQueryComponent } from './components/admin-query/admin-query.component';
 import { StudentDashComponent } from './components/student-dash/student-dash.component';
 import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
+import { AuthorisationService } from './services/authorisation-service/authorisation.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-user
     AuthService,
     AssessmentsApi,
     ModulesApi,
-    UsersApi
+    UsersApi,
+    AuthorisationService
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions

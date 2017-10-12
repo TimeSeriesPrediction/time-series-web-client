@@ -16,18 +16,18 @@
          <ul class="nav nav-pills" >
           <li><div><a class="button" href="dash">Home </a> </div></li>
 
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Grading">Manage Marks</a>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Grading"*ngIf='staff'>Manage Marks</a>
             <ul class="dropdown-menu">
               <li><a href="admin-marks" style="  background-color:#17294D;
-                text-transform: uppercase; color:white">Marksheet Setup</a></li>
+                text-transform: uppercase; color:white" *ngIf='admin'>Marksheet Setup</a></li>
               <li><a href="marker-marks" style="  background-color:#17294D;
-                text-transform: uppercase; color:white">Enter Marks</a></li>
+                text-transform: uppercase; color:white" *ngIf='staff'>Enter Marks</a></li>
             </ul>
           </li>
-          <li id="li" ><a href="Assignment" style="color:white;">Manage Assignments</a></li>
-          <li id="li" ><a href="Weights" style="color:white;">Manage Weightings</a></li>
+          <li id="li" ><a href="Assignment" style="color:white;" *ngIf='staff'>Manage Assignments</a></li>
+          <li id="li" ><a href="Weights" style="color:white;" *ngIf='admin'>Manage Weightings</a></li>
 
-          <li id="li" ><a href="add-bulk-users" style="color:white;">Add Students</a></li>
+          <li id="li" ><a href="add-bulk-users" style="color:white;" *ngIf='admin'>Add Students</a></li>
         </ul>
 
        </div>
