@@ -18,58 +18,111 @@ export class AuthorisationService {
   }
 
   init() {
-    this.authentication.getCurrentLoggedInUser()
-    .subscribe((user) => {
-      this.user = user;
+    return new Promise((resolve, reject) => {
+      this.authentication.getCurrentLoggedInUser()
+      .subscribe((user) => {
+        this.user = user;
+        resolve();
+      }, reject);
     });
   }
 
-  isAdmin() {
-    if (!this.user) {
-      return this.init();
-    }
-
-    return this.user.permissions.admin;
-  }
-
-  isStaffMember() {
-    if (!this.user) {
-      return this.init();
-    }
-
-    return _.some(this.user.permissions.modules, (mod) => {
-      return mod.permission > this.config.PERMISSION_TYPE.STUDENT;
+  isAdmin() : Promise<boolean> {
+    return new Promise( (resolve, reject) => {
+      if (!this.user) {
+        return this.init().then(() => {
+          resolve(this.user.permissions.admin);
+        });
+      }
+  
+      resolve(this.user.permissions.admin);
     });
+
   }
 
-  getPermissionForModule(moduleCode) {
-    if (!this.user) {
-      return this.init();
-    }
+  isStaffMember() : Promise<boolean>{
+    return new Promise((resolve, reject) => {
+      if (!this.user) {
+        return this.init().then(() =>{
+          resolve( _.some(this.user.permissions.modules, (mod) => {
+            return mod.permission > this.config.PERMISSION_TYPE.STUDENT;
+          }))
+        });
+      }
+  
+      resolve(_.some(this.user.permissions.modules, (mod) => {
+        return mod.permission > this.config.PERMISSION_TYPE.STUDENT;
+      }))
+    });
 
-    var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
 
-    return !mod ? 0 : mod.permission;
   }
 
-  isStudent(moduleCode) {
-    if (!this.user) {
-      return this.init();
-    }
+  getPermissionForModule(moduleCode): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      if (!this.user) {
+        return this.init().then(() => {
+          var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+          
+          return resolve(!mod ? 0 : mod.permission);
+        });
+      }
+  
+      var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+  
+      return resolve(!mod ? 0 : mod.permission);
+    });
 
-    var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+  }
 
-    return mod && mod.permission == this.config.PERMISSION_TYPE.STUDENT;
+  isStudent() : Promise <boolean> {
+    return new Promise( (resolve, reject) => {
+      if (!this.user) {
+        return this.init().then(() => {
+          return resolve(_.some(this.user.permissions.modules, (mod) => {
+            return mod.permission = this.config.PERMISSION_TYPE.STUDENT;
+          }));
+        });
+      }
+  
+      return resolve(_.some(this.user.permissions.modules, (mod) => {
+        return mod.permission = this.config.PERMISSION_TYPE.STUDENT;
+      }));
+    });
+
+
+  }
+
+  isStudentForModule(moduleCode) : Promise <boolean> {
+    return new Promise((resolve, reject) => {
+      if (!this.user) {
+        return this.init().then(() => {
+          var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+          
+          return resolve(mod && mod.permission == this.config.PERMISSION_TYPE.STUDENT);
+        });
+      }
+  
+      var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+      
+      return resolve(mod && mod.permission == this.config.PERMISSION_TYPE.STUDENT);
+    });
   };
 
-  isStaffMemberForModule(moduleCode) {
-    if (!this.user) {
-      return this.init();
-    }
-
-    var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-
-    return mod && mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW;
+  isStaffMemberForModule(moduleCode) : Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      if (!this.user) {
+        return this.init().then(() => {
+          var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+          
+          return resolve(mod && mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW);
+        });
+      }
+  
+      var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
+      
+      return resolve(mod && mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW);
+    });
   };
 
 }
