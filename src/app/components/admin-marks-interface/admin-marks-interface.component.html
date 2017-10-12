@@ -1,6 +1,6 @@
 <navbar> </navbar>
 
-<div  class="rcorners1" *ngIf='!chosenAssessment'>
+<div class='assessments-table-container' *ngIf='!chosenAssessment'>
  <table class='center assessments-table'>
    <thead>{{moduleCode}} Assessments</thead>
    <tr>
@@ -16,25 +16,29 @@
  </table>
  </div>
 
-   <div class='rcorners1 edit-marks-container' *ngIf='chosenAssessment'>
-
+   <div class='edit-marks-container' *ngIf='chosenAssessment'>
+      <div class="marks-header">
+        <div><label id="search">Search: </label><input type='text' [(ngModel)]="searchText" (ngModelChange)='search()'/></div>
+      </div>
 
       <table class='marks-table'>
-        <thead>{{chosenAssessment.name}}</thead>
+        <thead><label>{{chosenAssessment.name}}</label></thead>
         <tr>
-          <th>Student number</th>
-          <th> Full name </th>
-          <th>Mark</th>
+          <th class='details-td'>Student number</th>
+          <th class='details-td'>Full name </th>
+          <th class='details-td'>Email</th>
+          <th class='marks-td'>Mark</th>
         </tr>
-        <tr *ngFor='let student of students'>
-          <td> {{student.username}} </td>
-          <td>{{student.fullname}}</td>
-          <td><input type="text" /></td>
+        <tr *ngFor='let student of filteredStudents'>
+          <td align='left' class='details-td'> {{student.username}} </td>
+          <td align='left' class='details-td'>{{student.fullname}}</td>
+          <td align='left' class='details-td'>{{student.email}}</td>
+          <td align='left' class='marks-td'><input type="number" max="100" min="0" /></td>
         </tr>
       </table>
-      <div class="marks-footer">
-        <button md-raised-button color='primary'>Save</button>
-        <button md-raised-button color='warn' (click)='cancelEdit()'>Cancel</button>
+      <div class='marks-footer'>
+       <button md-raised-button color='primary'>Save</button>
+       <button md-raised-button color='warn' (click)='cancelEdit()'>Cancel</button>
       </div>
    </div>
 

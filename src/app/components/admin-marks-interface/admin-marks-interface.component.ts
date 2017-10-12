@@ -5,7 +5,7 @@ import { Assessment } from '../../models/Assessment';
 import { NgFor } from '@angular/common';
 import {MdButtonModule} from '@angular/material';
 import { _ } from 'underscore';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import { ModulesApi } from '../../services/api-service/modules-api/modules-api.service';
 
 
@@ -20,6 +20,8 @@ export class AdminMarksInterfaceComponent {
   assessments: Assessment[];
   students: User[];
   chosenAssessment: Assessment;
+  searchText: String;
+  filteredStudents: User[];
 
   constructor(private activatedRoute: ActivatedRoute, private assessmentsApi: AssessmentsApi, private modulesApi: ModulesApi) {
    this.activatedRoute.params.subscribe((params: Params) => {
@@ -40,6 +42,7 @@ export class AdminMarksInterfaceComponent {
     var year = new Date().getFullYear();
     this.modulesApi.getStudentsByModule(this.moduleCode, year).subscribe((students) => {
       this.students = students;
+      this.filteredStudents = students;
     });
   }
 
@@ -53,6 +56,13 @@ export class AdminMarksInterfaceComponent {
 
   cancelEdit() {
     this.chosenAssessment = null;
+    this.searchText = '';
   };
+
+  search() {
+    this.filteredStudents = _.filter(this.students, (student) => {
+      return student.username.includes(this.searchText);
+    });
+  }
 }
 

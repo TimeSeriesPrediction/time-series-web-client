@@ -14,13 +14,14 @@ import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../../services/api-service/users-api/users-api.service';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
-import {User} from '../../models/User';
+import {User} from '../../models/user-models/User';
 import {Assessment} from '../../models/Assessment';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../../services/api-service/api.service';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
+import {AuthService} from '../../services/auth-service/auth.service';
 
 const Moment: any = (<any>moment).default || moment;
 var data : any;
@@ -42,7 +43,7 @@ export class AddBulkUsersComponent {
         false
     ];
 
-  constructor(private userService : UsersApi)
+  constructor(private userService : UsersApi, private auth: AuthService)
   {
 
   }
@@ -56,7 +57,7 @@ export class AddBulkUsersComponent {
 
   getCurrentUser()
   {
-    this.userService.getCurrentUser().subscribe(
+    this.auth.getCurrentLoggedInUser().subscribe(
     function(response) { this.currentUser=response},
     function(error) { console.log("Error happened" + error)}
 );
@@ -66,7 +67,7 @@ export class AddBulkUsersComponent {
 getModules()
   {
 
-    this.userService.getCurrentUser().subscribe(
+    this.auth.getCurrentLoggedInUser().subscribe(
     function(response) { this.currentUser=response},
     function(error) { console.log("Error happened" + error)},
     function()
@@ -89,7 +90,7 @@ addSingleUser() // why does alll the form elements disappear
 {
   var FullName = (document.getElementById("in1")) as HTMLSelectElement;
   var fname = FullName.value;
-  
+
   var Username = document.getElementById('in2') as HTMLInputElement;
   var uname = Username.value;
 
@@ -100,7 +101,7 @@ addSingleUser() // why does alll the form elements disappear
     alert("Please fill in all fields!");
     return;
   }
-    
+
 
   alert("Name: " + fname + " Username: " + uname + " Email: " + email);
 
