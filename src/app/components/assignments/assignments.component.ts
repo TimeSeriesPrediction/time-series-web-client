@@ -10,7 +10,6 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
@@ -65,9 +64,9 @@ getModules()
     function()
     {
       document.getElementById("sel1").innerHTML = "";
-      for (var I = 0; I < this.currentUser.modules.length; I++)
+      for (var I = 0; I < this.currentUser.permissions.modules.length; I++)
       {
-          var moduleList = "<option>" + this.currentUser.modules[I] + "</option>";
+          var moduleList = "<option>" + this.currentUser.permissions.modules[I] + "</option>";
           document.getElementById("sel1").innerHTML += moduleList;
 
       }

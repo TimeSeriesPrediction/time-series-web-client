@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker'
 import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AuthService } from './services/auth-service/auth.service';
 import { NgModule } from '@angular/core';

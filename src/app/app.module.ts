@@ -31,8 +31,6 @@ import { MarksComponent } from './components/marks/marks.component';
 import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
 //import {StudentQueryComponent} from './student-query/student-query.component';
 import {RedComponentComponent} from "./components/red-component/red-component.component";
-import {AgGridModule} from "ag-grid-angular/main";
-import { ChartsModule } from 'ng2-charts';
 
 import { StudentQueryComponent } from './components/student-query/student-query.component';
 import { AdminQueryComponent } from './components/admin-query/admin-query.component';
