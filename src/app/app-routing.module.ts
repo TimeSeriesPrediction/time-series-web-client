@@ -25,6 +25,7 @@ import { AuthGuard } from './services/auth-guard/auth.guard';
 import { AdminQueryComponent } from './components/admin-query/admin-query.component';
 import { RedComponentComponent } from './components/red-component/red-component.component';
 import {AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
+import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,10 @@ const routes: Routes = [
   {
     path: 'add-bulk-users',
     component: AddBulkUsersComponent
+  },
+  {
+    path: 'enroll-students',
+    component: EnrollStudentsComponent
   }
 ];
 
