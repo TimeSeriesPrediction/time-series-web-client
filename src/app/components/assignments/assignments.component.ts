@@ -12,7 +12,6 @@ import {
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
-import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
 import {User} from '../../models/user-models/User';
 import {Assessment} from '../../models/Assessment';
@@ -20,13 +19,16 @@ import {Injectable} from '@angular/core';
 import {ApiService} from '../../services/api-service/api.service';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
+import { AuthService} from '../../services/auth-service/auth.service';
+import { NgFor } from '@angular/common';
+import { NgIf} from '@angular/common';
 const Moment: any = (<any>moment).default || moment;
 
 
 @Component({
   selector: 'app-assignments',
   templateUrl: './assignments.component.html',
-  providers: [UsersApi,ApiService,AppConfig,AssessmentsApi],
+  providers: [ApiService,AppConfig,AssessmentsApi],
   styleUrls: ['./assignments.component.scss'],
 })
 
@@ -34,24 +36,24 @@ export class AssignmentsComponent {
 
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
+  public currentUser : User;
 
-  constructor(private userService : UsersApi, private assessmentService : AssessmentsApi)
+  constructor(private authService : AuthService, private assessmentService : AssessmentsApi)
   {
 
   }
   ngOnInit()
   {
     this.getCurrentUser();
-    this.getModules();
-  }
 
-  public currentUser : User;
+  }
 
   getCurrentUser()
   {
-    this.userService.getCurrentUser().subscribe(
-    function(response) { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)}
+    this.authService.getCurrentLoggedInUser().subscribe(
+    (response) =>{ this.currentUser = response},
+    function(error) { console.log("Error happened" + error)
+  }
 );
 
 
@@ -59,7 +61,7 @@ export class AssignmentsComponent {
 getModules()
   {
 
-    this.userService.getCurrentUser().subscribe(
+    this.authService.getCurrentLoggedInUser().subscribe(
     function(response) { this.currentUser=response},
     function(error) { console.log("Error happened" + error)},
     function()

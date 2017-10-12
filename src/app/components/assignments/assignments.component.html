@@ -8,10 +8,10 @@
       <div id="wrapper"class="row">
         <label id="li">Module:</label>
           <select  id="sel1">
-            <option>COS 151</option>
-            <option>COS 132</option>
-            <option>COS 110</option>
-            <option>COS 121</option>
+          <div *ngFor='let module of currentUser.permissions.modules'>
+              <option>{{module.code}}</option>
+          </div>
+          
           </select>
       </div>
 

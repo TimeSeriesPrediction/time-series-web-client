@@ -23,6 +23,9 @@ import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
 import {AuthService} from  '../../services/auth-service/auth.service';
 import {AddUserModel} from '../../models/user-models/AddUserModel';
+import {FormsModule} from "@angular/forms";
+import {NgModule} from "@angular/core";
+
 const Moment: any = (<any>moment).default || moment;
 var data : any;
 
@@ -43,9 +46,19 @@ export class AddBulkUsersComponent {
         false
     ];
 
-  constructor(private userService : UsersApi, public authService : AuthService)
-  {
+    public user = {
+      fullname :"",
+      username : "",
+      email : "",
+      filename : ""
+    }
 
+   public myObj = new Array();
+  constructor(private userService : UsersApi, 
+    public authService : AuthService
+   )
+  {
+    
   }
   ngOnInit()
   {
@@ -70,52 +83,34 @@ getModules()
     this.authService.getCurrentLoggedInUser().subscribe(
     (response)=> { this.currentUser=response},
     function(error) { console.log("Error happened" + error)},
-    function()
-    {
-      document.getElementById("sel1").innerHTML = "";
-      for (var I = 0; I < this.currentUser.modules.length; I++)
-      {
-          var moduleList = "<option>" + this.currentUser.modules[I] + "</option>";
-          document.getElementById("sel1").innerHTML += moduleList;
-
-      }
-    });
+    );
 
 
 }
 
 
 public newUser : AddUserModel;
-addSingleUser() // why does alll the form elements disappear
+addSingleUser() 
 {
-  var FullName = (document.getElementById("in1")) as HTMLSelectElement;
-  var fname = FullName.value;
   
-  var Username = document.getElementById('in2') as HTMLInputElement;
-  var uname = Username.value;
 
-  var Email = document.getElementById('in3') as HTMLInputElement;
-  var email = Email.value;
-
-  if(fname == "" || uname == "" || email == ""){
+  if(this.user.fullname == "" || this.user.username == "" || this.user.email == ""){
     alert("Please fill in all fields!");
     return;
   }
-    
 
-  alert("Name: " + fname + " Username: " + uname + " Email: " + email);
-
-  this.newUser = new AddUserModel(uname,"",email,fname);
+  this.newUser = new AddUserModel(this.user.username,this.user.fullname,this.user.email,"***");
 
   this.userService.addUser(this.newUser); 
   location.reload();
+
+  alert(this.user.username + " " + this.user.fullname + " " + this.user.email);
 }
 
 addBulkUsers()
 {
-  var fileName = (document.getElementById("in4")) as HTMLSelectElement;
-  var fname = fileName.value;
-
+ 
+  
 }
 
 
@@ -162,7 +157,7 @@ onFileChange(evt: any) {
         if (r == true) {
             //create the json objects
 
-           var myObj = new Array();// check the structure of this object, it differs from one in postman :(
+         //  var myObj = new Array();// check the structure of this object, it differs from one in postman :(
               
             for(var i = 0; i < data.length; i++){
                 var obj = new AddUserModel(
@@ -172,11 +167,11 @@ onFileChange(evt: any) {
                    ""
                 );
 
-                myObj.push(obj);
+                this.myObj.push(obj);
 
             }
-            this.userService.addUsers(myObj); 
-            alert(JSON.stringify(myObj));
+            this.userService.addUsers(this.myObj); 
+            alert(JSON.stringify(this.myObj));
             
         } else {
             alert('Please provide a file with the right format.');

@@ -14,7 +14,7 @@ export class AuthService {
   login(userId: string, password: string) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.api.post('/account/token', JSON.stringify({ userId: userId, password: password }), headers)
+    return this.api.post('/account/token', JSON.stringify({ username: userId, password: password }), headers)
       .map((response: Response) => {
         let result = response.json();
         if (result.authToken) {
