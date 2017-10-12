@@ -40,7 +40,9 @@ export class AuthService {
 
   getCurrentLoggedInUser() : Observable<User>{
     return this.api.get('/users/profile')
-      .map((response: Response) => <User>response.json().user);
+      .map((response: Response) => {
+        return <User>response.json().user;
+      });
   }
 
   getUserDetails(userId: String) {

@@ -22,8 +22,10 @@ import { AppConfig } from '../../app.config';
 import { AuthService} from '../../services/auth-service/auth.service';
 import { NgFor } from '@angular/common';
 import { NgIf} from '@angular/common';
-const Moment: any = (<any>moment).default || moment;
+import { MdRadioButton} from '@angular/material';
+import {NgModule} from '@angular/core';
 
+const Moment: any = (<any>moment).default || moment;
 
 @Component({
   selector: 'app-assignments',
@@ -36,8 +38,8 @@ export class AssignmentsComponent {
 
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
-  public currentUser : User;
-
+  public currentUser : User = new User();
+  public module = [1,2,3,4];
   constructor(private authService : AuthService, private assessmentService : AssessmentsApi)
   {
 
@@ -45,56 +47,25 @@ export class AssignmentsComponent {
   ngOnInit()
   {
     this.getCurrentUser();
-
   }
 
   getCurrentUser()
   {
     this.authService.getCurrentLoggedInUser().subscribe(
-    (response) =>{ this.currentUser = response},
-    function(error) { console.log("Error happened" + error)
+    (response) =>{ 
+      this.currentUser = response;
+    },function(error) { console.log("Error happened" + error)});
   }
-);
+  setradio(e: string): void   
+  {     
+    this.newAssignment.type= e;          
+  }  
+    
 
-
-  }
-getModules()
-  {
-
-    this.authService.getCurrentLoggedInUser().subscribe(
-    function(response) { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)},
-    function()
-    {
-      document.getElementById("sel1").innerHTML = "";
-      for (var I = 0; I < this.currentUser.modules.length; I++)
-      {
-          var moduleList = "<option>" + this.currentUser.modules[I] + "</option>";
-          document.getElementById("sel1").innerHTML += moduleList;
-
-      }
-    });
-
-
-}
-
-
-newAssignment : Assessment;
+newAssignment : Assessment = new Assessment();
 addAssignment()
 {
-  var DropdownList = (document.getElementById("sel1")) as HTMLSelectElement;
-  var option = DropdownList.options[DropdownList.selectedIndex] as HTMLOptionElement;
-  var selected = option.value;
-  alert("entered name: "+selected);
-  var input1= document.getElementById('usr') as HTMLInputElement;
-  var name = input1.value;
-  var dateInput= document.getElementById('usr1') as HTMLInputElement;
-  var date =dateInput.value;
-  var linkIput = document.getElementById('for-file') as HTMLInputElement;
-  var link = linkIput.value;
-
-  var newAssignment = new Assessment(name, 10, selected, date, link) //TODO: Hardcoded weight - please fix
-  this.assessmentService.addAssessment(selected, new Date().getFullYear(), newAssignment);
+  this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
 }
 
 }
