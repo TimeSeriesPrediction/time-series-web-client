@@ -1,6 +1,6 @@
 export class Assessment {
 
-  constructor(name: string, weight: number, moduleId: string,  deadline: string,  link:string, _id?: String,){
+  constructor(name?: string, weight?: number, moduleCode?: string,  deadline?: string,  link?:string, _id?: string,){
     this._id = _id;
     this.name = name;
     this.weight = weight;
@@ -24,7 +24,7 @@ export class Assessment {
   link:string;
   type: string;
   marks: [{
-    username: String;
+    username: string;
     mark: Number;
   }];
 }

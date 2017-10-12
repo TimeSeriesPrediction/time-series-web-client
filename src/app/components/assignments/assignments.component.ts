@@ -45,21 +45,21 @@ export class AssignmentsComponent {
   }
   ngOnInit()
   {
-    this.getCurrentUser();
+
   }
 
 
-  }
-  setradio(e: string): void
+
+  setradio(e: string)
   {
-	this.newAssignment.type=e;
+	  this.newAssignment.type= e;
   }
 
-newAssignment : Assessment = new Assessment();
-addAssignment()
-{
-  this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
-}
+  newAssignment : Assessment = new Assessment();
+  addAssignment()
+  {
+    this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
+  }
 
 }
 

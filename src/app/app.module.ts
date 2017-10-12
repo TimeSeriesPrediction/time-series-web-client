@@ -68,7 +68,6 @@ import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-user
     AppRoutingModule,
     ChartsModule,
     ReactiveFormsModule
-
   ],
   providers: [
     AppConfig,

@@ -3,7 +3,7 @@
   <div  id="rcorners1">
    <h3 id="li1"  class="center">Add Assignment</h3>
 
-    <form [formGroup]="userForm" (ngSubmit)="addAssignment()"  id="myForm">
+    <form (ngSubmit)="addAssignment()"  id="myForm">
 
       <div id="wrapper"class="row">
         <label id="li">Module:</label>
@@ -11,7 +11,7 @@
 
             <option *ngFor='let module of currentUser.permissions.modules' [ngValue]="module.moduleCode">{{module.moduleCode}}</option>
 
-          
+
           </select>
       </div>
 
@@ -20,11 +20,11 @@
                 <div class="rd">
                         <label  for="rs1" style="height:36px!important;">Exam<input [value]="Exam"  id="rs1" name="ass" type="radio" (click)="setradio('Exam')" ngModel></label>
                         <label  for="rs2" style="height:36px!important;">Test <input [value]="Test"   id="rs2" name="ass" type="radio" (click)="setradio('Test')" ngModel></label>
-                        <label  for="rs3" style="height:36px!important;">Practical<input [value]="Practical"    id="rs3" name="ass" type="radio"(click)="setradio('Practical')" ngModel></label>  
-                        <label  for="rs4" style="padding-left:4px!important;height:36px!important;">Assignment<input [value]="Assignment"   id="rs4" name="ass" type="radio" (click)="setradio('Assignment')" [checked]='true' ngModel></label>  
+                        <label  for="rs3" style="height:36px!important;">Practical<input [value]="Practical"    id="rs3" name="ass" type="radio"(click)="setradio('Practical')" ngModel></label>
+                        <label  for="rs4" style="padding-left:4px!important;height:36px!important;">Assignment<input [value]="Assignment"   id="rs4" name="ass" type="radio" (click)="setradio('Assignment')" [checked]='true' ngModel></label>
                 </div>
         </div>
-      
+
       <div id="wrapper" class="row" >
         <label for="for-file" id="li">Name:</label>
         <input [(ngModel)]="newAssignment.name" [ngModelOptions]="{standalone: true}"required id="for-file" type="text"  data-show-preview="false">
