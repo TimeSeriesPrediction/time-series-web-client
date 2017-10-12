@@ -11,10 +11,10 @@ export class AuthService {
 
   constructor(private api: ApiService, private config: AppConfig) { }
 
-  login(userId: string, password: string) {
+  login(username: string, password: string) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.api.post('/account/token', JSON.stringify({ userId: userId, password: password }), headers)
+    return this.api.post('/account/token', JSON.stringify({ username: username, password: password }), headers)
       .map((response: Response) => {
         let result = response.json();
         if (result.authToken) {
@@ -40,7 +40,9 @@ export class AuthService {
 
   getCurrentLoggedInUser() : Observable<User>{
     return this.api.get('/users/profile')
-      .map((response: Response) => <User>response.json().user);
+      .map((response: Response) => {
+        return <User>response.json().user;
+      });
   }
 
   getUserDetails(userId: String) {
