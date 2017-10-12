@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RedComponentComponent } from "../red-component/red-component.component";
 import { AdminMarksInterfaceComponent } from './admin-marks-interface.component';
-import { AgGridModule } from "ag-grid-angular";
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { ApiService } from '../../services/api-service/api.service';
@@ -30,9 +29,6 @@ describe('AdminMarksInterfaceComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        AgGridModule.withComponents(
-          [RedComponentComponent]
-        ),
         RouterTestingModule
       ],
       schemas: [NO_ERRORS_SCHEMA],
@@ -61,19 +57,5 @@ describe('AdminMarksInterfaceComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('grid API is not available until  `detectChanges`', () => {
-    expect(component.gridOptions.api).not.toBeTruthy();
-  });
-
-  it('grid API is available after `detectChanges`', () => {
-    fixture.detectChanges();
-    expect(component.gridOptions.api).toBeTruthy();
-  });
-
-  it('select all button selects all rows', () => {
-    fixture.detectChanges();
-    component.selectAllRows();
-    expect(component.gridOptions.api.getSelectedNodes().length).toEqual(3);
-  });
 
 });
