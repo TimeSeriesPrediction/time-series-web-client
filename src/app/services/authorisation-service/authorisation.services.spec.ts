@@ -61,68 +61,90 @@ describe('Authorisation Service', () => {
 
   describe('isAdmin', function() {
 
-    it('should return true if user is admin', function() {
+    it('should return true if user is admin', function(done) {
       mockUser.permissions.admin = true;
       service = getService();
 
-      expect(service.isAdmin()).toBeTruthy();
+      service.isAdmin().then(function(admin) {
+        expect(admin).toBeTruthy();
+        done();
+      });
     });
 
-    it('should return false if user is not admin', function() {
-      expect(service.isAdmin()).toBeFalsy();
+    it('should return false if user is not admin', function(done) {
+      service.isAdmin().then(function(admin) {
+        expect(admin).toBeFalsy();
+        done();
+      });
     });
 
   });
 
   describe('isStaffMember', function() {
-    it('should return false if only student', function() {
+    it('should return false if only student', function(done) {
       mockUser.permissions.modules.push({
         moduleCode: 'COS301',
         permission: appConfig.PERMISSION_TYPE.STUDENT
       });
       service = getService();
 
-      expect(service.isStaffMember()).toBeFalsy();
+      service.isStaffMember().then(function(staff){
+        expect(staff).toBeFalsy();
+        done();
+      });
+
     });
 
-    it('should return true if staff member for any module', function() {
+    it('should return true if staff member for any module', function(done) {
       mockUser.permissions.modules.push({
         moduleCode: 'COS301',
         permission: appConfig.PERMISSION_TYPE.ADMIN_VIEW
       });
       service = getService();
 
-      expect(service.isStaffMember()).toBeTruthy();
+      service.isStaffMember().then(function(staff){
+        expect(staff).toBeTruthy();
+        done();
+      });
     });
   });
 
   describe('getPermissionForModule', function() {
-    it('should return 0 if no permissions object for module', function() {
-      expect(service.getPermissionForModule('COS326')).toBe(0);
+    it('should return 0 if no permissions object for module', function(done) {
+      service.getPermissionForModule('COS326').then(function(permission){
+        expect(permission).toBe(0);
+        done();
+      });
     });
 
-    it('should return correct permission if student', function() {
+    it('should return correct permission if student', function(done) {
       mockUser.permissions.modules.push({
         moduleCode: 'COS301',
         permission: appConfig.PERMISSION_TYPE.STUDENT
       });
       service = getService();
 
-      expect(service.getPermissionForModule('COS301')).toBe(appConfig.PERMISSION_TYPE.STUDENT);
+      service.getPermissionForModule('COS301').then(function (permission) {
+        expect(permission).toBe(appConfig.PERMISSION_TYPE.STUDENT);
+        done();
+      });
     });
 
-    it('should return correct permission if admin', function() {
+    it('should return correct permission if admin', function(done) {
       mockUser.permissions.modules.push({
         moduleCode: 'COS301',
         permission: appConfig.PERMISSION_TYPE.ADMIN_EDIT
       });
       service = getService();
 
-      expect(service.getPermissionForModule('COS301')).toBe(appConfig.PERMISSION_TYPE.ADMIN_EDIT);
+      service.getPermissionForModule('COS301').then(function(permission){
+        expect(permission).toBe(appConfig.PERMISSION_TYPE.ADMIN_EDIT);
+        done();
+      });
     });
   });
 
-  describe('isStudent', function() {
+  describe('isStudentForModule', function() {
 
     beforeEach(function() {
       mockUser.permissions.modules.push({
@@ -138,16 +160,25 @@ describe('Authorisation Service', () => {
       service = getService();
     });
 
-    it('should return true if student', function() {
-      expect(service.isStudent('COS301')).toBeTruthy();
+    it('should return true if student', function(done) {
+      service.isStudentForModule('COS301').then(function(student) {
+        expect(student).toBeTruthy();
+        done();
+      });
     });
 
-    it ('should return false if staff member', function() {
-      expect(service.isStudent('COS326')).toBeFalsy();
+    it ('should return false if staff member', function(done) {
+      service.isStudentForModule('COS326').then(function(student) {
+        expect(student).toBeFalsy();
+        done();
+      });
     });
 
-    it('should return false if no permissions for module', function() {
-      expect(service.isStudent('COS330')).toBeFalsy();
+    it('should return false if no permissions for module', function(done) {
+      service.isStudentForModule('COS330').then(function(student){
+        expect(student).toBeFalsy();
+        done();
+      });
     });
 
   });
@@ -168,16 +199,25 @@ describe('Authorisation Service', () => {
       service = getService();
     });
 
-    it('should return false if student', function() {
-      expect(service.isStaffMemberForModule('COS301')).toBeFalsy();
+    it('should return false if student', function(done) {
+      service.isStaffMemberForModule('COS301').then(function (staff) {
+        expect(staff).toBeFalsy();
+        done();
+      });
     });
 
-    it ('should return true if staff member', function() {
-      expect(service.isStaffMemberForModule('COS326')).toBeTruthy();
+    it ('should return true if staff member', function(done) {
+      service.isStaffMemberForModule('COS326').then(function(staff) {
+        expect(staff).toBeTruthy();
+        done();
+      });
     });
 
-    it('should return false if no permissions for module', function() {
-      expect(service.isStaffMemberForModule('COS330')).toBeFalsy();
+    it('should return false if no permissions for module', function(done) {
+      service.isStaffMemberForModule('COS330').then(function(staff) {
+        expect(staff).toBeFalsy();
+        done();
+      });
     });
 
   });
