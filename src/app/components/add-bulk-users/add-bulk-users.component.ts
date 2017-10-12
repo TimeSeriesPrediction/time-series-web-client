@@ -19,7 +19,10 @@ import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
-import {AuthService} from '../../services/auth-service/auth.service';
+import {AuthService} from  '../../services/auth-service/auth.service';
+import {AddUserModel} from '../../models/user-models/AddUserModel';
+import {FormsModule} from "@angular/forms";
+import {NgModule} from "@angular/core";
 
 const Moment: any = (<any>moment).default || moment;
 var data : any;
@@ -33,7 +36,7 @@ var data : any;
 })
 
 export class AddBulkUsersComponent {
-
+ // dialogRef: MdDialogRef<ConfirmationDialogComponent>;
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
   public svisible: boolean[] = [
@@ -41,9 +44,19 @@ export class AddBulkUsersComponent {
         false
     ];
 
-  constructor(private userService : UsersApi, private auth: AuthService)
-  {
+    public user = {
+      fullname :"",
+      username : "",
+      email : "",
+      filename : ""
+    }
 
+   public myObj = new Array();
+  constructor(private userService : UsersApi, 
+    public authService : AuthService
+   )
+  {
+    
   }
   ngOnInit()
   {
@@ -55,8 +68,8 @@ export class AddBulkUsersComponent {
 
   getCurrentUser()
   {
-    this.auth.getCurrentLoggedInUser().subscribe(
-    function(response) { this.currentUser=response},
+    this.authService.getCurrentLoggedInUser().subscribe(
+    (response)=> { this.currentUser=response},
     function(error) { console.log("Error happened" + error)}
 );
 
@@ -65,53 +78,37 @@ export class AddBulkUsersComponent {
 getModules()
   {
 
-    this.auth.getCurrentLoggedInUser().subscribe(
-    function(response) { this.currentUser=response},
+    this.authService.getCurrentLoggedInUser().subscribe(
+    (response)=> { this.currentUser=response},
     function(error) { console.log("Error happened" + error)},
-    function()
-    {
-      document.getElementById("sel1").innerHTML = "";
-      for (var I = 0; I < this.currentUser.modules.length; I++)
-      {
-          var moduleList = "<option>" + this.currentUser.modules[I] + "</option>";
-          document.getElementById("sel1").innerHTML += moduleList;
-
-      }
-    });
+    );
 
 
 }
 
 
-newUser : User;
-addSingleUser() // why does alll the form elements disappear
+public newUser : AddUserModel;
+addSingleUser() 
 {
-  var FullName = (document.getElementById("in1")) as HTMLSelectElement;
-  var fname = FullName.value;
+  
 
-  var Username = document.getElementById('in2') as HTMLInputElement;
-  var uname = Username.value;
-
-  var Email = document.getElementById('in3') as HTMLInputElement;
-  var email = Email.value;
-
-  if(fname == "" || uname == "" || email == ""){
+  if(this.user.fullname == "" || this.user.username == "" || this.user.email == ""){
     alert("Please fill in all fields!");
     return;
   }
 
+  this.newUser = new AddUserModel(this.user.username,this.user.fullname,this.user.email,"***");
 
-  alert("Name: " + fname + " Username: " + uname + " Email: " + email);
-
-  this.userService.addUser(uname,"",email); //is this right? - add full name?
+  this.userService.addUser(this.newUser); 
   location.reload();
+
+  alert(this.user.username + " " + this.user.fullname + " " + this.user.email);
 }
 
 addBulkUsers()
 {
-  var fileName = (document.getElementById("in4")) as HTMLSelectElement;
-  var fname = fileName.value;
-
+ 
+  
 }
 
 
@@ -128,12 +125,64 @@ onFileChange(evt: any) {
       /* grab first sheet */
       const wsname: string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
+     
       /* save data */
       data = (XLSX.utils.sheet_to_json(ws, {header: 1}));
+
+      var usernames = new Array();
+      var fullnames = new Array();
+      var emails = new Array();
+
+      var count = 3;
+    
+    for(var i = 0; i < data.length; i++){
+
+          usernames.push(data[i][0]);
+          fullnames.push(data[i][1]);
+          emails.push(data[i][2]);
+    }
+
+      //for(var t = 0; t < usernames.length; t++)
+        //alert(usernames[t]);
+        var txt = "Is this format correct? \n Username     Full Name     Email \n\n" ;
+
+        for(var i = 0; i < data.length; i++){
+          txt += usernames[i] + "     " + fullnames[i] + "     " + emails[i] + "\n";
+          if(i > 9)
+            break;
+        }
+        var r = confirm(txt);
+        if (r == true) {
+            //create the json objects
+
+         //  var myObj = new Array();// check the structure of this object, it differs from one in postman :(
+              
+            for(var i = 0; i < data.length; i++){
+                var obj = new AddUserModel(
+                  usernames[i],
+                  fullnames[i],
+                  emails[i],
+                   ""
+                );
+
+                this.myObj.push(obj);
+
+            }
+            this.userService.addUsers(this.myObj); 
+            alert(JSON.stringify(this.myObj));
+            
+        } else {
+            alert('Please provide a file with the right format.');
+        }
+
+
     };
     reader.readAsBinaryString(target.files[0]);
-    alert(target.files[0]);
-  }
+
+   
+
+
+}
+
 }
 

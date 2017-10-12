@@ -3,36 +3,44 @@
   <div  id="rcorners1">
    <h3 id="li1"  class="center">Add Assignment</h3>
 
-    <form (ngSubmit)="addStudents()"  id="myForm">
+    <form [formGroup]="userForm" (ngSubmit)="addAssignment()"  id="myForm">
 
       <div id="wrapper"class="row">
         <label id="li">Module:</label>
-          <select  id="sel1">
-            <option>COS 151</option>
-            <option>COS 132</option>
-            <option>COS 110</option>
-            <option>COS 121</option>
+          <select  required id="sel1" [(ngModel)]="newAssignment.moduleCode" [ngModelOptions]="{standalone: true}" (ngModelChange)="electrifyonChange($event)">
+
+            <option *ngFor='let module of currentUser.permissions.modules' [ngValue]="module.moduleCode">{{module.moduleCode}}</option>
+
+          
           </select>
       </div>
 
-
-      <div id="wrapper"class="row" >
-        <label id="li">Assessment:</label>
-        <input id="for-file" type="text" >
+        <div id="wrapper"class="row" >
+            <label> Type:</label>
+                <div class="rd">
+                        <label  for="rs1" style="height:36px!important;">Exam<input [value]="Exam"  id="rs1" name="ass" type="radio" (click)="setradio('Exam')" ngModel></label>
+                        <label  for="rs2" style="height:36px!important;">Test <input [value]="Test"   id="rs2" name="ass" type="radio" (click)="setradio('Test')" ngModel></label>
+                        <label  for="rs3" style="height:36px!important;">Practical<input [value]="Practical"    id="rs3" name="ass" type="radio"(click)="setradio('Practical')" ngModel></label>  
+                        <label  for="rs4" style="padding-left:4px!important;height:36px!important;">Assignment<input [value]="Assignment"   id="rs4" name="ass" type="radio" (click)="setradio('Assignment')" [checked]='true' ngModel></label>  
+                </div>
+        </div>
+      
+      <div id="wrapper" class="row" >
+        <label for="for-file" id="li">Name:</label>
+        <input [(ngModel)]="newAssignment.name" [ngModelOptions]="{standalone: true}"required id="for-file" type="text"  data-show-preview="false">
       </div>
-
       <div id="wrapper" class="row" >
         <label id="li">Deadline:</label>
-        <input id="for-file" type="date" >
+        <input  [(ngModel)]="newAssignment.deadline" [ngModelOptions]="{standalone: true}"required id="for-file" type="date"   >
       </div>
 
       <div id="wrapper" class="row" >
-        <label for="for-file" id="li">Select File:</label>
-        <input id="for-file" type="link"  data-show-preview="false">
+        <label for="for-file" id="li">File Link:</label>
+        <input  [(ngModel)]="newAssignment.link" [ngModelOptions]="{standalone: true}"required id="for-file" type="link"  data-show-preview="false">
       </div>
 
 
-      <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
+      <button type="submit" class="btn btn-success" id="btnSub">Submit</button>
 
 
     </form>

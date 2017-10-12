@@ -4,18 +4,25 @@ export class Assessment {
     this._id = _id;
     this.name = name;
     this.weight = weight;
-    this.moduleId = moduleId;
+    this.moduleCode = moduleCode;
     this.deadline = deadline;
     this.link = link;
   }
 
-  _id: String;
+  toString()
+  {
+    return ("Name:"+this.name+" Code: "+this.moduleCode+" Type: "+this.type+" Deadline: "+this.deadline+ " Link: "+this.link);
+  }
+
+
+
+  _id: string;
   name: string;
   weight: number;
-  moduleId: string;
+  moduleCode: string;
   deadline: string;
   link:string;
-
+  type: string;
   marks: [{
     username: String;
     mark: Number;

@@ -25,16 +25,13 @@ form {
    margin: auto;
    position: relative;
  }
-$c1 : #3d6098;
-$c2 : #213159;
-$c3 : #f04b4c;
-$c4 : #e7e7e7;
+
 #rcorners1 
 {
     display: block;
     margin: 0 auto;
     width: 40%;
-    height:50% ;
+    height:auto ;
     background-color: rgb(227, 229, 232);
     align-content: center;
 }
@@ -62,23 +59,22 @@ $c4 : #e7e7e7;
 label
 {
   float: left;
-  margin-right: 10%;
-  margin-bottom:2%;
   width: 20%;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 150%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 150%;
 }
+
 .btn,.btn-default
 {
   background-color:orangered;
   text-transform: uppercase;
   width: 50%;
 }
+
 input,select
 {
- float: right;
- width: 60%;
-  margin-bottom:2%;
+  float: right;
+  width: 60%;
   height:50%;
 }
 
@@ -99,4 +95,15 @@ input,select
     border-radius: 5px;
     color: white;
     font-weight: bold;
+}
+
+#rs1,#rs2,#rs3,#rs4{
+
+  height: 11px!important;
+}
+
+
+.rd{
+  width: 60%;
+  height:60px!important;
 }

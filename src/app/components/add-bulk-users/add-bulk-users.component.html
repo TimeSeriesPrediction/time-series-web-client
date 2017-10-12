@@ -4,22 +4,22 @@
 
   <div  id="rcorners1">
     <h3 class="center">Add a single student:</h3> 
-      <div id="form1" [hidden]= "true">
+      <div id="form1">
         <form (ngSubmit)="addSingleUser()"  id="inputForm">
 
           <div id="wrapper"class="row">
             <label for="in1" id="li1">Student Full Name:</label>
-            <input id="in1" type="text" required >
+            <input id="in1" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.fullname" required >
           </div>
 
           <div id="wrapper"class="row">
             <label for="in2" id="li2">Username:</label>
-            <input id="in2" type="text" required>
+            <input id="in2" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.username" required>
           </div>
 
           <div id="wrapper" class="row" >
             <label for="in3" id="li3">Student Email:</label>
-            <input id="in3" type="text" required>
+            <input id="in3" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.email" required>
           </div>
           
           <div id="butts" class="row" >
@@ -29,15 +29,16 @@
       </div>
       <br />
       <h3 class="center">Select a file of students:</h3>
-    <div id="form2" display="none" [hidden]= "true">
+    <div id="form2" display="none">
       <form (ngSubmit)="addBulkUsers()"  id="fileForm">
         <div id="wrapper" class="row" >
           <label for="in4" id="li">Select File:</label>
-          <input id="in4" type="file" (change)="onFileChange($event)" multiple="false">
+          <input id="in4" type="file" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.filename" (change)="onFileChange($event)" multiple="false">
         </div>
         <div id="butts" class="row" >
             <button type="submit" class="btn btn-default" id="btnSub2">Submit</button>
           </div>
+         
       </form>
     </div>
   </div>
