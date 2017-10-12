@@ -62,7 +62,7 @@ const routes: Routes = [
     component: LeaderboardComponent
   },
   {
-    path: 'admin-marks',
+    path: 'admin-marks/:moduleCode',
     component: AdminMarksInterfaceComponent
   },
   {

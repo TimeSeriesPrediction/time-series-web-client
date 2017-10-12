@@ -23,6 +23,7 @@ import { WeightingsComponent } from './components/weightings/weightings.componen
 import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
+import {ModulesApi} from './services/api-service/modules-api/modules-api.service';
 import {UsersApi} from './services/api-service/users-api/users-api.service';
 import 'hammerjs';
 import { MarksComponent } from './components/marks/marks.component';
@@ -79,6 +80,7 @@ import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-user
     ApiService,
     AuthService,
     AssessmentsApi,
+    ModulesApi,
     UsersApi
     //UserMockServerProvider,
     //MockBackend,
