@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 import { Mark } from '../../../models/marks-models/Mark';
 import 'rxjs/add/operator/do';
 
-describe('AssessmentsApiService', () => {
+describe('MarksApiService', () => {
   let mockApi, appConfig;
   let observables = new ObservablesMock();
 
@@ -38,8 +38,8 @@ describe('AssessmentsApiService', () => {
 
     beforeEach(function() {
       var marks = [
-        new Mark('u12345678', '123', 50),
-        new Mark('u87654321', '321', 80)
+        new Mark('u12345678', 80),
+        new Mark('u87654321', 80)
       ];
 
       mockApi.get = observables.ResolveObservable({ marks: marks })
@@ -60,10 +60,9 @@ describe('AssessmentsApiService', () => {
       inject([MarksApi], function(service: MarksApi) {
         service.getMarksByAssessment('123').subscribe((marks) => {
           console.log(marks);
-          expect(marks[0].userId).toBe('u12345678');
-          expect(marks[0].assessmentId).toBe('123');
-          expect(marks[1].userId).toBe('u87654321');
-          expect(marks[1].finalResult).toBe(80);
+          expect(marks[0].username).toBe('u12345678');
+          expect(marks[1].username).toBe('u87654321');
+          expect(marks[1].mark).toBe(80);
           done();
         })
       })();
@@ -72,14 +71,14 @@ describe('AssessmentsApiService', () => {
 
   describe('addFinalMarksToAssessment', function() {
     var marks = [
-      new Mark('u12345678', '123', 50),
-      new Mark('u87654321', '123', 80)
+      new Mark('u12345678', 50),
+      new Mark('u87654321', 80)
     ];
 
     it ('should call api post with correct args', function (done) {
       inject([MarksApi], function(service: MarksApi) {
         service.addFinalMarksToAssessment('123', marks,'COS121').subscribe((message) => {
-          expect(mockApi.post.calls.mostRecent().args).toEqual(['/marks/', { assessmentId: '123', marks: [{ mark: 50, userId: 'u12345678'}, {mark: 80, userId: 'u87654321'}], moduleCode:'COS121'}]);
+          expect(mockApi.post.calls.mostRecent().args).toEqual(['/marks/', { assessmentId: '123', marks: [{ mark: 50, username: 'u12345678'}, {mark: 80, username: 'u87654321'}], moduleCode:'COS121'}]);
           done();
         })
       })();

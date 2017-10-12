@@ -16,7 +16,6 @@ import {AssessmentsApi} from '../../services/api-service/assessments-api/assessm
 import {User} from '../../models/user-models/User';
 import {Assessment} from '../../models/Assessment';
 import {Injectable} from '@angular/core';
-import {ApiService} from '../../services/api-service/api.service';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
@@ -32,7 +31,7 @@ var data : any;
 @Component({
   selector: 'app-assignments',
   templateUrl: './add-bulk-users.component.html',
-  providers: [UsersApi,ApiService,AppConfig,AssessmentsApi],
+  providers: [UsersApi,AppConfig,AssessmentsApi],
   styleUrls: ['./add-bulk-users.component.scss'],
 })
 

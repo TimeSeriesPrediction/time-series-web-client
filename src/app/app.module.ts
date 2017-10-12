@@ -24,13 +24,13 @@ import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
 import {ModulesApi} from './services/api-service/modules-api/modules-api.service';
+import { MarksApi } from './services/api-service/marks-api/marks-api.service';
 import {UsersApi} from './services/api-service/users-api/users-api.service';
 import 'hammerjs';
 import { MarksComponent } from './components/marks/marks.component';
 import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
 //import {StudentQueryComponent} from './student-query/student-query.component';
 import {RedComponentComponent} from "./components/red-component/red-component.component";
-
 import { ChartsModule } from 'ng2-charts';
 
 import { StudentQueryComponent } from './components/student-query/student-query.component';
@@ -70,7 +70,6 @@ import { EnrollStudentsComponent } from './components/enroll-students/enroll-stu
     AppRoutingModule,
     ChartsModule,
     ReactiveFormsModule
-
   ],
   providers: [
     AppConfig,
@@ -79,6 +78,7 @@ import { EnrollStudentsComponent } from './components/enroll-students/enroll-stu
     AuthService,
     AssessmentsApi,
     ModulesApi,
+    MarksApi,
     UsersApi
     //UserMockServerProvider,
     //MockBackend,
