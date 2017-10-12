@@ -7,7 +7,7 @@ import { Assessment } from '../../../models/Assessment';
 import 'rxjs/add/operator/do';
 import { AddUserModel } from '../../../models/user-models/AddUserModel';
 
-describe('UsersApiService', () => {
+fdescribe('UsersApiService', () => {
   let mockApi, appConfig;
   let observables = new ObservablesMock();
 
