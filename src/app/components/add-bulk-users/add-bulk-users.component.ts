@@ -10,7 +10,6 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {UsersApi} from '../../services/api-service/users-api/users-api.service';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';

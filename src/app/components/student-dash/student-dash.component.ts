@@ -1,7 +1,6 @@
 import {Component, OnInit } from '@angular/core';
 import {MdCardModule} from '@angular/material';
 import {AuthService } from '../../services/auth-service/auth.service';
-import {UsersApi} from '../../services/api-service/users-api/users-api.mock';
 import {User} from '../../models/user-models/User';
 import {Module} from '../../models/Module';
 import {Injectable} from '@angular/core';
@@ -11,13 +10,13 @@ import {AppConfig } from '../../app.config';
 @Component({
   selector: 'app-student-dash',
   templateUrl: './student-dash.component.html',
-  providers: [UsersApi,ApiService,AppConfig],
+  providers: [ApiService,AppConfig],
   styleUrls: ['./student-dash.component.scss']
 })
 export class StudentDashComponent implements OnInit {
 
-  constructor( private authService: AuthService,private userService : UsersApi) { }
-  currentUser : User;
+  constructor( private authService: AuthService) { }
+  currentUser : User = new User();
   public moduleList :string;
 modules: Array<string> = [];;
   ngOnInit()
@@ -26,21 +25,13 @@ modules: Array<string> = [];;
   }
   ///this is the get user stuff
   userName:string;
-  getCurrentUser(){
-    this.userService.getCurrentUser().subscribe(
-      (user) =>  {
-        this.currentUser = user;
-        this.userName=this.currentUser.username;
-        //this.modules=this.currentUser.permissions.modules;
-        this.moduleList=" ";
-        for (var I = 0; I < this.modules.length; I++)
-          {
-               //this.moduleList += this.currentUser.modules[I]+"\n";
-          }
-
-        },
-    (error)=> { console.log("Error happened" + error)}
-  )}
+  getCurrentUser()
+  {
+      this.authService.getCurrentLoggedInUser().subscribe(
+      (response) =>{ 
+        this.currentUser = response;
+      },function(error) { console.log("Error happened" + error)}); 
+  }
   ////this is the get modules stuff
 
 
