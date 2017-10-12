@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {Response} from '@angular/http'
 import {AddUserModel} from '../../../models/user-models/AddUserModel';
 import 'rxjs/add/operator/map';
+import {User} from '../../../models/user-models/User';
 
 @Injectable()
 export class UsersApi {
