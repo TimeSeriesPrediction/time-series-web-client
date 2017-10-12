@@ -45,27 +45,21 @@ export class AssignmentsComponent {
   }
   ngOnInit()
   {
-    this.getCurrentUser();
+
   }
 
-  getCurrentUser()
+
+
+  setradio(e: string)
   {
-    this.authService.getCurrentLoggedInUser().subscribe(
-    (response) =>{ 
-      this.currentUser = response;
-    },function(error) { console.log("Error happened" + error)});
+	  this.newAssignment.type= e;
   }
-  setradio(e: string): void   
-  {     
-    this.newAssignment.type= e;          
-  }  
-    
 
-newAssignment : Assessment = new Assessment();
-addAssignment()
-{
-  this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
-}
+  newAssignment : Assessment = new Assessment();
+  addAssignment()
+  {
+    this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
+  }
 
 }
 

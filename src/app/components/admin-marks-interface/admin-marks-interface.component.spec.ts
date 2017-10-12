@@ -4,6 +4,7 @@ import { AdminMarksInterfaceComponent } from './admin-marks-interface.component'
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '../../services/auth-service/auth.service';
 import { ApiService } from '../../services/api-service/api.service';
+import { AssessmentsApi } from '../../services/api-service/assessments-api/assessments-api.service';
 import { AppConfig } from '../../app.config';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Http, BaseRequestOptions } from '@angular/http';
@@ -12,6 +13,8 @@ import { UserMockServerProvider } from '../../users.mockserver';
 import { ObservablesMock } from '../../mocks/observables.mock';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { User } from '../../models/user-models/User';
+import { ModulesApi } from '../../services/api-service/modules-api/modules-api.service';
+import { MarksApi } from '../../services/api-service/marks-api/marks-api.service';
 
 describe('AdminMarksInterfaceComponent', () => {
   let component: AdminMarksInterfaceComponent;
@@ -36,6 +39,9 @@ describe('AdminMarksInterfaceComponent', () => {
         AuthService,
         { provide: ApiService, useValue: mockApiService },
         AppConfig,
+        AssessmentsApi,
+        ModulesApi,
+        MarksApi,
         { provide: Http, useValue: UserMockServerProvider },
         MockBackend,
         BaseRequestOptions],
@@ -56,6 +62,5 @@ describe('AdminMarksInterfaceComponent', () => {
 
     expect(component).toBeTruthy();
   });
-
 
 });

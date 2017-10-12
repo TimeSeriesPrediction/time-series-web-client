@@ -33,11 +33,11 @@
           <td align='left' class='details-td'> {{student.username}} </td>
           <td align='left' class='details-td'>{{student.fullname}}</td>
           <td align='left' class='details-td'>{{student.email}}</td>
-          <td align='left' class='marks-td'><input type="number" max="100" min="0" /></td>
+          <td align='left' class='marks-td'><input type="number" max="100" min="0" [(ngModel)]='student.mark' value="{{student.mark}}"/></td>
         </tr>
       </table>
       <div class='marks-footer'>
-       <button md-raised-button color='primary'>Save</button>
+       <button md-raised-button color='primary' (click)='saveMarks()'>Save</button>
        <button md-raised-button color='warn' (click)='cancelEdit()'>Cancel</button>
       </div>
    </div>

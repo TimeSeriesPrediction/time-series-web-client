@@ -24,20 +24,24 @@ import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
 import {ModulesApi} from './services/api-service/modules-api/modules-api.service';
+import { MarksApi } from './services/api-service/marks-api/marks-api.service';
 import {UsersApi} from './services/api-service/users-api/users-api.service';
 import 'hammerjs';
 import { MarksComponent } from './components/marks/marks.component';
 import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
 //import {StudentQueryComponent} from './student-query/student-query.component';
 import {RedComponentComponent} from "./components/red-component/red-component.component";
-
 import { ChartsModule } from 'ng2-charts';
 
 import { StudentQueryComponent } from './components/student-query/student-query.component';
 import { AdminQueryComponent } from './components/admin-query/admin-query.component';
 import { StudentDashComponent } from './components/student-dash/student-dash.component';
 import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
+<<<<<<< HEAD
 import { AuthorisationService } from './services/authorisation-service/authorisation.service';
+=======
+import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
+>>>>>>> origin/dev
 
 @NgModule({
   declarations: [
@@ -55,7 +59,8 @@ import { AuthorisationService } from './services/authorisation-service/authorisa
     RedComponentComponent,
     StudentQueryComponent,
     StudentDashComponent,
-    AddBulkUsersComponent
+    AddBulkUsersComponent,
+    EnrollStudentsComponent
   ],
   imports: [
     MdNativeDateModule,
@@ -69,7 +74,6 @@ import { AuthorisationService } from './services/authorisation-service/authorisa
     AppRoutingModule,
     ChartsModule,
     ReactiveFormsModule
-
   ],
   providers: [
     AppConfig,
@@ -78,8 +82,13 @@ import { AuthorisationService } from './services/authorisation-service/authorisa
     AuthService,
     AssessmentsApi,
     ModulesApi,
+<<<<<<< HEAD
     UsersApi,
     AuthorisationService
+=======
+    MarksApi,
+    UsersApi
+>>>>>>> origin/dev
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions

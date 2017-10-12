@@ -21,8 +21,8 @@ export class MarksApi {
   addFinalMarksToAssessment(assessmentId: String, marks: Mark[],moduleCode :String) : Observable<String> {
     var marksAdded = marks.map((mark) => {
       return {
-        mark: mark.finalResult,
-        userId: mark.userId
+        mark: mark.mark,
+        username: mark.username
       }
     })
 
