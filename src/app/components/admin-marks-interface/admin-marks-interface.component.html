@@ -1,44 +1,85 @@
 <navbar> </navbar>
 
-<div id="rcorners1">
-  <h3 id="li1" class="center">Setup Marksheet</h3>
+<div class='assessments-table-container' *ngIf='!chosenAssessment'>
+ <table class='center assessments-table'>
+   <thead>{{moduleCode}} Assessments</thead>
+   <tr>
+     <th>Name</th> <th>Deadline</th> <th>Weight</th> <th>Specification</th>
+   </tr>
+   <tr *ngFor='let assessment of assessments'>
+    <td>{{assessment.name}}</td>
+    <td>{{assessment.deadline}}</td>
+    <td>{{assessment.weight}}</td>
+    <td>{{assessment.link}}</td>
+    <td><button md-button class="md-raised" (click)='editAssignmentMarks(assessment._id)'> Edit marks </button> </td>
+  </tr>
+ </table>
+ </div>
 
-  <form id="myForm">
+   <div class='edit-marks-container' *ngIf='chosenAssessment'>
+      <div class="marks-header">
+        <div><label id="search">Search: </label><input type='text' [(ngModel)]="searchText" (ngModelChange)='search()'/></div>
+      </div>
+
+      <table class='marks-table'>
+        <thead><label>{{chosenAssessment.name}}</label></thead>
+        <tr>
+          <th class='details-td'>Student number</th>
+          <th class='details-td'>Full name </th>
+          <th class='details-td'>Email</th>
+          <th class='marks-td'>Mark</th>
+        </tr>
+        <tr *ngFor='let student of filteredStudents'>
+          <td align='left' class='details-td'> {{student.username}} </td>
+          <td align='left' class='details-td'>{{student.fullname}}</td>
+          <td align='left' class='details-td'>{{student.email}}</td>
+          <td align='left' class='marks-td'><input type="number" max="100" min="0" [(ngModel)]='student.mark' value="{{student.mark}}"/></td>
+        </tr>
+      </table>
+      <div class='marks-footer'>
+       <button md-raised-button color='primary' (click)='saveMarks()'>Save</button>
+       <button md-raised-button color='warn' (click)='cancelEdit()'>Cancel</button>
+      </div>
+   </div>
 
 
-    <div id="dropds" class="btn-group btn-group-lg">
-      <select id="sel1" class="btn btn-primary" style="width:80%">
-              <option>Module</option>
-              <option>COS 151</option>
-              <option>COS 132</option>
-              <option>COS 110</option>
-              <option>COS 121</option>
-            </select>   <select id="sel1" class="btn btn-primary" style="width:100%">
-                <option>Assessment</option>
-                <option>Class Test 1</option>
-                <option>Class Test 2</option>
-                <option>EO1</option>
-                <option>EO2</option>
-              </select>
+
+<!--<div  id="rcorners1">
+  <h3 class="center">Add a single student:</h3>
+    <div id="form1" [hidden]= "true">
+      <form (ngSubmit)="addSingleUser()"  id="inputForm">
+
+        <div id="wrapper"class="row">
+          <label for="in1" id="li1">Student Full Name:</label>
+          <input id="in1" type="text" required >
+        </div>
+
+        <div id="wrapper"class="row">
+          <label for="in2" id="li2">Username:</label>
+          <input id="in2" type="text" required>
+        </div>
+
+        <div id="wrapper" class="row" >
+          <label for="in3" id="li3">Student Email:</label>
+          <input id="in3" type="text" required>
+        </div>
+
+        <div id="butts" class="row" >
+          <button type="submit" class="btn btn-default" id="btnSub1">Submit</button>
+        </div>
+      </form>
     </div>
-
-    <div class="row">
-      <input id="for-file" type="file" data-show-preview="false">
-    </div>
-
-
-
-    <ag-grid-angular style="width: 700px; height: 115px;" class="ag-fresh" [rowData]="rowData" [columnDefs]="columnDefs" [gridOptions]="gridOptions"
-      (gridReady)="onGridReady($event)">
-    </ag-grid-angular>
-
-
-    <button class="btn btn-default" style="width:20%" id="btnAddCol" (click)="addColumn(newCol)">Add Column</button>
-    <button class="btn btn-default" style="width:20%" id="btnAddCol" (click)="addRow()">Add Row</button>
-    <button class="btn btn-default" style="width:20%" id="btnAddCol" (click)="removeRow()">Remove Row</button>
-
-    <button type="submit" class="btn btn-default" id="btnSub">Submit</button>
-
-
-  </form>
-</div>
+    <br />
+    <h3 class="center">Select a file of students:</h3>
+  <div id="form2" display="none" [hidden]= "true">
+    <form (ngSubmit)="addBulkUsers()"  id="fileForm">
+      <div id="wrapper" class="row" >
+        <label for="in4" id="li">Select File:</label>
+        <input id="in4" type="file" (change)="onFileChange($event)" multiple="false">
+      </div>
+      <div id="butts" class="row" >
+          <button type="submit" class="btn btn-default" id="btnSub2">Submit</button>
+        </div>
+    </form>
+  </div>
+</div>-->

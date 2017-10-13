@@ -23,13 +23,14 @@ import { WeightingsComponent } from './components/weightings/weightings.componen
 import {ApiService} from './services/api-service/api.service';
 import {LeaderboardComponent} from './components/leaderboard/leaderboard.component';
 import {AssessmentsApi} from './services/api-service/assessments-api/assessments-api.service';
+import {ModulesApi} from './services/api-service/modules-api/modules-api.service';
+import { MarksApi } from './services/api-service/marks-api/marks-api.service';
 import {UsersApi} from './services/api-service/users-api/users-api.service';
 import 'hammerjs';
 import { MarksComponent } from './components/marks/marks.component';
 import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
 //import {StudentQueryComponent} from './student-query/student-query.component';
 import {RedComponentComponent} from "./components/red-component/red-component.component";
-import {AgGridModule} from "ag-grid-angular/main";
 import { ChartsModule } from 'ng2-charts';
 
 import { StudentQueryComponent } from './components/student-query/student-query.component';
@@ -37,8 +38,10 @@ import { AdminQueryComponent } from './components/admin-query/admin-query.compon
 import { StudentDashComponent } from './components/student-dash/student-dash.component';
 import { PasswordResetEmailComponent } from './password-reset-email/password-reset-email.component';
 import { PasswordResetTokenComponent } from './password-reset-token/password-reset-token.component';
-
-
+import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
+import { AuthorisationService } from './services/authorisation-service/authorisation.service';
+import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
+import { MyMarksComponent } from './components/my-marks/my-marks.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { PasswordResetTokenComponent } from './password-reset-token/password-res
     StudentQueryComponent,
     StudentDashComponent,
     PasswordResetEmailComponent,
-    PasswordResetTokenComponent
+    PasswordResetTokenComponent,
+    AddBulkUsersComponent,
+    EnrollStudentsComponent,
+    MyMarksComponent
   ],
   imports: [
     MdNativeDateModule,
@@ -70,12 +76,7 @@ import { PasswordResetTokenComponent } from './password-reset-token/password-res
     MdCheckboxModule,
     AppRoutingModule,
     ChartsModule,
-    AgGridModule.withComponents(
-      [RedComponentComponent]
-  ),
-
     ReactiveFormsModule
-
   ],
   providers: [
     AppConfig,
@@ -83,7 +84,10 @@ import { PasswordResetTokenComponent } from './password-reset-token/password-res
     ApiService,
     AuthService,
     AssessmentsApi,
-    UsersApi
+    ModulesApi,
+    UsersApi,
+    AuthorisationService,
+    MarksApi
     //UserMockServerProvider,
     //MockBackend,
     //BaseRequestOptions

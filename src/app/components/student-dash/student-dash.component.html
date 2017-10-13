@@ -1,97 +1,36 @@
 <navbar> </navbar>
-
-<div class="row">
-  <div class="col-md-2">
-    <md-card class="example-card">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>My Modules</md-card-title>
-        </md-card-header>
-        <md-card-content>
-                {{moduleList}}
-        </md-card-content>
-        <md-card-actions>
-          <a href="marks">Detailed Marks</a>
-        </md-card-actions>
-      </md-card>
-  </div>
+<div class="container">
+<div class="header">
   <div class="col-md-4">
-        <img src="../../../assets/images/Logo.png" alt="Logo" style="width: 350px; height: 350px;">
-
-
-    </div>
-    <div class="col-md-6">
-        <md-card class="example-card" id="l">
-            <md-card-header>
-              <div md-card-avatar class="example-header-image"></div>
-              <md-card-title>Leaderboard</md-card-title>
-            </md-card-header>
-            <md-card-content>
-                <div class="row">
-                    <div class="col-md-6">
-                      <div style="display: block;">
-                      <canvas baseChart width="400" height="400"
-                                  [datasets]="lineChartData"
-                                  [labels]="lineChartLabels"
-                                  [options]="lineChartOptions"
-                                  [colors]="lineChartColors"
-                                  [legend]="lineChartLegend"
-                                  [chartType]="lineChartType"
-                                  (chartHover)="chartHovered($event)"
-                                  (chartClick)="chartClicked($event)"></canvas>
-                      </div>
-                    </div>
-                    <div class="col-md-2" style="margin-bottom: 10px">
-                      <table class="table table-responsive table-condensed">
-                        <tr>
-                          <th *ngFor="let label of lineChartLabels">{{label}}</th>
-                        </tr>
-                        <tr *ngFor="let d of lineChartData">
-                          <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-                        </tr>
-                      </table>
-
-                    </div>
-                  </div>
-
-            </md-card-content>
-            <md-card-actions>
-
-              </md-card-actions>
-          </md-card>
-      </div>
+    <span class="modulesHead">
+      Enrolled Modules
+      <ul>
+        <li *ngFor='let module of currentUser.permissions.modules'>{{module.moduleCode}}</li>
+        <li><a href="marks"> View Marks</a></li>
+      </ul>
+      
+    </span>
+  </div>
+  <div class="col-md-5">
+      <span class="predictionshead">Time Series Predictions</span>
+ </div>
+  <div id="main" class="leaderBoard">
+     <span class="lbHead">Leaderboard</span>
+     <div class ="leaderBoard"style="display: block;">
+     <canvas baseChart width="400" height="250" [datasets]="lineChartData"[labels]="lineChartLabels"
+      [options]="lineChartOptions"[colors]="lineChartColors"[legend]="lineChartLegend"
+      [chartType]="lineChartType" (chartHover)="chartHovered($event)"(chartClick)="chartClicked($event)">
+     </canvas>
+  </div>
+           
+  </div>
 </div>
 <div class="row">
-<div class="col-md-3">
-    <md-card class="example-card" id="x">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>Predictions</md-card-title>
-        </md-card-header>
-        <md-card-content>
-          View your latest performance predictions
-        </md-card-content>
-        <md-card-actions>
-          <a href="#">Time Series Predictions</a>
-        </md-card-actions>
-      </md-card>
+
+
+    <div class ="col-md-4" id="quote">
+      <h1>Quote of the Day</h1>
+      <h3> "People are not disturbed by things, but by the view they take of them" -EPICTETUS</h3>
     </div>
-    <div class ="col-md-4">
-            <h1>Quote of the Day</h1>
-
-                   <h3> "People are not disturbed by things, but by the view they take of them" -EPICTETUS</h3>
-    </div>
-
-    <div class="col-md-5">
-        <md-card class="example-card"id="s">
-            <md-card-header>
-              <div md-card-avatar class="example-header-image"></div>
-              <md-card-title>Staff</md-card-title>
-            </md-card-header>
-
-            <md-card-actions>
-              <a href="#">Admin Dashboard</a>
-            </md-card-actions>
-          </md-card>
-        </div>
+</div>
 </div>

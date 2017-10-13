@@ -6,19 +6,28 @@ import {User} from '../../models/user-models/User';
 import {Injectable} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
+import { AuthorisationService } from '../../services/authorisation-service/authorisation.service';
 
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
-  providers: [AppConfig],
+  providers: [AppConfig,AuthorisationService],
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private authorisation: AuthorisationService) { }
+
+  staff: boolean =false;
+  student: boolean = false;
+  admin: boolean = false;
+
 
   ngOnInit() {
     this.getCurrentUser();
+    this.isAdmin();
+    this.isStaffMember();
+    this.isStudent();
   }
 
   logout() {
@@ -35,6 +44,24 @@ export class NavbarComponent implements OnInit {
       this.userName = this.currentUser.username;
     }, (error) => {
       console.log("Error happened: " + error)
+    });
+  }
+
+  isStaffMember() {
+    return this.authorisation.isStaffMember().then((staff) =>{
+      this.staff = staff;
+    });
+  };
+
+  isStudent() {
+    return this.authorisation.isStudent().then((student)=> {
+      this.student = student;
+    });
+  };
+
+  isAdmin() {
+    return this.authorisation.isAdmin().then((admin) => {
+      this.admin = admin;
     });
   }
 

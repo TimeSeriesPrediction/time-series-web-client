@@ -7,7 +7,7 @@ import { Assessment } from '../../../models/Assessment';
 import 'rxjs/add/operator/do';
 import { AddUserModel } from '../../../models/user-models/AddUserModel';
 
-fdescribe('UsersApiService', () => {
+describe('UsersApiService', () => {
   let mockApi, appConfig;
   let observables = new ObservablesMock();
 
@@ -66,9 +66,9 @@ fdescribe('UsersApiService', () => {
 
     it ('should call api post with correct args', function (done) {
       inject([UsersApi], function(service: UsersApi) {
-        service.addUser('u12345678', 'P@55word', 'test@tuks.co.za').subscribe((message) => {
+        service.addUser(new AddUserModel('u12345678', 'fullname', 'test@tuks.co.za','P@55word')).subscribe((message) => {
           expect(mockApi.post.calls.mostRecent().args[0]).toBe('/users/');
-          expect(mockApi.post.calls.mostRecent().args[1].userId).toBe('u12345678');
+          expect(mockApi.post.calls.mostRecent().args[1].username).toBe('u12345678');
           expect(mockApi.post.calls.mostRecent().args[1].password).toBe('P@55word');
           expect(mockApi.post.calls.mostRecent().args[1].email).toBe('test@tuks.co.za');
           done();
@@ -78,7 +78,8 @@ fdescribe('UsersApiService', () => {
 
     it('should return a message observable', function(done) {
       inject([UsersApi], function(service: UsersApi) {
-        service.addUser('u12345678', 'P@55word', 'test@tuks.co.za').subscribe((message) => {
+        
+        service.addUser(new AddUserModel('u12345678', 'fullname', 'test@tuks.co.za','P@55word')).subscribe((message) => {
           expect(message).toBe('response message');
           done();
         })

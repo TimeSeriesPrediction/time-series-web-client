@@ -10,7 +10,6 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { SlimScrollOptions } from 'ng2-slimscroll';
 import * as moment from 'moment';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
 import {User} from '../../models/user-models/User';
@@ -46,27 +45,21 @@ export class AssignmentsComponent {
   }
   ngOnInit()
   {
-    this.getCurrentUser();
+
   }
 
-  getCurrentUser()
+
+
+  setradio(e: string)
   {
-    this.authService.getCurrentLoggedInUser().subscribe(
-    (response) =>{ 
-      this.currentUser = response;
-    },function(error) { console.log("Error happened" + error)});
+	  this.newAssignment.type= e;
   }
-  setradio(e: string): void   
-  {     
-    this.newAssignment.type= e;          
-  }  
-    
 
-newAssignment : Assessment = new Assessment();
-addAssignment()
-{
-  this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
-}
+  newAssignment : Assessment = new Assessment();
+  addAssignment()
+  {
+    this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
+  }
 
 }
 
