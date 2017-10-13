@@ -7,6 +7,10 @@
       <ul>
         <li *ngFor='let module of modules'>{{module.code}} - {{module.name}} <a href="my-marks/{{module.code}}"> View Marks</a></li>
       </ul>
+      Managed Modules
+      <ul>
+        <li *ngFor='let module of staffModules'>{{module.code}} - {{module.name}} <a href="admin-marks/{{module.code}}"> Edit Marks</a></li>
+      </ul>
 
     </span>
   </div>

@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <a><img src="../../../assets/images/logo.png"  alt="Logo" style ="width: 50px; height: 50px;"></a>
       <div class="navbar-header"  >
-        
+
          <a id="site-head" class="navbar-brand" style="color:white;" href="student-dash">Saffron </a>
      </div>
 
@@ -16,18 +16,9 @@
                <div><a class="button" href="student-dash" id="back">Back </a> </div>
        </div>
          <ul class="nav nav-pills" >
-          
 
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Grading">Manage Marks</a>
-            <ul class="dropdown-menu">
-              <li><a href="admin-marks" style="  background-color:#17294D;
-                text-transform: uppercase; color:white" *ngIf='admin'>Marksheet Setup</a></li>
-              <li><a href="marker-marks" style="  background-color:#17294D;
-                text-transform: uppercase; color:white" *ngIf='staff'>Enter Marks</a></li>
-            </ul>
-          </li>
-          <li id="li" ><a href="Assignment" style="color:white;" *ngIf='staff'>Manage Assignments</a></li>
-          <li id="li" ><a href="Weights" style="color:white;" *ngIf='admin'>Manage Weightings</a></li>
+          <li id="li" ><a href="Assignment" style="color:white;" *ngIf='staff'>Add Assignments</a></li>
+          <li id="li" ><a href="add-module" style="color:white;" *ngIf='admin'>Add Module</a></li>
 
 
           <li id="li" ><a href="add-bulk-users" style="color:white;" *ngIf='admin'>Add Students</a></li>

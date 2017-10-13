@@ -76,6 +76,7 @@ export class AdminMarksInterfaceComponent {
     this.marksApi.addFinalMarksToAssessment(this.chosenAssessment._id, marks, this.moduleCode).subscribe((message) => {
       this.chosenAssessment = null;
       this.clearMarksCache();
+      this.searchText = '';
       this.loading = false;
       this.getAssignments();
     });
@@ -83,7 +84,6 @@ export class AdminMarksInterfaceComponent {
 
   cancelEdit() {
     this.chosenAssessment = null;
-    this.searchText = '';
     this.clearMarksCache();
   };
 
@@ -92,6 +92,8 @@ export class AdminMarksInterfaceComponent {
       var student = this.students[i];
       student.mark = null;
     }
+    this.searchText = '';
+    this.filteredStudents = this.students;
   }
 
   search() {

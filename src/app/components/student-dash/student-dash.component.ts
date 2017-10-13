@@ -8,6 +8,7 @@ import {ApiService} from '../../services/api-service/api.service';
 import {HttpModule } from '@angular/http';
 import {AppConfig } from '../../app.config';
 import { ModulesApi } from '../../services/api-service/modules-api/modules-api.service';
+import { _ } from 'underscore';
 
 @Component({
   selector: 'app-student-dash',
@@ -17,10 +18,11 @@ import { ModulesApi } from '../../services/api-service/modules-api/modules-api.s
 })
 export class StudentDashComponent implements OnInit {
 
-  constructor( private authService: AuthService, private modulesApi: ModulesApi) { }
+  constructor( private authService: AuthService, private modulesApi: ModulesApi, private config: AppConfig) { }
   currentUser : User = new User();
   public moduleList :string;
   modules: Module[] = [];
+  staffModules: Module[] = []
   ngOnInit()
   {
     this.getCurrentUser();
@@ -31,6 +33,11 @@ export class StudentDashComponent implements OnInit {
   getEnrolledModules() {
     this.modulesApi.getModulesByStudent().subscribe((mods) => {
       this.modules = mods;
+      this.staffModules = _.filter(this.modules, (mod) => {
+        return _.some(this.currentUser.permissions.modules, (m) => {
+          return m.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW;
+        });
+      });
     });
   }
 

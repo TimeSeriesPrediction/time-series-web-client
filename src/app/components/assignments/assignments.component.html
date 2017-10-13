@@ -8,20 +8,17 @@
       <div id="wrapper"class="row">
         <label id="li">Module:</label>
           <select  required id="sel1" [(ngModel)]="newAssignment.moduleCode" [ngModelOptions]="{standalone: true}" (ngModelChange)="electrifyonChange($event)">
-
-            <option *ngFor='let module of currentUser.permissions.modules' [ngValue]="module.moduleCode">{{module.moduleCode}}</option>
-
-
+            <option *ngFor='let module of modules' [ngValue]="module.code">{{module.code}}</option>
           </select>
       </div>
 
         <div id="wrapper"class="row" >
             <label> Type:</label>
                 <div class="rd">
-                        <label  for="rs1" style="height:36px!important;">Exam<input [value]="Exam"  id="rs1" name="ass" type="radio" (click)="setradio('Exam')" ngModel></label>
-                        <label  for="rs2" style="height:36px!important;">Test <input [value]="Test"   id="rs2" name="ass" type="radio" (click)="setradio('Test')" ngModel></label>
-                        <label  for="rs3" style="height:36px!important;">Practical<input [value]="Practical"    id="rs3" name="ass" type="radio"(click)="setradio('Practical')" ngModel></label>
-                        <label  for="rs4" style="padding-left:4px!important;height:36px!important;">Assignment<input [value]="Assignment"   id="rs4" name="ass" type="radio" (click)="setradio('Assignment')" [checked]='true' ngModel></label>
+                        <label  for="rs1" style="height:36px!important;">Exam<input [ngModelOptions]="{standalone: true}" [value]="Exam"  id="rs1" name="ass" type="radio" (click)="setradio('Exam')" ngModel></label>
+                        <label  for="rs2" style="height:36px!important;">Test <input [ngModelOptions]="{standalone: true}" [value]="Test"   id="rs2" name="ass" type="radio" (click)="setradio('Test')" ngModel></label>
+                        <label  for="rs3" style="height:36px!important;">Practical<input [ngModelOptions]="{standalone: true}" [value]="Practical"    id="rs3" name="ass" type="radio"(click)="setradio('Practical')" ngModel></label>
+                        <label  for="rs4" style="padding-left:4px!important;height:36px!important;">Assignment<input [ngModelOptions]="{standalone: true}" [value]="Assignment"   id="rs4" name="ass" type="radio" (click)="setradio('Assignment')" [checked]='true' ngModel></label>
                 </div>
         </div>
 
