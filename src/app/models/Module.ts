@@ -3,7 +3,7 @@ import {Assessment} from './Assessment';
 
 export class Module {
 
-  constructor(name: string, code: String){
+  constructor(name?: string, code?: String){
     this.name = name;
     this.code = code;
   }
