@@ -57,4 +57,9 @@ export class ModulesApi {
       .map((response: Response) => <Module[]>response.json().modules);
   }
 
+  addStaffToModule(moduleCode: string, username: string, permission: number) {
+    return this._api.post('/modules/add-staff', {moduleCode: moduleCode, username: username, permission: permission})
+      .map((response: Response) => <String>response.json().message);
+  }
+
 }

@@ -1,8 +1,9 @@
 <nav class="navbar navbar-default" style="color:white;">
     <div class="container-fluid">
+      <a><img src="../../../assets/images/logo.png"  alt="Logo" style ="width: 50px; height: 50px;"></a>
       <div class="navbar-header"  >
-        <img src="../../../assets/images/logo.png" alt="Logo" style ="width: 50px; height: 50px;">
-         <a id="site-head" class="navbar-brand" style="color:white;" href="#">Saffron </a>
+        
+         <a id="site-head" class="navbar-brand" style="color:white;" href="student-dash">Saffron </a>
      </div>
 
       <div class="container "style="color:white;">
@@ -10,11 +11,12 @@
                <span class="pull-right">
                   <span class="glyphicon glyphicon-user"></span>
                </span>
-               <div>{{userName}}</div>
-               <a (click)="logout()">Logout</a>
+               <div id="un">{{userName}}</div>
+               <a (click)="logout()" id="lo" >Logout</a>
+               <div><a class="button" href="student-dash" id="back">Back </a> </div>
        </div>
          <ul class="nav nav-pills" >
-          <li><div><a class="button" href="dash">Home </a> </div></li>
+          
 
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="Grading">Manage Marks</a>
             <ul class="dropdown-menu">
@@ -32,6 +34,7 @@
 
           <li id="li" ><a href="enroll-students" style="color:white;"*ngIf='admin'>Enroll Students</a></li>
 
+          <li id="li" ><a href="staff-to-module" style="color:white;"*ngIf='admin'>Add Staff</a></li>
 
         </ul>
 
