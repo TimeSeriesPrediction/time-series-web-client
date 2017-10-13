@@ -1,0 +1,40 @@
+<navbar> </navbar>
+
+  <!--<h2 class="center">Add Student</h2>-->
+
+  <div  id="rcorners1">
+    <h3 class="center">Assign a staff member to a module</h3>
+      <div id="form1">
+
+          <div id="wrapper"class="row">
+            <label for="in1" id="li1">Module Code:</label>
+            <select [(ngModel)]='moduleCode' name='moduleCode' >
+              <option *ngFor='let module of modules' value='{{module.code}}'>{{module.code}}</option>
+            </select>
+          </div>
+
+          <div id="wrapper"class="row">
+            <label for="in2" id="li2">Staff Username:</label>
+            <input id="in2" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="username" required>
+          </div>
+
+          <div id="wrapper" class="row" >
+            <label for="in3" id="li3">Permission:</label>
+            <select [(ngModel)]='permission' name='permission'>
+              <option *ngFor='let permission of permissions' value='{{permission}}'>{{permission}}</option>
+            </select>
+          </div>
+
+          <div id="butts" class="row" >
+            <button class="btn btn-default" id="btnSub1" (click)='staffToModule()'>Submit</button>
+          </div>
+      </div>
+      <br />
+  </div>
+
+
+
+
+
+
+

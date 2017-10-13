@@ -34,7 +34,7 @@ export class AuthorisationService {
           resolve(this.user.permissions.admin);
         });
       }
-  
+
       resolve(this.user.permissions.admin);
     });
 
@@ -49,27 +49,25 @@ export class AuthorisationService {
           }))
         });
       }
-  
+
       resolve(_.some(this.user.permissions.modules, (mod) => {
         return mod.permission > this.config.PERMISSION_TYPE.STUDENT;
       }))
     });
-
-
-  }
+  };
 
   getPermissionForModule(moduleCode): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (!this.user) {
         return this.init().then(() => {
           var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-          
+
           return resolve(!mod ? 0 : mod.permission);
         });
       }
-  
+
       var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-  
+
       return resolve(!mod ? 0 : mod.permission);
     });
 
@@ -84,7 +82,7 @@ export class AuthorisationService {
           }));
         });
       }
-  
+
       return resolve(_.some(this.user.permissions.modules, (mod) => {
         return mod.permission = this.config.PERMISSION_TYPE.STUDENT;
       }));
@@ -98,13 +96,13 @@ export class AuthorisationService {
       if (!this.user) {
         return this.init().then(() => {
           var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-          
+
           return resolve(mod && mod.permission == this.config.PERMISSION_TYPE.STUDENT);
         });
       }
-  
+
       var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-      
+
       return resolve(mod && mod.permission == this.config.PERMISSION_TYPE.STUDENT);
     });
   };
@@ -114,13 +112,13 @@ export class AuthorisationService {
       if (!this.user) {
         return this.init().then(() => {
           var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-          
+
           return resolve(mod && mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW);
         });
       }
-  
+
       var mod = _.findWhere(this.user.permissions.modules, {moduleCode: moduleCode});
-      
+
       return resolve(mod && mod.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW);
     });
   };

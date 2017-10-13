@@ -36,6 +36,8 @@ import { EnrollStudentsComponent } from './components/enroll-students/enroll-stu
 import { MyMarksComponent } from './components/my-marks/my-marks.component';
 import { PasswordResetEmailComponent } from './components/password-reset-email/password-reset-email.component';
 import { PasswordResetTokenComponent } from './components/password-reset-token/password-reset-token.component';
+import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
+import { AddModuleComponent } from './components/add-module/add-module.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { PasswordResetTokenComponent } from './components/password-reset-token/p
     EnrollStudentsComponent,
     MyMarksComponent,
     PasswordResetEmailComponent,
-    PasswordResetTokenComponent
+    PasswordResetTokenComponent,
+    StaffToModuleComponent,
+    AddModuleComponent
   ],
   imports: [
     MdNativeDateModule,

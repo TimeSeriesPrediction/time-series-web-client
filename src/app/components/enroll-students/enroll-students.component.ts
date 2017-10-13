@@ -28,13 +28,14 @@ export class EnrollStudentsComponent implements OnInit {
     }
 
     private data;
+    private users: string[];
    public myObj = new Array();
-  constructor(private moduleService : ModulesApi, 
+  constructor(private moduleService : ModulesApi,
     public authService : AuthService,
 
    )
   {
-    
+
   }
   ngOnInit()
   {
@@ -66,16 +67,20 @@ getModules()
 
 
 public newUser : AddUserModel;
-enrollStudents() 
+enrollStudents()
 {
-  
+
 
   if(this.enroll.code == "" || this.enroll.year == 0 ){
     alert("Please fill in all fields!");
     return;
   }
 
- 
+    this.moduleService.enrollStudents(this.enroll.code,this.enroll.year,this.users).subscribe((message) => {
+    alert(message);
+  });
+
+
 }
 
 onFileChange(evt: any) {
@@ -91,15 +96,15 @@ onFileChange(evt: any) {
       /* grab first sheet */
       const wsname: string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-     
+
       /* save data */
       this.data = (XLSX.utils.sheet_to_json(ws, {header: 1}));
 
       var users = new Array();
-    
+
 
       var count = 3;
-    
+
     for(var i = 0; i < this.data.length; i++){
 
           users.push(this.data[i][0]);
@@ -117,11 +122,7 @@ onFileChange(evt: any) {
         var r = confirm(txt);
         if (r == true) {
             //create the json objects
-
-            this.moduleService.enrollStudents(this.enroll.code,this.enroll.year,users); 
-            alert(JSON.stringify(this.enroll.code) + " " + JSON.stringify(this.enroll.year)
-            + " " +  JSON.stringify(this.enroll.code));
-            
+            this.users = users;
         } else {
             alert('Please provide a file with the right format.');
         }
@@ -130,7 +131,7 @@ onFileChange(evt: any) {
     };
     reader.readAsBinaryString(target.files[0]);
 
-   
+
 
 
 }

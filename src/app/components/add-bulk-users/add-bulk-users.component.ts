@@ -52,11 +52,11 @@ export class AddBulkUsersComponent {
     }
 
    public myObj = new Array();
-  constructor(private userService : UsersApi, 
+  constructor(private userService : UsersApi,
     public authService : AuthService
    )
   {
-    
+
   }
   ngOnInit()
   {
@@ -88,9 +88,9 @@ getModules()
 
 
 public newUser : AddUserModel;
-addSingleUser() 
+addSingleUser()
 {
-  
+
 
   if(this.user.fullname == "" || this.user.username == "" || this.user.email == ""){
     alert("Please fill in all fields!");
@@ -99,7 +99,7 @@ addSingleUser()
 
   this.newUser = new AddUserModel(this.user.username,this.user.fullname,this.user.email,"***");
 
-  this.userService.addUser(this.newUser); 
+  this.userService.addUser(this.newUser);
   location.reload();
 
   alert(this.user.username + " " + this.user.fullname + " " + this.user.email);
@@ -107,8 +107,9 @@ addSingleUser()
 
 addBulkUsers()
 {
- 
-  
+  this.userService.addUsers(this.myObj).subscribe((message) => {
+    alert(message);
+  });
 }
 
 
@@ -125,7 +126,7 @@ onFileChange(evt: any) {
       /* grab first sheet */
       const wsname: string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-     
+
       /* save data */
       data = (XLSX.utils.sheet_to_json(ws, {header: 1}));
 
@@ -134,7 +135,7 @@ onFileChange(evt: any) {
       var emails = new Array();
 
       var count = 3;
-    
+
     for(var i = 0; i < data.length; i++){
 
           usernames.push(data[i][0]);
@@ -156,7 +157,7 @@ onFileChange(evt: any) {
             //create the json objects
 
          //  var myObj = new Array();// check the structure of this object, it differs from one in postman :(
-              
+
             for(var i = 0; i < data.length; i++){
                 var obj = new AddUserModel(
                   usernames[i],
@@ -168,9 +169,7 @@ onFileChange(evt: any) {
                 this.myObj.push(obj);
 
             }
-            this.userService.addUsers(this.myObj); 
-            alert(JSON.stringify(this.myObj));
-            
+
         } else {
             alert('Please provide a file with the right format.');
         }
@@ -178,11 +177,7 @@ onFileChange(evt: any) {
 
     };
     reader.readAsBinaryString(target.files[0]);
-
-   
-
-
-}
+  }
 
 }
 

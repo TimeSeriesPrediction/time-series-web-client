@@ -41,12 +41,25 @@ export class ModulesApi {
 
   getModule(moduleCode: String) : Observable<Module> {
     return this._api.get('/modules/' + moduleCode)
-      .map((response: Response) => <Module>response.json().module);
+      .map((response: Response) => {
+        return <Module>response.json().module
+      });
   }
 
   getStudentsByModule(moduleCode: String, year: number) : Observable<User[]> {
     return this._api.get('/modules/students/'+ year + '/' + moduleCode)
       .map((response: Response) => <User[]>response.json().students);
+  }
+
+  getModulesByStudent() : Observable<Module[]> {
+    var year = new Date().getFullYear();
+    return this._api.get('/modules/my-modules/' + year)
+      .map((response: Response) => <Module[]>response.json().modules);
+  }
+
+  addStaffToModule(moduleCode: string, username: string, permission: number) {
+    return this._api.post('/modules/add-staff', {moduleCode: moduleCode, username: username, permission: permission})
+      .map((response: Response) => <String>response.json().message);
   }
 
 }

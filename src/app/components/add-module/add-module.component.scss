@@ -1,0 +1,86 @@
+
+.navbar-default
+{
+  background-color:#17294D;
+  text-transform: uppercase;
+}
+
+#inputForm,#fileForm
+{
+  padding-top:5%;
+  padding-bottom: 5%;
+
+}
+
+form {
+  width: 100%;
+  height:100% ;
+   margin: 0 auto;
+   position: relative;
+   align-content: center;
+ }
+
+#rcorners1
+{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height:auto;
+    background-color: rgb(227, 229, 232);
+    align-content: center;
+    padding: 1%;
+    align-items: center;
+}
+
+#wrapper{
+    width: 80%;
+    margin: 0 auto;
+    padding: 1%;
+
+}
+
+#butts{
+    text-align: center;
+    margin-top: 5%;
+}
+
+#li1
+{
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+#btnSub1, #btnSub2
+{
+    display: block;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   margin: 0 auto;
+
+}
+
+label,input
+{
+  display: inline-block;
+  width :50%;
+  height: auto;
+
+}
+
+label{
+    text-align: right;
+    font-size: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 2%;
+}
+.btn,.btn-default
+{
+  background-color:orangered;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+.center{
+    text-align: center;
+    padding: 1%;
+    background-color: rgb(209, 211, 214);
+}

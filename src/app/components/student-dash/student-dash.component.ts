@@ -7,6 +7,9 @@ import {Injectable} from '@angular/core';
 import {ApiService} from '../../services/api-service/api.service';
 import {HttpModule } from '@angular/http';
 import {AppConfig } from '../../app.config';
+import { ModulesApi } from '../../services/api-service/modules-api/modules-api.service';
+import { _ } from 'underscore';
+
 @Component({
   selector: 'app-student-dash',
   templateUrl: './student-dash.component.html',
@@ -15,22 +18,36 @@ import {AppConfig } from '../../app.config';
 })
 export class StudentDashComponent implements OnInit {
 
-  constructor( private authService: AuthService) { }
+  constructor( private authService: AuthService, private modulesApi: ModulesApi, private config: AppConfig) { }
   currentUser : User = new User();
   public moduleList :string;
-modules: Array<string> = [];;
+  modules: Module[] = [];
+  staffModules: Module[] = []
   ngOnInit()
   {
     this.getCurrentUser();
   }
   ///this is the get user stuff
   userName:string;
+
+  getEnrolledModules() {
+    this.modulesApi.getModulesByStudent().subscribe((mods) => {
+      this.modules = mods;
+      this.staffModules = _.filter(this.modules, (mod) => {
+        return _.some(this.currentUser.permissions.modules, (m) => {
+          return m.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW;
+        });
+      });
+    });
+  }
+
   getCurrentUser()
   {
       this.authService.getCurrentLoggedInUser().subscribe(
-      (response) =>{ 
+      (response) =>{
         this.currentUser = response;
-      },function(error) { console.log("Error happened" + error)}); 
+        this.getEnrolledModules();
+      },function(error) { console.log("Error happened" + error)});
   }
   ////this is the get modules stuff
 

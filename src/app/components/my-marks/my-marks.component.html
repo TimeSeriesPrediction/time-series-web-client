@@ -1,3 +1,18 @@
-<p>
-  my-marks works!
-</p>
+<navbar> </navbar>
+
+  <div class='view-marks-container'>
+    <div> {{module.code}} - {{module.name}}</div>
+    <table class='marks-table'>
+      <tr>
+        <th class='details-td'>Assessment</th>
+        <th class='marks-td'>Mark</th>
+      </tr>
+      <tr *ngFor='let assessment of assessments'>
+        <td class='details-td'>{{assessment.name}}</td>
+        <td class='marks-td'>{{getMark(assessment._id)}}</td>
+
+      </tr>
+
+    </table>
+
+  </div>
