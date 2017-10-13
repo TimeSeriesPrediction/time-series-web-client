@@ -75,14 +75,24 @@ export class AdminMarksInterfaceComponent {
 
     this.marksApi.addFinalMarksToAssessment(this.chosenAssessment._id, marks, this.moduleCode).subscribe((message) => {
       this.chosenAssessment = null;
+      this.clearMarksCache();
       this.loading = false;
+      this.getAssignments();
     });
   };
 
   cancelEdit() {
     this.chosenAssessment = null;
     this.searchText = '';
+    this.clearMarksCache();
   };
+
+  clearMarksCache() {
+    for (var i =0; i < this.students.length; i++) {
+      var student = this.students[i];
+      student.mark = null;
+    }
+  }
 
   search() {
     this.filteredStudents = _.filter(this.students, (student) => {
