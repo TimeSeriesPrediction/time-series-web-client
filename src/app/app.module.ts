@@ -41,6 +41,7 @@ import { AuthorisationService } from './services/authorisation-service/authorisa
 import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
 import { MyMarksComponent } from './components/my-marks/my-marks.component';
 import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
+import { AddModuleComponent } from './components/add-module/add-module.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { StaffToModuleComponent } from './components/staff-to-module/staff-to-mo
     AddBulkUsersComponent,
     EnrollStudentsComponent,
     MyMarksComponent,
-    StaffToModuleComponent
+    StaffToModuleComponent,
+    AddModuleComponent
   ],
   imports: [
     MdNativeDateModule,

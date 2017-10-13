@@ -28,6 +28,7 @@ import {AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users
 import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
 import { MyMarksComponent } from './components/my-marks/my-marks.component';
 import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
+import { AddModuleComponent } from './components/add-module/add-module.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path:'Assignment',
     component: AssignmentsComponent
+  },
+  {
+    path: 'add-module',
+    component: AddModuleComponent
   },
   {
     path:'Weights',
