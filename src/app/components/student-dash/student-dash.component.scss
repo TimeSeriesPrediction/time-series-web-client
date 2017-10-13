@@ -15,7 +15,9 @@
   font-size: 25px;
   color: #17294D;
   font-weight: bold;
-  float:right;
+  float:left;
+  width: 100%;
+  padding: 1%;
 }
 .modulesHead
 {
@@ -29,13 +31,11 @@
   font-size: 25px;
   color: #17294D;
   font-weight: bold;
+  width: 100%;
 }
 .leaderBoard
 {
-  margin-left:40%!important;
-  position: relative;
-  width: 60%;
-  height: 350px;
+  height: auto;
   align-content: center;
 }
 .predictions
@@ -58,11 +58,9 @@ a
 }
 .container
 {
-  background-image: url('../../../assets/images/logo.png')!important;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding-left:0%!important;
-  padding-right:0%!important;
+ width: 100%;
+ margin: 0 auto;
+ 
 }
 .vertical-center 
 {
@@ -93,7 +91,6 @@ a
 }
 #quote
 {
-  margin-left: 30%!important;
   color: #17294D;
 }
 .example-card {
@@ -120,4 +117,20 @@ a
     height: 150px;
   }
 
+#div1{
+  float: left;
+
+}
+
+#div2{
+  
+float: right;
+}
+
+#analysisImg{
+  opacity: 0.8;
+  margin-top: 2%;
+  width: 100%;
+  height: auto;
+}
 

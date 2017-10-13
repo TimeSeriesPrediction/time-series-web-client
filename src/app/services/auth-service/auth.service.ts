@@ -50,4 +50,9 @@ export class AuthService {
       .map((response: Response) => <User>response.json());
   }
 
+  requestAnalysis(csvName: String, analysisType: String, date: String) : Observable<String> {
+    return this.api.post('/analysis', {csvName: csvName, analysisType: analysisType, date: date})
+      .map((response: Response) => <String>response.json().message);
+  }
+
 }

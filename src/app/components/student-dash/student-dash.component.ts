@@ -20,9 +20,14 @@ export class StudentDashComponent implements OnInit {
 
   constructor( private authService: AuthService, private modulesApi: ModulesApi, private config: AppConfig) { }
   currentUser : User = new User();
-  public moduleList :string;
-  modules: Module[] = [];
-  staffModules: Module[] = []
+
+  moduleList :string;
+  csvName :string;
+  date :string;
+  imgName :string ="";
+
+  modules: Array<Module> = [];
+  staffModules: Module[] = [];
   ngOnInit()
   {
     this.getCurrentUser();
@@ -51,6 +56,23 @@ export class StudentDashComponent implements OnInit {
   }
   ////this is the get modules stuff
 
+  runStudentAnalysis()
+  {
+    this.date = Date.now().toString();
+    this.authService.requestAnalysis(this.csvName, "1", this.date).subscribe(
+      (response) =>{ 
+        setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".png";},6000);
+      },function(error) { console.log("Error happened" + error)});
+  }
+
+  runModuleAnalysis()
+  {
+    this.date = Date.now().toString();
+    this.authService.requestAnalysis(this.csvName, "0", this.date).subscribe(
+      (response) =>{ 
+        setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".mod.png";},6000);
+      },function(error) { console.log("Error happened" + error)});
+  }
 
  ///////this is the chart stuff
     public lineChartData:Array<any> = [
