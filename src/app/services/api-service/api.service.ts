@@ -38,6 +38,8 @@ export class ApiService {
       if (result.authToken){
         sessionStorage.setItem('authToken', result.authToken);
       }
+    }, (err) => {
+      alert(JSON.parse(err._body).message);
     });
 
     return observable;
