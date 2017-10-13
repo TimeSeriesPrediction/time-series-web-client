@@ -1,0 +1,38 @@
+<navbar> </navbar>
+
+  <!--<h2 class="center">Add Student</h2>-->
+
+  <div  id="rcorners1">
+    <h3 class="center">Assign a staff member to a module</h3> 
+      <div id="form1">
+        <form (ngSubmit)="staffToModule()"  id="inputForm">
+
+          <div id="wrapper"class="row">
+            <label for="in1" id="li1">Module Code:</label>
+            <input id="in1" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.fullname" required >
+          </div>
+
+          <div id="wrapper"class="row">
+            <label for="in2" id="li2">Staff Username:</label>
+            <input id="in2" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.username" required>
+          </div>
+
+          <div id="wrapper" class="row" >
+            <label for="in3" id="li3">Permission:</label>
+            <input id="in3" type="text" [ngModelOptions]="{standalone : true}" [(ngModel)]="user.email" required>
+          </div>
+          
+          <div id="butts" class="row" >
+            <button type="submit" class="btn btn-default" id="btnSub1">Submit</button>
+          </div>
+        </form>
+      </div>
+      <br />
+  </div>
+
+
+
+
+  
+
+
