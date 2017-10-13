@@ -1,23 +1,13 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
-
 import {WeightingsComponent} from './components/weightings/weightings.component';
 import {GradingComponent} from './components/grading/grading.component';
 import {AssignmentsComponent} from './components/assignments/assignments.component';
-
-
 import { AdminMarksInterfaceComponent } from './components/admin-marks-interface/admin-marks-interface.component';
-
-
-
 import { StudentQueryComponent} from './components/student-query/student-query.component';
-
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
 import { MarksComponent } from './components/marks/marks.component';
 import { StudentDashComponent} from './components/student-dash/student-dash.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
@@ -26,6 +16,9 @@ import { AdminQueryComponent } from './components/admin-query/admin-query.compon
 import { RedComponentComponent } from './components/red-component/red-component.component';
 import {AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
 import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
+
+import {PasswordResetEmailComponent} from './components/password-reset-email/password-reset-email.component';
+import {PasswordResetTokenComponent} from './components/password-reset-token/password-reset-token.component';
 import { MyMarksComponent } from './components/my-marks/my-marks.component';
 import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
 import { AddModuleComponent } from './components/add-module/add-module.component';
@@ -104,6 +97,14 @@ const routes: Routes = [
   {
     path: 'enroll-students',
     component: EnrollStudentsComponent
+  },
+  {
+    path: 'password-reset-email',
+    component: PasswordResetEmailComponent
+  },
+  {
+    path: 'account/reset/:token',
+    component: PasswordResetTokenComponent
   },
   {
     path: 'staff-to-module',
