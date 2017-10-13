@@ -3,11 +3,17 @@
 
   <div id="div1" class="col-md-6">
     
-    <span class="lbHead"> Enrolled Modules</span><br />
-    <ul>
-        <li *ngFor='let module of currentUser.permissions.modules'>{{module.moduleCode}}</li>
-        <li><a href="marks"> View Marks</a></li>
-    </ul>
+      <span class="modulesHead">
+          Enrolled Modules
+          <ul>
+            <li *ngFor='let module of modules'>{{module.code}} - {{module.name}} <a href="my-marks/{{module.code}}"> View Marks</a></li>
+          </ul>
+          Managed Modules
+          <ul>
+            <li *ngFor='let module of staffModules'>{{module.code}} - {{module.name}} <a href="admin-marks/{{module.code}}"> Edit Marks</a></li>
+          </ul>
+    
+        </span>
    <br /><br />
   
     <div id="main" class="leaderBoard " >
@@ -22,21 +28,15 @@
   </div>
   <div id="div2" class="col-md-6">
       <span class="predictionshead">Time Series Predictions</span>
+
       <br/>
       <input type="text" id="analysiscsv" [(ngModel)] = "csvName" placeholder=".csv name"/>
       <button id="analyseStudent" (click)="runStudentAnalysis()">Student Analysis</button>
       <button id="analyseModule" (click)="runModuleAnalysis()">Module Analysis</button>
       <br />
       <img id="analysisImg" src="{{imgName}}" />
-  </div>
-             
+
+ </div>             
 </div>
-<!--<div class="row">
 
-
-    <div class ="col-md-4" id="quote">
-      <h1>Quote of the Day</h1>
-      <h3> "People are not disturbed by things, but by the view they take of them" -EPICTETUS</h3>
-    </div>
-</div>-->
 

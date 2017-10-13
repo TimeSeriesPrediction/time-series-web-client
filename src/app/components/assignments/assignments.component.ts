@@ -23,6 +23,8 @@ import { NgFor } from '@angular/common';
 import { NgIf} from '@angular/common';
 import { MdRadioButton} from '@angular/material';
 import {NgModule} from '@angular/core';
+import { ModulesApi} from '../../services/api-service/modules-api/modules-api.service';
+import { Module } from '../../models/Module';
 
 const Moment: any = (<any>moment).default || moment;
 
@@ -38,14 +40,14 @@ export class AssignmentsComponent {
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
   public currentUser : User = new User();
-  public module = [1,2,3,4];
-  constructor(private authService : AuthService, private assessmentService : AssessmentsApi)
+  public modules :Module[];
+  constructor(private authService : AuthService, private assessmentService : AssessmentsApi, private modulesApi: ModulesApi)
   {
 
   }
   ngOnInit()
   {
-
+    this.getModules();
   }
 
 
@@ -55,10 +57,19 @@ export class AssignmentsComponent {
 	  this.newAssignment.type= e;
   }
 
+  getModules() {
+    this.modulesApi.getAllModules().subscribe((mods) => {
+      this.modules = mods;
+    });
+  }
+
   newAssignment : Assessment = new Assessment();
   addAssignment()
   {
-    this.assessmentService.addAssessment(this.newAssignment.moduleCode,2017,this.newAssignment);
+    var year = new Date().getFullYear();
+    this.assessmentService.addAssessment(this.newAssignment.moduleCode,year,this.newAssignment).subscribe((message) => {
+      alert(message);
+    });
   }
 
 }

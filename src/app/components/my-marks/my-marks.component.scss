@@ -1,0 +1,41 @@
+
+.view-marks-container {
+  display: block;
+  margin: 0 auto;
+  width: 700px;
+  background-color: rgb(227, 229, 232);
+  align-content: center;
+  padding: 1em;
+}
+
+.marks-table {
+  width: 90%;
+  text-align: center;
+  margin: 1em;
+  padding:1em;
+  border: 1px solid grey;
+}
+
+th.details-td, th.marks-td {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+
+.view-marks-container > div {
+  font-size: 2em;
+  text-align: center;
+}
+
+.marks-td{
+  width: 10%;
+  text-align: center;
+  font-size: 2em;
+  border: 1px solid grey;
+}
+
+.details-td {
+  text-align: left;
+  font-size: 1.5em;
+  border: 1px solid grey;
+}

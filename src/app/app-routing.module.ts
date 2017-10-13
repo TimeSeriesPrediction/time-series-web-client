@@ -26,6 +26,9 @@ import { AdminQueryComponent } from './components/admin-query/admin-query.compon
 import { RedComponentComponent } from './components/red-component/red-component.component';
 import {AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
 import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
+import { MyMarksComponent } from './components/my-marks/my-marks.component';
+import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
+import { AddModuleComponent } from './components/add-module/add-module.component';
 
 const routes: Routes = [
   {
@@ -54,6 +57,10 @@ const routes: Routes = [
     component: AssignmentsComponent
   },
   {
+    path: 'add-module',
+    component: AddModuleComponent
+  },
+  {
     path:'Weights',
     component: WeightingsComponent
 
@@ -69,6 +76,10 @@ const routes: Routes = [
   {
     path: 'marks',
     component: MarksComponent
+  },
+  {
+    path: 'my-marks/:moduleCode',
+    component: MyMarksComponent
   },
   {
     path: 'student-query',
@@ -93,6 +104,10 @@ const routes: Routes = [
   {
     path: 'enroll-students',
     component: EnrollStudentsComponent
+  },
+  {
+    path: 'staff-to-module',
+    component: StaffToModuleComponent
   }
 ];
 

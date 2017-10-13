@@ -40,6 +40,8 @@ import { AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-user
 import { AuthorisationService } from './services/authorisation-service/authorisation.service';
 import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
 import { MyMarksComponent } from './components/my-marks/my-marks.component';
+import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
+import { AddModuleComponent } from './components/add-module/add-module.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { MyMarksComponent } from './components/my-marks/my-marks.component';
     StudentDashComponent,
     AddBulkUsersComponent,
     EnrollStudentsComponent,
-    MyMarksComponent
+    MyMarksComponent,
+    StaffToModuleComponent,
+    AddModuleComponent
   ],
   imports: [
     MdNativeDateModule,

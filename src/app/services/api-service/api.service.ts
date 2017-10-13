@@ -33,11 +33,13 @@ export class ApiService {
       observable = method.call(this._http, url, data, { headers : headers });
     }
 
-    observable.subscribe((response) => {
+    observable.map((response) => {
       var result = response.json();
       if (result.authToken){
         sessionStorage.setItem('authToken', result.authToken);
       }
+    }, (err) => {
+      alert(JSON.parse(err._body).message);
     });
 
     return observable;
