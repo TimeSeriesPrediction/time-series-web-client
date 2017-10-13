@@ -1,36 +1,42 @@
 <navbar> </navbar>
 <div class="container">
-<div class="header">
-  <div class="col-md-4">
-    <span class="modulesHead">
-      Enrolled Modules
-      <ul>
+
+  <div id="div1" class="col-md-6">
+    
+    <span class="lbHead"> Enrolled Modules</span><br />
+    <ul>
         <li *ngFor='let module of currentUser.permissions.modules'>{{module.moduleCode}}</li>
         <li><a href="marks"> View Marks</a></li>
-      </ul>
-      
-    </span>
+    </ul>
+   <br /><br />
+  
+    <div id="main" class="leaderBoard " >
+      <span class="lbHead">Leaderboard</span>
+      <div class ="leaderBoard"style="display: block;">
+        <canvas baseChart width="400" height="250" [datasets]="lineChartData"[labels]="lineChartLabels"
+        [options]="lineChartOptions"[colors]="lineChartColors"[legend]="lineChartLegend"
+        [chartType]="lineChartType" (chartHover)="chartHovered($event)"(chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
   </div>
-  <div class="col-md-5">
+  <div id="div2" class="col-md-6">
       <span class="predictionshead">Time Series Predictions</span>
- </div>
-  <div id="main" class="leaderBoard">
-     <span class="lbHead">Leaderboard</span>
-     <div class ="leaderBoard"style="display: block;">
-     <canvas baseChart width="400" height="250" [datasets]="lineChartData"[labels]="lineChartLabels"
-      [options]="lineChartOptions"[colors]="lineChartColors"[legend]="lineChartLegend"
-      [chartType]="lineChartType" (chartHover)="chartHovered($event)"(chartClick)="chartClicked($event)">
-     </canvas>
+      <br/>
+      <input type="text" id="analysiscsv" [(ngModel)] = "csvName" placeholder=".csv name"/>
+      <button id="analyseStudent" (click)="runStudentAnalysis()">Student Analysis</button>
+      <button id="analyseModule" (click)="runModuleAnalysis()">Module Analysis</button>
+      <br />
+      <img id="analysisImg" src="{{imgName}}" />
   </div>
-           
-  </div>
+             
 </div>
-<div class="row">
+<!--<div class="row">
 
 
     <div class ="col-md-4" id="quote">
       <h1>Quote of the Day</h1>
       <h3> "People are not disturbed by things, but by the view they take of them" -EPICTETUS</h3>
     </div>
-</div>
-</div>
+</div>-->
+
