@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {AuthService} from '../../services/auth-service/auth.service';
 @Component({
   selector: 'app-password-reset-email',
   templateUrl: './password-reset-email.component.html',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasswordResetEmailComponent implements OnInit {
 
-  constructor() { }
+
+  userEmail : string ;
+  constructor(private authService : AuthService) { }
 
   ngOnInit() {
+  }
+
+  getEmail()
+  {
+    this.authService.requestPasswordReset(this.userEmail);
   }
 
 }
