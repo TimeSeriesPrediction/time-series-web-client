@@ -14,9 +14,12 @@ export class PasswordResetEmailComponent implements OnInit {
   ngOnInit() {
   }
 
-  getEmail()
+  getEmail($event)
   {
-    this.authService.requestPasswordReset(this.userEmail);
+    $event.stopPropagation();
+    this.authService.requestPasswordReset(this.userEmail).subscribe((message) => {
+      alert(message);
+    });
   }
 
 }

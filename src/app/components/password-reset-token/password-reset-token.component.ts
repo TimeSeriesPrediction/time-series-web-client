@@ -8,19 +8,23 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 export class PasswordResetTokenComponent implements OnInit {
 
-  constructor(private authService : AuthService,private activatedRoute: ActivatedRoute) { }
+  constructor(private authService : AuthService,private activatedRoute: ActivatedRoute, private router: Router) { }
   password: string;
   token: string;
   ngOnInit() {
   }
 
-  resetPassword()
+  resetPassword($event)
   {
+    $event.stopPropagation();
     this.activatedRoute.params.subscribe((params: Params) => {
-       this.token = params['token'];
-    });
+      this.token = params['token'];
+      this.authService.resetPassword(this.token,this.password).subscribe((message) => {
+        alert(message);
+        this.router.navigate(['/login']);
+      });
 
-    this.authService.resetPassword(this.token,this.password);
+    });
   }
 
 }

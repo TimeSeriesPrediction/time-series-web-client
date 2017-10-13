@@ -90,7 +90,7 @@ const routes: Routes = [
     component: PasswordResetEmailComponent
   },
   {
-    path: 'account/reset',
+    path: 'account/reset/:token',
     component: PasswordResetTokenComponent
   }
 ];
