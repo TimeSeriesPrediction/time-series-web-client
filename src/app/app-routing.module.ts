@@ -17,6 +17,7 @@ import { RedComponentComponent } from './components/red-component/red-component.
 import {AddBulkUsersComponent } from './components/add-bulk-users/add-bulk-users.component';
 import { EnrollStudentsComponent } from './components/enroll-students/enroll-students.component';
 import {PasswordResetEmailComponent} from './components/password-reset-email/password-reset-email.component';
+import {PasswordResetTokenComponent} from './components/password-reset-token/password-reset-token.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path: 'password-reset-email',
     component: PasswordResetEmailComponent
+  },
+  {
+    path: 'account/reset',
+    component: PasswordResetTokenComponent
   }
 ];
 
