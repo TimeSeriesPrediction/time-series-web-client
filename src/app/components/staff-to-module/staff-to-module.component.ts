@@ -51,6 +51,9 @@ export class StaffToModuleComponent implements OnInit {
     this.modulesApi.addStaffToModule(this.moduleCode, this.username, _.indexOf(this.permissions, this.permission) + 1).subscribe((message) => {
       alert(message);
       this.username = '';
+    },(message) => {
+
+      alert(JSON.parse(message._body).message);
     });
   }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Response } from '@angular/http';
+import {Router} from '@angular/router';
 import 'rxjs/add/operator/map';
 import { ApiService } from '../api-service/api.service';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +10,7 @@ import { User } from '../../models/user-models/User';
 @Injectable()
 export class AuthService {
 
-  constructor(private api: ApiService, private config: AppConfig) { }
+  constructor(private api: ApiService, private config: AppConfig, private router:  Router) { }
 
   login(username: string, password: string) {
     var headers = new Headers();
@@ -42,6 +43,10 @@ export class AuthService {
     return this.api.get('/users/profile')
       .map((response: Response) => {
         return <User>response.json().user;
+      })
+      .catch((err, user) => {
+        this.router.navigate(['/login']);
+        return Observable.empty();
       });
   }
 

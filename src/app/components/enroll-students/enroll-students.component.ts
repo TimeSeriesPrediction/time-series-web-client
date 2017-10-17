@@ -6,6 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {NgModule} from "@angular/core";
 import {ModulesApi} from '../../services/api-service/modules-api/modules-api.service';
 import {User} from '../../models/user-models/User';
+import {Module} from '../../models/Module';
 
 @Component({
   selector: 'app-enroll-students',
@@ -30,9 +31,11 @@ export class EnrollStudentsComponent implements OnInit {
     private data;
     private users: string[];
    public myObj = new Array();
+     public modules :Module[];
+
   constructor(private moduleService : ModulesApi,
     public authService : AuthService,
-
+    private modulesApi: ModulesApi
    )
   {
 
@@ -47,23 +50,20 @@ export class EnrollStudentsComponent implements OnInit {
 
   getCurrentUser()
   {
-    this.authService.getCurrentLoggedInUser().subscribe(
-    (response)=> { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)}
-);
-
-
+    this.authService.getCurrentLoggedInUser().subscribe((response)=>
+    {
+      this.currentUser=response
+    },
+    (error) => {
+      console.log("Error happened" + error)
+    });
   }
-getModules()
-  {
 
-    this.authService.getCurrentLoggedInUser().subscribe(
-    (response)=> { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)},
-    );
-
-
-}
+  getModules() {
+    this.modulesApi.getAllModules().subscribe((mods) => {
+      this.modules = mods;
+    });
+  }
 
 
 public newUser : AddUserModel;

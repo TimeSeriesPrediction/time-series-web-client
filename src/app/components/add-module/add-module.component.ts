@@ -18,7 +18,7 @@ export class AddModuleComponent implements OnInit {
   }
 
   addModule() {
-    this.modulesApi.addModule(this.name, this.code).subscribe((message) => {
+    this.modulesApi.addModule(this.name, this.code.toUpperCase().replace(' ', '')).subscribe((message) => {
       alert(message);
       this.router.navigate(['/student-dash']);
     });
