@@ -38,7 +38,6 @@ import { PasswordResetEmailComponent } from './components/password-reset-email/p
 import { PasswordResetTokenComponent } from './components/password-reset-token/password-reset-token.component';
 import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
 import { AddModuleComponent } from './components/add-module/add-module.component';
-import{ ToastModule} from 'ng2-toastr/ng2-toastr';
 import { MdSnackBarModule } from '@angular/material';
 
 @NgModule({
@@ -77,7 +76,6 @@ import { MdSnackBarModule } from '@angular/material';
     AppRoutingModule,
     ChartsModule,
     ReactiveFormsModule,
-    ToastModule,
     MdSnackBarModule
   ],
   providers: [
