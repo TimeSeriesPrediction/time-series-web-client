@@ -38,6 +38,7 @@ import { PasswordResetEmailComponent } from './components/password-reset-email/p
 import { PasswordResetTokenComponent } from './components/password-reset-token/password-reset-token.component';
 import { StaffToModuleComponent } from './components/staff-to-module/staff-to-module.component';
 import { AddModuleComponent } from './components/add-module/add-module.component';
+import { MdSnackBarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { AddModuleComponent } from './components/add-module/add-module.component
     MdCheckboxModule,
     AppRoutingModule,
     ChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdSnackBarModule
   ],
   providers: [
     AppConfig,

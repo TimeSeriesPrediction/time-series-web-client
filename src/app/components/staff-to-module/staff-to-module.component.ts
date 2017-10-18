@@ -6,6 +6,7 @@ import {AppConfig} from '../../app.config';
 import { ModulesApi } from '../../services/api-service/modules-api/modules-api.service';
 import { Module } from '../../models/Module';
 import {_} from 'underscore';
+import {MdSnackBar,MdSnackBarModule} from '@angular/material';
 
 @Component({
   selector: 'app-staff-to-module',
@@ -17,7 +18,8 @@ export class StaffToModuleComponent implements OnInit {
   constructor(private userService : UsersApi,
     public authService : AuthService,
     public conf : AppConfig,
-    private modulesApi: ModulesApi
+    private modulesApi: ModulesApi,
+    private snackBar: MdSnackBar
    )
   {
 
@@ -44,12 +46,16 @@ export class StaffToModuleComponent implements OnInit {
   staffToModule()
   {
     if(this.username == "" || this.moduleCode == null || this.permissions == null){
-      alert("Please fill in all fields!");
+      this.snackBar.open("Failure: Please fill in al the fields!", 'OK', {
+        duration: 4000,
+      });
       return;
     }
 
     this.modulesApi.addStaffToModule(this.moduleCode, this.username, _.indexOf(this.permissions, this.permission) + 1).subscribe((message) => {
-      alert(message);
+      this.snackBar.open("Success : " + message + " !", 'OK', {
+        duration: 4000,
+      });
       this.username = '';
     },(message) => {
 
