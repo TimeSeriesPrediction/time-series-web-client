@@ -57,6 +57,9 @@ export class StaffToModuleComponent implements OnInit {
         duration: 4000,
       });
       this.username = '';
+    },(message) => {
+
+      alert(JSON.parse(message._body).message);
     });
   }
 

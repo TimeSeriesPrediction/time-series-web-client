@@ -19,10 +19,12 @@ export class AddModuleComponent implements OnInit {
   }
 
   addModule() {
-    this.modulesApi.addModule(this.name, this.code).subscribe((message) => {
+
+    this.modulesApi.addModule(this.name, this.code.toUpperCase().replace(' ', '')).subscribe((message) => {
       this.snackBar.open("Success: " + message + " !", 'OK', {
         duration: 4000,
       });
+
       this.router.navigate(['/student-dash']);
     });
   }
