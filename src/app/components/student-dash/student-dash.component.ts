@@ -36,11 +36,15 @@ export class StudentDashComponent implements OnInit {
   userName:string;
 
   getEnrolledModules() {
-    this.modulesApi.getModulesByStudent().subscribe((mods) => {
-      this.modules = mods;
-      this.staffModules = _.filter(this.modules, (mod) => {
+    this.modulesApi.getAllModules().subscribe((mods) => {
+      this.modules = _.filter(mods, (mod) => {
         return _.some(this.currentUser.permissions.modules, (m) => {
-          return m.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW;
+          return m.permission == this.config.PERMISSION_TYPE.STUDENT && m.moduleCode == mod.code;
+        });
+      });
+      this.staffModules = _.filter(mods, (mod) => {
+        return _.some(this.currentUser.permissions.modules, (m) => {
+          return m.permission >= this.config.PERMISSION_TYPE.ADMIN_VIEW && m.moduleCode == mod.code;
         });
       });
     });
@@ -60,7 +64,7 @@ export class StudentDashComponent implements OnInit {
   {
     this.date = Date.now().toString();
     this.authService.requestAnalysis(this.csvName, "1", this.date).subscribe(
-      (response) =>{ 
+      (response) =>{
         setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".png";},6000);
       },function(error) { console.log("Error happened" + error)});
   }
@@ -69,7 +73,7 @@ export class StudentDashComponent implements OnInit {
   {
     this.date = Date.now().toString();
     this.authService.requestAnalysis(this.csvName, "0", this.date).subscribe(
-      (response) =>{ 
+      (response) =>{
         setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".mod.png";},6000);
       },function(error) { console.log("Error happened" + error)});
   }
