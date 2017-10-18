@@ -31,7 +31,7 @@ export class MarksComponent implements OnInit {
 
   queryMark(student,assType,assNum,code)
   {
-    alert(student + " " + assType + " " + assNum + " "+ code);
+    //alert(student + " " + assType + " " + assNum + " "+ code);
     //set shared data vars - to be used in query page
 
     this._sharedDataService.setAssessmentNumber(assNum);

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth-service/auth.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import {NgModule} from "@angular/core";
+import {MdSnackBar,MdSnackBarModule} from '@angular/material';
 @Component({
   selector: 'app-password-reset-token',
   templateUrl: './password-reset-token.component.html',
@@ -8,7 +10,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 export class PasswordResetTokenComponent implements OnInit {
 
-  constructor(private authService : AuthService,private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private authService : AuthService,private activatedRoute: ActivatedRoute, private router: Router,private snackBar: MdSnackBar) { }
   password: string;
   token: string;
   ngOnInit() {
@@ -20,7 +22,9 @@ export class PasswordResetTokenComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.token = params['token'];
       this.authService.resetPassword(this.token,this.password).subscribe((message) => {
-        alert(message);
+        this.snackBar.open("Success: " + message +"!", 'OK', {
+          duration: 4000,
+        });
         this.router.navigate(['/login']);
       });
 
