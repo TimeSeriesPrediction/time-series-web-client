@@ -15,7 +15,7 @@ import {UsersApi} from '../../services/api-service/users-api/users-api.service';
 import {AssessmentsApi} from '../../services/api-service/assessments-api/assessments-api.service';
 import {User} from '../../models/user-models/User';
 import {Assessment} from '../../models/Assessment';
-import {Injectable} from '@angular/core';
+import {Injectable,ViewContainerRef} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppConfig } from '../../app.config';
 import * as XLSX from 'xlsx';
@@ -23,6 +23,8 @@ import {AuthService} from  '../../services/auth-service/auth.service';
 import {AddUserModel} from '../../models/user-models/AddUserModel';
 import {FormsModule} from "@angular/forms";
 import {NgModule} from "@angular/core";
+import {MdSnackBar,MdSnackBarModule} from '@angular/material';
+
 
 const Moment: any = (<any>moment).default || moment;
 var data : any;
@@ -39,6 +41,7 @@ export class AddBulkUsersComponent {
  // dialogRef: MdDialogRef<ConfirmationDialogComponent>;
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
+  //public snackBar: MdSnackBar;
   public svisible: boolean[] = [
         true,
         false
@@ -53,10 +56,12 @@ export class AddBulkUsersComponent {
 
    public myObj = new Array();
   constructor(private userService : UsersApi,
-    public authService : AuthService
+    public authService : AuthService,
+    private snackBar: MdSnackBar,
+     public vRef: ViewContainerRef
    )
   {
-
+    //this.toastr.setRootViewContainerRef(vRef);
   }
   ngOnInit()
   {
@@ -93,22 +98,33 @@ addSingleUser()
 
 
   if(this.user.fullname == "" || this.user.username == "" || this.user.email == ""){
-    alert("Please fill in all fields!");
+    this.snackBar.open("Failure: Please fill in al the fields!", 'OK', {
+      duration: 4000,
+    });
     return;
   }
 
+  
   this.newUser = new AddUserModel(this.user.username,this.user.fullname,this.user.email,"***");
-
+  this.snackBar.open("Success: Added User - " + this.user.username + " !", 'OK', {
+    duration: 4000,
+  });
   this.userService.addUser(this.newUser);
-  location.reload();
+  //location.reload();
 
-  alert(this.user.username + " " + this.user.fullname + " " + this.user.email);
+  //alert(this.user.username + " " + this.user.fullname + " " + this.user.email);
+  
 }
 
 addBulkUsers()
 {
   this.userService.addUsers(this.myObj).subscribe((message) => {
-    alert(message);
+
+    
+    //alert(message);
+  });
+  this.snackBar.open("Success: Bulk users added from file.", 'OK', {
+    duration: 4000,
   });
 }
 
@@ -145,7 +161,7 @@ onFileChange(evt: any) {
 
       //for(var t = 0; t < usernames.length; t++)
         //alert(usernames[t]);
-        var txt = "Is this format correct? \n Username     Full Name     Email \n\n" ;
+       /* var txt = "Is this format correct? \n Username     Full Name     Email \n\n" ;
 
         for(var i = 0; i < data.length; i++){
           txt += usernames[i] + "     " + fullnames[i] + "     " + emails[i] + "\n";
@@ -153,7 +169,7 @@ onFileChange(evt: any) {
             break;
         }
         var r = confirm(txt);
-        if (r == true) {
+        if (r == true) {*/
             //create the json objects
 
          //  var myObj = new Array();// check the structure of this object, it differs from one in postman :(
@@ -166,13 +182,14 @@ onFileChange(evt: any) {
                    ""
                 );
 
+               
                 this.myObj.push(obj);
 
             }
 
-        } else {
+       /* } else {
             alert('Please provide a file with the right format.');
-        }
+        }*/
 
 
     };

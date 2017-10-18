@@ -25,6 +25,7 @@ import { MdRadioButton} from '@angular/material';
 import {NgModule} from '@angular/core';
 import { ModulesApi} from '../../services/api-service/modules-api/modules-api.service';
 import { Module } from '../../models/Module';
+import {MdSnackBar,MdSnackBarModule} from '@angular/material';
 
 const Moment: any = (<any>moment).default || moment;
 
@@ -41,7 +42,7 @@ export class AssignmentsComponent {
   private onChangeCallback: (_: any) => void = () => { };
   public currentUser : User = new User();
   public modules :Module[];
-  constructor(private authService : AuthService, private assessmentService : AssessmentsApi, private modulesApi: ModulesApi)
+  constructor(private authService : AuthService, private assessmentService : AssessmentsApi, private modulesApi: ModulesApi,private snackBar: MdSnackBar)
   {
 
   }
@@ -68,7 +69,9 @@ export class AssignmentsComponent {
   {
     var year = new Date().getFullYear();
     this.assessmentService.addAssessment(this.newAssignment.moduleCode,year,this.newAssignment).subscribe((message) => {
-      alert(message);
+      this.snackBar.open("Success: " + message + " !", 'OK', {
+        duration: 4000,
+      });
     });
   }
 
