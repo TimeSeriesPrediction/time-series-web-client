@@ -5,7 +5,7 @@ import {AddUserModel} from '../../models/user-models/AddUserModel';
 import {FormsModule} from "@angular/forms";
 import {NgModule} from "@angular/core";
 import {ModulesApi} from '../../services/api-service/modules-api/modules-api.service';
-
+import {User} from '../../models/user-models/User';
 import {Module} from '../../models/Module';
 
 import {MdSnackBar,MdSnackBarModule} from '@angular/material';
