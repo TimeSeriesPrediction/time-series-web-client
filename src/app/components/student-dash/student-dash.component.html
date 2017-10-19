@@ -33,6 +33,7 @@
       <input type="text" id="analysiscsv" [(ngModel)] = "csvName" placeholder=".csv name"/>
       <button id="analyseStudent" (click)="runStudentAnalysis()">Student Analysis</button>
       <button id="analyseModule" (click)="runModuleAnalysis()">Module Analysis</button>
+      <input type="file" id="selectCSV" (change)="fileEvent($event)" text="Select CSV"/>
       <br />
       <img id="analysisImg" src="{{imgName}}" />
 

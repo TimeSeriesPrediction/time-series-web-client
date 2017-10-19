@@ -56,12 +56,18 @@ export class StudentDashComponent implements OnInit {
   }
   ////this is the get modules stuff
 
+  fileEvent(fileInput: any)
+  {
+    let file = fileInput.target.files[0];
+    this.csvName = file.name;
+  }
+
   runStudentAnalysis()
   {
     this.date = Date.now().toString();
     this.authService.requestAnalysis(this.csvName, "1", this.date).subscribe(
       (response) =>{ 
-        setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".png";},6000);
+        setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".png";},10000);
       },function(error) { console.log("Error happened" + error)});
   }
 
@@ -70,7 +76,7 @@ export class StudentDashComponent implements OnInit {
     this.date = Date.now().toString();
     this.authService.requestAnalysis(this.csvName, "0", this.date).subscribe(
       (response) =>{ 
-        setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".mod.png";},6000);
+        setTimeout(()=>{this.imgName="../../../assets/images/"+this.csvName+".mod.png";},10000);
       },function(error) { console.log("Error happened" + error)});
   }
 
