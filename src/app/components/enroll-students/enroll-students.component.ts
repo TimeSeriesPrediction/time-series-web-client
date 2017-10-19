@@ -6,6 +6,10 @@ import {FormsModule} from "@angular/forms";
 import {NgModule} from "@angular/core";
 import {ModulesApi} from '../../services/api-service/modules-api/modules-api.service';
 import {User} from '../../models/user-models/User';
+import {Module} from '../../models/Module';
+
+import {MdSnackBar,MdSnackBarModule} from '@angular/material';
+
 
 @Component({
   selector: 'app-enroll-students',
@@ -30,8 +34,14 @@ export class EnrollStudentsComponent implements OnInit {
     private data;
     private users: string[];
    public myObj = new Array();
+     public modules :Module[];
+
   constructor(private moduleService : ModulesApi,
     public authService : AuthService,
+
+    private modulesApi: ModulesApi,
+
+    private snackBar: MdSnackBar
 
    )
   {
@@ -47,23 +57,20 @@ export class EnrollStudentsComponent implements OnInit {
 
   getCurrentUser()
   {
-    this.authService.getCurrentLoggedInUser().subscribe(
-    (response)=> { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)}
-);
-
-
+    this.authService.getCurrentLoggedInUser().subscribe((response)=>
+    {
+      this.currentUser=response
+    },
+    (error) => {
+      console.log("Error happened" + error)
+    });
   }
-getModules()
-  {
 
-    this.authService.getCurrentLoggedInUser().subscribe(
-    (response)=> { this.currentUser=response},
-    function(error) { console.log("Error happened" + error)},
-    );
-
-
-}
+  getModules() {
+    this.modulesApi.getAllModules().subscribe((mods) => {
+      this.modules = mods;
+    });
+  }
 
 
 public newUser : AddUserModel;
@@ -72,12 +79,16 @@ enrollStudents()
 
 
   if(this.enroll.code == "" || this.enroll.year == 0 ){
-    alert("Please fill in all fields!");
+    this.snackBar.open("Failure: Please fill in al the fields!", 'OK', {
+      duration: 4000,
+    });
     return;
   }
 
     this.moduleService.enrollStudents(this.enroll.code,this.enroll.year,this.users).subscribe((message) => {
-    alert(message);
+      this.snackBar.open("Success: "+ message +"!", 'OK', {
+        duration: 4000,
+      });
   });
 
 
@@ -112,7 +123,7 @@ onFileChange(evt: any) {
 
       //for(var t = 0; t < usernames.length; t++)
         //alert(usernames[t]);
-        var txt = "Is this format correct? \n Username\n\n" ;
+        /*var txt = "Is this format correct? \n Username\n\n" ;
 
         for(var i = 0; i < this.data.length; i++){
           txt += users[i];
@@ -120,12 +131,12 @@ onFileChange(evt: any) {
             break;
         }
         var r = confirm(txt);
-        if (r == true) {
+        if (r == true) {*/
             //create the json objects
             this.users = users;
-        } else {
+       /* } else {
             alert('Please provide a file with the right format.');
-        }
+        }*/
 
 
     };

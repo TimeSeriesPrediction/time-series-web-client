@@ -22,8 +22,10 @@ export class AuthorisationService {
       this.authentication.getCurrentLoggedInUser()
       .subscribe((user) => {
         this.user = user;
-        resolve();
-      }, reject);
+        return resolve();
+      }, (err) => {
+        return reject(err);
+      });
     });
   }
 
